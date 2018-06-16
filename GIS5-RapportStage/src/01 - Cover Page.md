@@ -11,9 +11,9 @@ header-includes:
 
 \begin{titlepage}
 
-\includegraphics[width=4cm, height=2cm]{logo/lille1.png}
+\includegraphics[width=3.7cm, height=2cm]{logo/lille1.png}
 \includegraphics[width=2cm, height=2cm]{logo/rmod.png}
-\includegraphics[width=4cm, height=2.5cm]{logo/polytech.jpg}
+\includegraphics[width=4.5cm, height=2cm]{logo/polytech.jpg}
 \hfill
 \includegraphics[width=4cm, height=2cm]{logo/BL_logo.jpg}
 \begin{center}

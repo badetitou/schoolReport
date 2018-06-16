@@ -1,3 +1,0 @@
-# L'Adhérence
-
-\newpage
