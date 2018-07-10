@@ -7,7 +7,7 @@ Mon stage en entreprise est un travail qui s'inscrit dans le contexte d'une coll
 Berger-Levrault invente et développe des solutions pour les administrations et les collectivités locales, pour les établissements d’éducation et de santé publics comme privés, les universités et les entreprises.
 L'entreprise est implantée en France, au Canada et en Espagne.
 
-J'ai travaillé dans l'équipe recherche et développement de Berger-Levrault a Montpellier.
+J'ai travaillé dans l'équipe recherche et développement de Berger-Levrault à Montpellier.
 Mes superviseurs entreprises étaient M. Laurent Deruelle et M. Abderrahmane Seriai.
 Ma superviseure école était Mme Anne Etien.
 J'ai, dans le cadre de la collaboration entre Berger-Levrault et l'Inria Lille Nord Europe, travaillé aussi avec M. Nicolas Anquetil.
@@ -37,17 +37,17 @@ Les applications de Berger-Levrault utilisent et/ou étendent **BLCore**, qui lu
 ![Structure application](figures/Modele BL App - Structure.png){#architectureBL width=250px height=250px}
 
 Les applications de Berger-Levrault sont complexes.
-Ce sont les plus importantes application GWT en terme de ligne de code et de classes dans le monde.
+Ce sont les plus importantes applications GWT en terme de ligne de code et de classes dans le monde.
 Elles définissent plusieurs centaines de pages web.
 Bien qu'une migration complète de l'application en réécrivant l'ensemble du code est possible,
     c'est une tâche coûteuse et sujette à erreurs.
 Automatiser tout ou partie de la migration semble donc être la bonne solution, cependant les développeurs
     ne seront pas formés sur la nouvelle technologie et sur son utilisation dans les nouvelles applications.
 Une alternative pour contourner ce problème serait de créer des outils facilitant la migration.
-Les développeurs pourront alors effectuer la migration rapidement et seront formés sur le nouveau langage et sur l'application
+Les développeurs pourront alors effectuer la migration rapidement et seront formés sur le nouveau langage et sur l'application.
 
 La complexité de la migration des applications de Berger-Levrault réside dans
-  leur taille mais aussi et surtout dans le changement de langage.
+  leurs tailles mais aussi et surtout dans le changement de langage.
 En effet, les applications sont développées intégralement en Java tout comme le framework GWT.
 Or, pour utiliser Angular 6, le programme doit être écrit en TypeScript.
 La question qui se pose est de savoir quel couche de la Figure \ref{architectureBL} nous devons migrer et comment ?
@@ -68,7 +68,7 @@ Enfin, j'ai commencé le développement d'une suite d'outil permettant de mettre
 
 J'ai effectué cette étude sur l'application *bac-à-sable* de Berger-Levrault.
 Cette dernière permet aux employés de Berger-Levrault de consulter les éléments disponibles depuis BLCore.
-Bien que plus petite que les applications en production, elle contient plusieurs centaines de classes.
-Cependant, j'ai régulièrement vérifier que mon travail pouvait s'appliquer sur les projets plus important de Berger-Levrault. 
+Bien que plus petite que les applications en production, elle contient tout de même plusieurs centaines de classes.
+Cependant, j'ai régulièrement vérifier que mon travail pouvait s'appliquer sur les projets plus important de Berger-Levrault.
 
 \newpage

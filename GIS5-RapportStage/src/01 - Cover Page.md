@@ -1,7 +1,6 @@
 ---
 geometry: margin=2cm
-author: Benoit VERHAEGHE
-autoSectionLabels: true
+author: Benoît Verhaeghe
 fontsize: 11pt
 header-includes:
   - '\usepackage{hyperref}'
@@ -9,6 +8,7 @@ header-includes:
   - '\usepackage[french]{babel}'
 ---
 
+\renewcommand{\tablename}{Tableau}
 \begin{titlepage}
 
 \includegraphics[width=3.7cm, height=2cm]{logo/lille1.png}
@@ -38,7 +38,8 @@ header-includes:
 
 \normalsize Berger-Levrault \\ Inria Lille Nord Europe - RMoD \\ août 2018
 
-\end{center} \end{titlepage}
+\end{center}
+\end{titlepage}
 
 \tableofcontents
 
