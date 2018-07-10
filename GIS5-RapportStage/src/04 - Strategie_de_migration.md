@@ -25,11 +25,11 @@ Une dernière contrainte inhérent aux entreprises est la possibilité pour les 
 
 ## Comparaison de GWT et Angular
 
- |  |    GWT |   Angular
------------------- | ------------------ | -----------------
-  page web | Une classe Java | Un fichier TypeScript et un fichier HTML
-   style pour une page web | Inclue dans le fichier Java | un fichier CSS optionnel
-  Nombre de fichier de configuration | Un fichier de configuration |  Quatre fichiers plus deux par sous-projets
+ |                                    | GWT                         | Angular                                    |
+ | ---------------------------------- | --------------------------- | ------------------------------------------ |
+ | page web                           | Une classe Java             | Un fichier TypeScript et un fichier HTML   |
+ | style pour une page web            | Inclue dans le fichier Java | un fichier CSS optionnel                   |
+ | Nombre de fichier de configuration | Un fichier de configuration | Quatre fichiers plus deux par sous-projets |
 
 : Comparaison des architectures de GWT et Angular. \label{comparaison}
 

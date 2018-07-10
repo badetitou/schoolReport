@@ -86,8 +86,6 @@ Ce sont les actions dites **actions complexes**.
 À partir de toutes ces informations, j'ai conçu un meta-modèle de l'application de Berger-Levrault.
 Comme on peut le voir Figure \ref{metaModel}, on y retrouve les différents éléments composant une l'application.
 
-
-
 ## Outils d'analyse
 
 Une fois les différents concepts présents dans l'application et les liens existants entre eux identifiés, j'ai cherché à décrire les applications.
