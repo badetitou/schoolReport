@@ -30,7 +30,7 @@ Le processus que l'on a représenté Figure \ref{fig:processusMigration} est div
 
 ## Méta-modèle d'interface utilisateur {#sec:metamodelUI}
 
-![Méta-Modèle d’un application de Berger-Levrault](figures/guiModel.png){#guiModel width=350px height=250px}
+![Méta-Modèle d’un application de Berger-Levrault](figures/guiModel.png){#guiModel width=80%}
 
 Afin de représenter une interface utilisateur, nous avons conçus le méta-model proposé Figure \ref{guiModel}.
 Dans la suite de cette partie, nous présentons les différentes entités du méta-modèle.
