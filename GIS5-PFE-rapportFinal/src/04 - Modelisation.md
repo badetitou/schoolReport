@@ -65,7 +65,6 @@ J'ai mis en évidence, en vert, certains widgets dans la Figure \ref{website} (u
 Tous les éléments graphiques de la page web présenté Figure \ref{website} sont des widgets.
 Les widgets sont définis dans _BLCore_.
 
-
 ![Meta-Model d'un application de Berger-Levrault](figures/Modele BL App - Modele.png){#metaModel width=500px height=500px}
 
 Ces derniers peuvent avoir des **Actions**.
