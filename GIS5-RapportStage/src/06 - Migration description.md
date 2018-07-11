@@ -96,13 +96,16 @@ Ce contrôle est important pour améliorer le résultat final.
 ### Meta-modèle
 
 Pour implémenter le méta-modèle GUI (voir Figure \ref{guiModel}), nous avons utilisé la dernière version de Famix dans Moose.
-Cet outil est pratique car il fournit un générateur de méta-modèle.
-Définir les entités et leurs relations est simple.
+Cet outil est pratique car il fournit un générateur de méta-modèle, le builder.
+Pour définir les entités du méta-modèles, il faut les nommer dans la méthode `defineClasses` du builder.
+Pour les relations entre les entités, nous pouvons utilisé le format UML.
+Ainsi une relation _"oneToMany"_ entre deux entités se définit de la manière suivante : `entity1 -* entity2`.
+
 Afin de tester la stratégie sur l'application de Berger-Levrault,
-    nous avons créé un type spécifique de Widget pour Berger-Levrault.
-Il y a le widget spécifique utilisé par Berger-Levrault tel que _SplitButton_, _RichTextArea_, _Switch_, _etc._
-Cette partie n'appartient pas au modèle GUI d'origine mais,
-    combiné avec le cadre avec créé, il rend la chose plus facile à étendre et à personnaliser.
+    nous avons créé des types spécifiques de Widget pour Berger-Levrault.
+Des exemple de ces widgets sont le _SplitButton_, _RichTextArea_ ou _Switch_.
+Cette éléments n'appartiennent pas au modèle GUI d'origine mais,
+    combiné avec le cadre que nous avons créé, ils rendent l'implémentation de l'outil plus modulaire.
 
 ### Importation
 
@@ -142,14 +145,14 @@ Puis, en faisant le lien entre le constructeur et la phase qui _"ajoute"_ la bus
 Pour les widgets, nous avons dû tout d'abord trouver tous les widgets potentiellement instanciable.
 Pour cela, nous avons cherché toutes les sous-classes java de la classe GWT _Widget_.
 Ce sont les classes qui vont pouvoir être instancié et utilisé pour la construction du programme.
-Ensuite, comme pour les business pages, nous avons cherché les appelles des constructeurs des widgets et
-    avons relié ces appelles à la business page qui les a ajouté.
+Ensuite, comme pour les business pages, nous avons cherché les appeles des constructeurs des widgets et
+    avons relié ces appeles à la business page qui les a ajouté.
 
 Enfin, pour la détection des attributs et des actions associés à un widget.
 Nous avons, pour chaque widget, cherché dans quelle variable java il a été affecté.
-Puis nous avons cherché les appelles de méthodes effectué depuis ces variables java.
-Les appelles aux méthodes _"addActionHandler"_ sont transformés en action tandis que
-    les appelles aux méthodes _"setX"_ ont été transformé en attribut.
+Puis nous avons cherché les appeles de méthodes effectué depuis ces variables java.
+Les appeles aux méthodes _"addActionHandler"_ sont transformés en action tandis que
+    les appeles aux méthodes _"setX"_ ont été transformé en attribut.
 
 [^verveineJ]: [verveineJ : https://rmod.inria.fr/web/software/](https://rmod.inria.fr/web/software/)
 [^jdt2famix]: [jdt2famix : https://github.com/feenkcom/jdt2famix](https://github.com/feenkcom/jdt2famix)
