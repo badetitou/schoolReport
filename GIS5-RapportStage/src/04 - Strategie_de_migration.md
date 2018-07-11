@@ -25,13 +25,25 @@ Une dernière contrainte inhérent aux entreprises est la possibilité pour les 
 
 ## Comparaison de GWT et Angular
 
- |                                    | GWT                         | Angular                                    |
- | ---------------------------------- | --------------------------- | ------------------------------------------ |
- | page web                           | Une classe Java             | Un fichier TypeScript et un fichier HTML   |
- | style pour une page web            | Inclue dans le fichier Java | un fichier CSS optionnel                   |
- | Nombre de fichier de configuration | Un fichier de configuration | Quatre fichiers plus deux par sous-projets |
-
-: Comparaison des architectures de GWT et Angular. \label{comparaison}
+\begin{table}[hbtp]
+    \caption{Comparaison des architectures de GWT et Angular}
+    \label{comparaison}
+    \begin {center}
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{|l|l|l|}
+        \hline
+         & GWT & Angular \\
+        \hline
+        Page web    & Une classe Java & Un fichier TypeScript et un fichier HTML \\
+        \hline
+        Style pour une page web & Inclue dans le fichier Java & Un fichier CSS optionnel \\
+        \hline
+        Nombre de fichier de configuration & Un fichier de configuration & Quatre fichiers plus deux par sous-projets \\
+        \hline
+    \end{tabular} %
+    }
+    \end{center}
+\end{table}
 
 Dans le cas de ce projet, le langage de programmation source et cible ont deux architectures différentes.
 Les différences sont syntaxical, semantical et architectural.
@@ -60,7 +72,7 @@ Pour les fichiers de configurations, GWT n'a besoin que d'un fichier de configur
     les fichiers java correspondant à une page web et les URL que l'on devra utiliser pour y accéder.
 En Angular, il y a deux fichiers de configuration générales. Le premier, _module_, explicite les différentes page web accessible dans l'application ainsi que les services distant et les composants graphiques (widgets) utilisable dans l'application. Le second, de _routing_, définit pour les différentes pages web de l'application leurs chemins d'accès.
 
-## Stratégies de migration
+## Stratégies de migration {#sec:strategieMigration}
 
 Il existe plusieurs manières d'effectuer la migration d'une application.
 Toute les solutions doivent respecter les contraintes définis

@@ -24,7 +24,7 @@ header-includes:
 
 \vspace{1.5cm}
 
-\Huge Étude d'une application GWT
+\Huge Migration d'application GWT vers Angular
 
 \vspace{2.5cm}
 
@@ -32,7 +32,9 @@ header-includes:
 
 \vfill
 
-\normalsize Tuteurs : M. Deruelle, M. Seriai \\ Mme Etien, M. Anquetil
+\normalsize Tuteurs entreprise : M. Deruelle, M. Seriai \\
+Tuteur école : Mme Etien \\
+Responsables Inria : Mme Etien, M. Anquetil
 
 \vspace{0.8cm}
 

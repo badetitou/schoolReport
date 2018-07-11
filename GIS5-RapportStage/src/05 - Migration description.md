@@ -1,8 +1,34 @@
 # Mise en place de la migration par via les modèles
 
+Suite à l'étude des contraintes inhérent au problème de migration dans le cadre
+    d'une entreprise.
+Et après la recherche de l'état de l'art.
+Nous avons travaillé sur la conception et l'implémentation d'une stratégie de migration
+    respectant les critères que nous avons fixés.
+
+Comme vu Section \ref{sec:strategieMigration}, seul la migration en utilisant les modèles nous permet
+    de respecter toutes les contraintes.
+Ce type de migration nous impose la conception de méta-modèles.
+
+Nous allons présenter dans cette partie le processus de migration que nous avons conçu,
+    puis le méta-modèle d'interface utilisateur utilisé dans le ce processus,
+    et enfin expliquer l'implémentation de cette stratégie.
+
 ## Processus de migration
 
-## Meta-modèle d'interface utilisateur
+![Schema processus de migration](figures/processusMigration.png){#fig:processusMigration width=100%}
+
+A partir de l'état de l'art et des contraintes que nous avons explicités,
+    nous avons conçu une stratégie pour effectuer la migration.
+Le processus que l'on a représenté Figure \ref{fig:processusMigration} est divisé en cinq étapes :
+
+1. _Extraction du modèle de la technologie source_ est la première étape permettant de construire l'ensemble des analyses et transformations que nous devons appliquer pour effectuer la migration. Elle consiste en la génération d'un modèle représentant le code source de l'application originel. Dans notre cas d'étude, le programme source est en java et donc le modèle que nous créons est une implémentation d'un méta-modèle permettant de représenter une application écrite en java.
+2. L'_Extraction de l'interface utilisateur_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relève du modèle d'interface utilisateur. Ce dernier, que nous avons dû concevoir, est expliqué Section \ref{sec:metamodelUI}.
+3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du model d'interface utilisateur. Par exemple, si un clique sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, définit dans le model UI, lorsqu'un clique est effectué on effectue un certain nombre d'action dont une sur le texte, lui aussi définit dans le modèle UI.
+4. _Exportation de l'interface utilisateur_. Le modèle d'interface graphique étant construit et les liens entre interface utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface utilisateur. Cela consiste à la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture du des fichiers nécessaire au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inherent à l'interface.
+5. Finalement, l'_Exportation du code comportemental_ est la génération du code comportemental qui est lié à l'interface utilisateur. Cette étape peut être effectuée en parallèle de la quatrième.
+
+## Méta-modèle d'interface utilisateur {#sec:metamodelUI}
 
 ![Méta-Modèle d’un application de Berger-Levrault](figures/guiModel.png){#guiModel width=350px height=250px}
 
@@ -47,9 +73,35 @@ Dans un contexte Web, il peut s'agir du côté serveur de l'application.
 
 ## Implémentation du processus
 
+Pour tester la stratégie, nous avons implémenté un outil qui suit le processus de migration.
+L'outil a été implémenté au Pharo et nous avons utilisé la plateforme Moose[^moose].
+Moose est une plateforme pour l'analyse de logiciels et de données.
+
 ![Implémentation de l'outil](figures/codeImpl.png){#codeImpl width=350px height=250px}
 
+Le Figure \ref{codeImpl} présente la logique d'implémentation.
+Le bloc principal est _BL-Model_.
+Ce bloc contient l'implémentation du méta-modèle GUI.
+En plus du modèle, il y a un exportateur abstrait et une implémentation de
+    l'exportateur pour Angular (_BL-Model-Exporter_ et _BL-Model-Exporter-Angular_, un importateur abstrait et le    code spécifique pour Java (_BL-Model-Importateur_ et _BL-Model-Importer-Java_).
+Parce que nous testons notre solution sur le système de Berger-Levrault,
+    nous avons également implémenté l'extension _"CoreWeb"_,
+    alors que la stratégie de migration ne dépend pas de cette extension.
+Ces paquets étendent les précédents pour avoir un contrôle fin du processus de migration.
+Ce contrôle est important pour améliorer le résultat final.
+
+[^moose]: [http://www.moosetechnology.org/](http://www.moosetechnology.org/)
+
 ### Meta-modèle
+
+Pour implémenter le méta-modèle GUI (voir Figure \ref{guiModel}), nous avons utilisé la dernière version de Famix dans Moose.
+Cet outil est pratique car il fournit un générateur de méta-modèle.
+Définir les entités et leurs relations est simple.
+Afin de tester la stratégie sur l'application de Berger-Levrault,
+    nous avons créé un type spécifique de Widget pour Berger-Levrault.
+Il y a le widget spécifique utilisé par Berger-Levrault tel que _SplitButton_, _RichTextArea_, _Switch_, _etc._
+Cette partie n'appartient pas au modèle GUI d'origine mais,
+    combiné avec le cadre avec créé, il rend la chose plus facile à étendre et à personnaliser.
 
 ### Importation
 

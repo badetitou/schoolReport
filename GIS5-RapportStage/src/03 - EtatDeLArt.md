@@ -1,6 +1,5 @@
 # Etat de l'art
 
-
 La première étape de mon travail a été de le positionner par rapport à la littérature existante.
 
 ## Migration de plateforme
@@ -90,7 +89,7 @@ Cette dernière étape nous sera utile pour migrer correctement les applications
 Cloutier *et al.* [@cloutier2016wavi] ont conçu un outil nommé "Wavi" qui permet d'extraire d'une page web les différents composants.
 Pour cela, l'outil se base sur les fichier html, css et JavaScript.
 L'outil va dans un premier temps construire l'arbre syntaxique du code source du site web.
-Puis il extrait les éléments importants du fichier html (*i.e.* les hyperliens, formulaires, appel JavaScript, etc. ). 
+Puis il extrait les éléments importants du fichier html (*i.e.* les hyperliens, formulaires, appel JavaScript, etc. ).
 Enfin il va relier les éléments de l'étape une et deux.
 Les applications web de Berger-Levrault sont développées en java avec GWT, mais une fois compilées sont des
   fichiers html, css et JavaScript.
