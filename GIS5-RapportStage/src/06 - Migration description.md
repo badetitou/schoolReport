@@ -14,7 +14,7 @@ Nous allons présenter dans cette partie le processus de migration que nous avon
     puis le méta-modèle d'interface utilisateur utilisé dans le ce processus,
     et enfin expliquer l'implémentation de cette stratégie.
 
-## Processus de migration
+## Processus de migration {#sec:processusMigration}
 
 ![Schema processus de migration](figures/processusMigration.png){#fig:processusMigration width=100%}
 
@@ -74,7 +74,7 @@ Dans un contexte Web, il peut s'agir du côté serveur de l'application.
 ## Implémentation du processus
 
 Pour tester la stratégie, nous avons implémenté un outil qui suit le processus de migration.
-L'outil a été implémenté au Pharo et nous avons utilisé la plateforme Moose[^moose].
+L'outil a été implémenté en Pharo[^pharo] et nous avons utilisé la plateforme Moose[^moose].
 Moose est une plateforme pour l'analyse de logiciels et de données.
 
 ![Implémentation de l'outil](figures/codeImpl.png){#codeImpl width=350px height=250px}
@@ -91,6 +91,7 @@ Ces paquets étendent les précédents pour avoir un contrôle fin du processus 
 Ce contrôle est important pour améliorer le résultat final.
 
 [^moose]: [http://www.moosetechnology.org/](http://www.moosetechnology.org/)
+[^pharo]: [Pharo est un langage de programmation objet, réflexif et dynamiquement typé - (http://pharo.org/)](http://pharo.org/)
 
 ### Meta-modèle
 
@@ -104,6 +105,54 @@ Cette partie n'appartient pas au modèle GUI d'origine mais,
     combiné avec le cadre avec créé, il rend la chose plus facile à étendre et à personnaliser.
 
 ### Importation
+
+La création des modèles représentant l'interface graphique est divisée en trois étapes comme présenté Section \ref{sec:processusMigration}.
+Dans le cas de Berger-Levrault, nous avons implémenté la stratégie en Pharo avec Moose.
+
+La première étape est la conception du modèle de la technologie source.
+Ce modèle avait déjà une implémentation existante dans Moose avec le projet _Famix-Java_.
+Nous avons donc réutiliser ce modèle pour ne pas avoir à re-concevoir un modèle pré-existant.
+De plus, ce travail préliminaire est compatible avec plusieurs outils qui ont été développé
+    en interne à RMod.
+Entre autre, deux logiciels de génération du model Famix-Java depuis du code source java existait.
+Les outils sont verveineJ[^verveineJ] et jdt2Famix[^jdt2famix].
+Ces deux derniers permettent de créer depuis le code source un fichier _mse_.
+Le fichier _mse_ peut ensuite être importé dans la plateforme Moose.
+Pour le cas de Berger-Levrault, nous avons utilisé verveineJ car ce dernier permet aussi de _garder un lien_ entre le modèle
+    généré et le code à partir duquel il l'a été.
+
+Une fois le modèle de la technologie source créé, et après avoir implémenté nos méta-modèles,
+    nous avons développé des outils en Pharo permettant d'effectuer la transformation du modèle source vers le modèle GUI.
+Nous allons maintenant décrire les techniques utilisées pour retrouver les éléments définit dans le modèle GUI depuis le modèle de technology source.
+
+Les premiers éléments que nous avons voulu reconnaître sont les phases.
+En analysant les projets GWT, nous avons repéré un fichier _.xml_ dans lequel est stocké toutes les informations des phases.
+Nous avons donc ajouté une étape à l'importation qui est l'analyse d'un fichier _xml_.
+Ce fichier nous permet de _"facilement"_ récupéré la classe java correspondant à une phase,
+    ainsi que le nom de la phase.
+
+Ensuite, nous avons développé l'outil d'importation de manière incrémentale.
+Nous avons donc cherché les Business Page.
+Grâce à l'analyse préliminaire des applications de Berger-Levrault, nous avons détecté que
+    les business pages en GWT correspondent à des classes qui implémente l'interface _IPageMetier_.
+Une fois les classes trouvées, nous avons recherché les appels des constructeurs des classes.
+Puis, en faisant le lien entre le constructeur et la phase qui _"ajoute"_ la business page à leur contenu,
+    nous avons détecté les pages métiers qui appartenu par chaque phase.
+
+Pour les widgets, nous avons dû tout d'abord trouver tous les widgets potentiellement instanciable.
+Pour cela, nous avons cherché toutes les sous-classes java de la classe GWT _Widget_.
+Ce sont les classes qui vont pouvoir être instancié et utilisé pour la construction du programme.
+Ensuite, comme pour les business pages, nous avons cherché les appelles des constructeurs des widgets et
+    avons relié ces appelles à la business page qui les a ajouté.
+
+Enfin, pour la détection des attributs et des actions associés à un widget.
+Nous avons, pour chaque widget, cherché dans quelle variable java il a été affecté.
+Puis nous avons cherché les appelles de méthodes effectué depuis ces variables java.
+Les appelles aux méthodes _"addActionHandler"_ sont transformés en action tandis que
+    les appelles aux méthodes _"setX"_ ont été transformé en attribut.
+
+[^verveineJ]: [verveineJ : https://rmod.inria.fr/web/software/](https://rmod.inria.fr/web/software/)
+[^jdt2famix]: [jdt2famix : https://github.com/feenkcom/jdt2famix](https://github.com/feenkcom/jdt2famix)
 
 ### Exportation
 

@@ -38,7 +38,7 @@ Responsables Inria : Mme Etien, M. Anquetil
 
 \vspace{0.8cm}
 
-\normalsize Berger-Levrault \\ Inria Lille Nord Europe - RMoD \\ août 2018
+\normalsize Berger-Levrault \\ Inria Lille Nord Europe - RMod \\ août 2018
 
 \end{center}
 \end{titlepage}
