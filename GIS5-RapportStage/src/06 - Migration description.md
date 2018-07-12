@@ -159,4 +159,23 @@ Les appeles aux méthodes _"addActionHandler"_ sont transformés en action tandi
 
 ### Exportation
 
+Une fois la génération du modèle d'interface graphique et du modèle du code comportemental terminé,
+    il est possible de lancer l'exportation.
+L'exportation consiste en la génération du code source de l'application cible.
+
+La première étape de l'implémentation de l'exportation est l'utilisation
+    d'un patron de conception _"visiteur"_.
+Ce dernier est ajouté au modèle d'interface graphique, aux phases et business pages.
+
+La visite du modèle GUI va créer la hiérarchie de l'application cible ainsi que les fichiers
+    de configuration.
+Ensuite, l'exportation visite toutes les phases.
+Pour chacune des phases, considéré comme des sous-projet en Angular dans l'architecture de l'application cible que nous avons défini,
+    le visiteur génère les fichiers de configurations.
+Puis, pour chaque business page, le visiteur va générer un fichier HTML et un fichier TypeScript.
+Pour le fichier html, le visiteur construit le DOM à partir des widgets contenu dans la business page.
+Chacun des widgets connaissant ses attributs et actions,
+    ils fournissent eux-même leurs caractéristiques aux visiteurs.
+Ces caractéristiques englobent la génération du code comportemental.
+
 \newpage
