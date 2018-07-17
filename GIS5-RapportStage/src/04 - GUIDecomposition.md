@@ -1,22 +1,24 @@
 # GUI Décomposition
 
-La première étape pour créer les méta-modèles d'une application graphique
-    est de définir les éléments que nous devons représenter.
-Nous avons divisé l'interface en trois parties:
+Les applications que nous devons migrer ont des interfaces graphiques.
+Avant de créer l'outil de migration, il faut comprendre ce qu'est une telle interface
+    et comment nous pouvons la diviser.
+Diviser un problème en petit sous-problème est une méthode efficace pour résoudre des problèmes complexes.
+Nous avons identifié trois parties dans une interface graphique :
 
-- L'interface utilisateur
-- Le code de l'entreprise
-- Le code de comportement
+* L'interface utilisateur
+* Le code de l'entreprise
+* Le code comportemental
 
 ## Interface utilisateur
 
 L'interface utilisateur est la partie visible.
 Cet élément représente l'interface de l'application.
-Il comprend les composants de l'interface.
-L'interface utilisateur ne contient pas la visualisation exacte d'un composant.
-Mais il peut préciser certaines caractéristiques inhérentes au composant, comme la possibilité d'être cliqué,
+Elle comprend les composants de l'interface.
+L'interface utilisateur ne contient pas la visualisation exacte d'un composant,
+    mais elle peut préciser certaines caractéristiques inhérentes au composant, comme la possibilité d'être cliqué,
     ou certaines propriétés du composant, comme sa couleur ou sa taille.
-Plus que les composants, il comprend également la disposition
+Plus que les composants, elle décrit également la disposition
     de ces composants par rapport aux autres.
 Dans le cas où une application est composée de plusieurs fenêtres (ou de pages web pour une application web),
     l'interface utilisateur contient toutes les fenêtres.
