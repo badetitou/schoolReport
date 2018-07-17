@@ -71,6 +71,10 @@ Le PopUp ne peut pas être considéré comme un widget,
 Le __Service__ est la référence à la fonctionnalité distante que l'application peut appeler à partir de son interface graphique.
 Dans un contexte Web, il peut s'agir du côté serveur de l'application.
 
+## Méta-modèle du code comportemental
+
+![Méta-Modèle d’un application de Berger-Levrault](figures/behavioralModel.png){#behavioralModel width=100%}
+
 ## Implémentation du processus
 
 Pour tester la stratégie, nous avons implémenté un outil qui suit le processus de migration.
