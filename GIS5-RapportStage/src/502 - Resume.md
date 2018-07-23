@@ -1,7 +1,7 @@
 \newpage
 
-# Résumé
+# Résumé {-}
 
-## Français
+## Français {-}
 
-## Anglais
+## Anglais {-}
