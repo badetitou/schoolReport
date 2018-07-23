@@ -41,10 +41,12 @@ Ce sont les plus importantes applications GWT en terme de ligne de code et de cl
 Elles définissent plusieurs centaines de pages web.
 Bien qu'une migration complète de l'application en réécrivant l'ensemble du code est possible,
     c'est une tâche coûteuse et sujette à erreurs.
-Automatiser tout ou partie de la migration semble donc être la bonne solution, cependant les développeurs
+Automatiser toute la migration semble donc être la bonne solution, cependant les développeurs
     ne seront pas formés sur la nouvelle technologie et sur son utilisation dans les nouvelles applications.
-Une alternative pour contourner ce problème serait de créer des outils facilitant la migration.
-Les développeurs pourront alors effectuer la migration rapidement et seront formés sur le nouveau langage et sur l'application.
+Le manque de connaissance du langage cible va ralentir les développements et peut faire _peur_ aux développeurs
+    qui pourrait refuser une telle solution.
+Une alternative pour contourner ce problème serait de créer des outils facilitant la migration et en migrer une partie de l'application.
+Les développeurs pourront alors effectuer la fin de la migration rapidement et seront formés sur le nouveau langage et sur l'application en le pratiquant assisté de nos outils.
 
 La complexité de la migration des applications de Berger-Levrault réside dans
   leurs tailles mais aussi et surtout dans le changement de langage.
@@ -59,7 +61,7 @@ Parmi ces contraintes, la migration devra, entre autre,
     ne pas perturber les clients de Berger-Levrault du point de vue visuel des applications et comportemental.
 
 Mon objectif est donc de trouver des solutions pour aider à la migration des applications de Berger-Levrault,
-    de les évaluer et d'appliquer la migration évaluer la plus satisfaisantes vis-à-vis des contraintes posées.
+    de les évaluer et d'implémenter la meilleure solution respectant les contraintes de l'entreprise.
 Pour cela, j'ai dans un premier temps étudié la structure d'une application de Berger-Levrault.
 Puis, j'ai défini avec un expert Angular l'architecture attendu pour les applications post-migration.
 Ensuite, j'ai définie une stratégie pour faire la migration en m'inspirant d'une étude de l'état de l'art que j'ai menée.
