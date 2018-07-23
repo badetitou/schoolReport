@@ -19,6 +19,8 @@ En effet, la solution logicielle que j'ai produite doit respecter les contrainte
 - _Approche modulaire_. La migration doit être divisée en petites étapes. Cela permet de facilement remplacer une étape ou de l'étendre sans introduire d'instabilité. Cette contrainte est essentielle pour les entreprises qui désirent avoir un contrôle fin du processus de migration. L'approche modulaire permet entre autres aux entreprises de modifier l'implémentation de la stratégie pour respecter leurs contraintes spécifiques.
 - _Préservation de l'architecture_. Après la migration, nous devons retrouver la même architecture entre les différents composants de l'interface graphique (_c.-à-d._ un bouton qui appartenait à un panel dans l'application source appartiendra au même panel dans l'application cible). Cette contrainte permet de faciliter le travail de compréhension de l'application cible par les développeurs. En effet, ils vont retrouver la même architecture qu'ils avaient dans l'application source.
 - _Préservation du visuel_. Il ne doit pas y avoir de différence visuelle entre l'application source et l'application cible. Cette contrainte est particulièrement importante pour les logiciels commerciaux. En effet, les utilisateurs de l'application ne doivent pas être perturbés par la migration.
+- _Automatique_. La solution apportée doit être automatique. Les utilisateurs de l'outil ne devrait pas intervenir pendant le processus de migration ou très peu. Ainsi, l'outil peut être utilisé avec un minimum de connaissance préalable.
+- _Amélioration de la qualité_. La migration doit permettre de traiter les possibles déviances du programme source. Par exemple, dans le cas de Berger-Levrault, l'outil de migration doit être capable de gérer les éléments utilisés par l'application à migrer et provenant du framework GWT. Cette exemple d'utilisation du framework GWT par l'Application 1 est représenté Figure \ref{architectureBL}.
 
 Une dernière contrainte inhérent aux entreprises est la possibilité pour les équipes de développement de continuer la maintenance des applications pendant le développement de la stratégie de migration et la migration elle-même.
 
@@ -48,8 +50,8 @@ Dans le cas de ce projet, le langage de programmation source et cible ont deux a
 Les différences sont syntaxicales, semanticales et architecturales.
 Pour la migration d'application GWT vers Angular, les fichier _.java_ sont séparés en plusieurs fichiers Angular.
 
-Comme présenté dans le Tableau \ref{comparaison}, la séparation des fichiers Java en fichier
-    Angular se fait à trois endroits, les fichiers de configuration, les fichiers définissant la page web et les fichiers de style.
+Le Tableau \ref{comparaison} synthétise les différences entre l'architecture d'une application en java et celle en Angular.
+Les différences se font pour trois notions, les pages web, leurs styles et les fichiers de configuration. 
 
 Avec le Framework GWT, un seul fichier est nécessaire pour représenter une page web.
 L'ensemble de la page web peut donc être contenu dans ce fichier,
