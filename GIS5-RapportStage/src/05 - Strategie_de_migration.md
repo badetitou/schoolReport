@@ -51,7 +51,7 @@ Les différences sont syntaxicales, semanticales et architecturales.
 Pour la migration d'application GWT vers Angular, les fichier _.java_ sont séparés en plusieurs fichiers Angular.
 
 Le Tableau \ref{comparaison} synthétise les différences entre l'architecture d'une application en java et celle en Angular.
-Les différences se font pour trois notions, les pages web, leurs styles et les fichiers de configuration. 
+Les différences se font pour trois notions, les pages web, leurs styles et les fichiers de configuration.
 
 Avec le Framework GWT, un seul fichier est nécessaire pour représenter une page web.
 L'ensemble de la page web peut donc être contenu dans ce fichier,

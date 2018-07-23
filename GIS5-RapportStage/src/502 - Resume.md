@@ -1,0 +1,7 @@
+\newpage
+
+# Résumé
+
+## Français
+
+## Anglais

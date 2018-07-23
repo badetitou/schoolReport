@@ -6,6 +6,7 @@ header-includes:
   - '\usepackage{hyperref}'
   - '\usepackage{graphicx}'
   - '\usepackage[french]{babel}'
+  - '\usepackage{pdfpages}'
 ---
 
 \renewcommand{\tablename}{Tableau}
