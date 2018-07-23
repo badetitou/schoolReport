@@ -241,7 +241,7 @@ Le texte peut être du code source compilable ou non.
 
 L'article de Mukherjee *et al.* [@mukherjee2011automatic] présente un outil permettant de prendre en entrée les spécifications d'un programme et donne en sortie un programme utilisable.
 L'entrée est un fichier en XML et la sortie est un programme écrit en C ou en Java (en fonction du choix de l'utilisateur).
-Pour effectuer les transformations, les auteurs ont utilisé un système de règle de transformation.
+Pour effectuer les transformations, les auteurs ont utilisé un système de règles de transformation.
 Je pourrai réutiliser ce travail si je passe par un modèle pour la migration.
 En effet, le fichier XML pris en entrée de l'outil des développeurs peut être assimilé à un modèle suivant un méta-modèle (définit dans l'article).
 Dans le cas où nous utilisons un modèle dans le cadre de la migration des applications de Berger-Levrault.

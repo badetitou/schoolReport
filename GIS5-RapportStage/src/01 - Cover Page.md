@@ -11,7 +11,7 @@ header-includes:
 \renewcommand{\tablename}{Tableau}
 \begin{titlepage}
 
-\includegraphics[width=3.7cm, height=2cm]{logo/lille1.png}
+\includegraphics[width=3.7cm, height=2cm]{logo/inria.png}
 \includegraphics[width=2cm, height=2cm]{logo/rmod.png}
 \includegraphics[width=4.5cm, height=2cm]{logo/polytech.jpg}
 \hfill

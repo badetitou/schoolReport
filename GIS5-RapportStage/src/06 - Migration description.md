@@ -1,6 +1,6 @@
 # Mise en place de la migration par via les modèles
 
-Suite à l'étude des contraintes inhérentes au problème de migration dans le cadre
+Suite à l'étude des contraintes inhérentes aux problèmes de migration dans le cadre
     d'une entreprise.
 Et après la recherche de l'état de l'art.
 Nous avons travaillé sur la conception et l'implémentation d'une stratégie de migration
@@ -23,7 +23,7 @@ Nous allons présenter dans cette partie le processus de migration que nous avon
 Le processus que l'on a représenté Figure \ref{fig:processusMigration} est divisé en cinq étapes :
 
 1. _Extraction du modèle de la technologie source_ est la première étape permettant de construire l'ensemble des analyses et transformations que nous devons appliquer pour effectuer la migration. Elle consiste en la génération d'un modèle représentant le code source de l'application originel. Dans notre cas d'étude, le programme source est en java et donc le modèle que nous créons est une implémentation d'un méta-modèle permettant de représenter une application écrite en java.
-2. L'_Extraction de l'interface utilisateur_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relèvent du modèle d'interface utilisateur. Ce dernier, que nous avons dû concevoir, est expliqué Section \ref{sec:metamodelUI}.
+2. _Extraction de l'interface utilisateur_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relèvent du modèle d'interface utilisateur. Ce dernier, que nous avons dû concevoir, est expliqué Section \ref{sec:metamodelUI}.
 3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface utilisateur. Par exemple, si un clique sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, définit dans le modèle UI, lorsqu'un clique est effectué, on effectue un certain nombre d'actions dont une sur le texte, lui aussi définit dans le modèle UI.
 4. _Exportation de l'interface utilisateur_. Le modèle d'interface graphique étant construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface utilisateur. Cela consiste à la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaire au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérent à l'interface.
 5. Finalement, l'_Exportation du code comportemental_ est la génération du code comportemental qui est lié à l'interface utilisateur. Cette étape peut être effectuée en parallèle de la quatrième.
@@ -79,7 +79,6 @@ Dans un contexte Web, il peut s'agir du côté serveur de l'application.
 
 Pour tester la stratégie, nous avons implémenté un outil qui suit le processus de migration.
 L'outil a été implémenté en Pharo[^pharo] et nous avons utilisé la plateforme Moose[^moose].
-Moose est une plateforme pour l'analyse de logiciels et de données.
 
 ![Implémentation de l'outil](figures/codeImpl.png){#codeImpl width=350px height=250px}
 
@@ -94,7 +93,7 @@ Parce que nous testons notre solution sur le système de Berger-Levrault,
 Ces paquets étendent les précédents pour avoir un contrôle fin du processus de migration.
 Ce contrôle est important pour améliorer le résultat final.
 
-[^moose]: [http://www.moosetechnology.org/](http://www.moosetechnology.org/)
+[^moose]: Moose est une plateforme pour l'analyse de logiciels et de données - [http://www.moosetechnology.org/](http://www.moosetechnology.org/)
 [^pharo]: [Pharo est un langage de programmation objet, réflexif et dynamiquement typé - (http://pharo.org/)](http://pharo.org/)
 
 ### Meta-modèle

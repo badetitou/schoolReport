@@ -9,7 +9,7 @@ L'entreprise est implantée en France, au Canada et en Espagne.
 
 J'ai travaillé dans l'équipe recherche et développement de Berger-Levrault à Montpellier.
 Mes superviseurs entreprises étaient M. Laurent Deruelle et M. Abderrahmane Seriai.
-Ma superviseure école était Mme Anne Etien.
+Ma tutrice école était Mme Anne Etien.
 J'ai, dans le cadre de la collaboration entre Berger-Levrault et l'Inria Lille Nord Europe, travaillé aussi avec M. Nicolas Anquetil.
 
 Ce travail est la suite du travail préliminaire que j'ai mené pendant mon Projet de Fin d'Étude à Polytech Lille.
@@ -32,7 +32,7 @@ Mon travail durant ce stage ne traite que de la migration des applications front
 Les applications front-end de Berger-Levrault sont développées en Java en utilisant le framework GWT de Google.
 Dans l'optique d'homogénéiser le visuel de leurs applications, Berger-Levrault a étendu ce framework.
 Cette extension s'appelle **BLCore**.
-Les applications de Berger-Levrault utilisent et/ou étendent **BLCore**, qui lui même utilise et/ou étend **GWT** comme présenté Figure \ref{architectureBL}.
+Les applications de Berger-Levrault utilisent et/ou étendent **BLCore**, qui lui même utilise et/ou étend **GWT** comme présenté dans la Figure \ref{architectureBL}.
 
 ![Structure application](figures/Modele BL App - Structure.png){#architectureBL width=250px height=250px}
 
@@ -50,19 +50,19 @@ La complexité de la migration des applications de Berger-Levrault réside dans
   leurs tailles mais aussi et surtout dans le changement de langage.
 En effet, les applications sont développées intégralement en Java tout comme le framework GWT.
 Or, pour utiliser Angular 6, le programme doit être écrit en TypeScript.
-La question qui se pose est de savoir quel couche de la Figure \ref{architectureBL} nous devons migrer et comment ?
+La question qui se pose est de savoir quelle couche de la Figure \ref{architectureBL} nous devons migrer et comment ?
 
-En plus des difficultés techniques inherent à un tel projet, une entreprise comme Berger-Levrault a aussi
+En plus des difficultés techniques inherentes à un tel projet, une entreprise comme Berger-Levrault a aussi
     des contraintes provenant de leurs développeurs et de leurs clients.
 Parmi ces contraintes, la migration devra, entre autre,
     conserver l'architecture sur laquelle se base les applications de Berger-Levrault et
-    ne pas perturber les clients de Berger-Levrault du point de vue visuel des applications et comportementales.
+    ne pas perturber les clients de Berger-Levrault du point de vue visuel des applications et comportemental.
 
 Mon objectif est donc de trouver des solutions pour aider à la migration des applications de Berger-Levrault,
     de les évaluer et d'appliquer la migration évaluer la plus satisfaisantes vis-à-vis des contraintes posées.
 Pour cela, j'ai dans un premier temps étudié la structure d'une application de Berger-Levrault.
 Puis, j'ai défini avec un expert Angular l'architecture attendu pour les applications post-migration.
-Ensuite, j'ai définie une stratégie pour faire la migration en m'inspirant d'une étude de l'état de l'art que j'ai mené.
+Ensuite, j'ai définie une stratégie pour faire la migration en m'inspirant d'une étude de l'état de l'art que j'ai menée.
 Enfin, j'ai commencé le développement d'une suite d'outil permettant de mettre en application
     la stratégie définie et l'évaluer.
 

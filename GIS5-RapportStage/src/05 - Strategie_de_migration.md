@@ -36,9 +36,9 @@ Une dernière contrainte inhérent aux entreprises est la possibilité pour les 
         \hline
         Page web    & Une classe Java & Un fichier TypeScript et un fichier HTML \\
         \hline
-        Style pour une page web & Inclue dans le fichier Java & Un fichier CSS optionnel \\
+        Style pour une page web & Inclus dans le fichier Java & Un fichier CSS optionnel \\
         \hline
-        Nombre de fichier de configuration & Un fichier de configuration & Quatre fichiers plus deux par sous-projets \\
+        Nombre de fichiers de configuration & Un fichier de configuration & Quatre fichiers plus deux par sous-projets \\
         \hline
     \end{tabular} %
     }
@@ -46,7 +46,7 @@ Une dernière contrainte inhérent aux entreprises est la possibilité pour les 
 \end{table}
 
 Dans le cas de ce projet, le langage de programmation source et cible ont deux architectures différentes.
-Les différences sont syntaxical, semantical et architectural.
+Les différences sont syntaxicales, semanticales et architecturales.
 Pour la migration d'application GWT vers Angular, les fichier _.java_ sont séparés en plusieurs fichiers Angular.
 
 Comme présenté dans le Tableau \ref{comparaison}, la séparation des fichiers Java en fichier
@@ -75,13 +75,13 @@ En Angular, il y a deux fichiers de configuration générale. Le premier, _modul
 ## Stratégies de migration {#sec:strategieMigration}
 
 Il existe plusieurs manières d'effectuer la migration d'une application.
-Toutes les solutions doivent respecter les contraintes définis
+Toutes les solutions doivent respecter les contraintes définies
     Section \ref{contraintes}.
 
 ![Exemple de règle de transformation](figures/exampleRuleEngine.png){#exampleRuleEngine width=350px height=250px}
 
 - _Migration manuelle_. Cette stratégie correspond au re-développement complet des applications sans l'utilisation d'outils aidant à la migration. La migration manuelle permet de facilement corriger les potentielles erreurs de l'application d'origine et de re-concevoir l'application cible en suivant les préceptes du langage cible.  
-- _Utilisation d'un moteur de règle_. L'utilisation d'un moteur de règle pour migrer partiellement ou en totalité une application a déjà été appliqué sur d'autres projets [@brant2010extreme; @feldman1990fortran; @grosse2012automatic]. Pour utiliser cette stratégie, nous devons définir et créer des règles qui prennent en entrée le code source et qui produisent le code pour l'application migrée. La Figure \ref{exampleRuleEngine} montre un exemple de règle de transformation. Dans ce cas, elle permet de changer la position des opérateurs dans une expression mathématique source. L'opérateur est maintenant en suffixe de l'expression. Il est possible que la migration ne soit pas complète. Dans ce cas, les développeurs devront finir le processus de migration avec du travail manuel. L'utilisation d'un moteur de règle, bien qu'efficace, implique une solution qui n'est ni indépendante de la source, ni indépendante de la cible de la migration.
+- _Utilisation d'un moteur de règles_. L'utilisation d'un moteur de règles pour migrer partiellement ou en totalité une application a déjà été appliqué sur d'autres projets [@brant2010extreme; @feldman1990fortran; @grosse2012automatic]. Pour utiliser cette stratégie, nous devons définir et créer des règles qui prennent en entrée le code source et qui produisent le code pour l'application migrée. La Figure \ref{exampleRuleEngine} montre un exemple de règle de transformation. Dans ce cas, elle permet de changer la position des opérateurs dans une expression mathématique source. L'opérateur est maintenant en suffixe de l'expression. Il est possible que la migration ne soit pas complète. Dans ce cas, les développeurs devront finir le processus de migration avec du travail manuel. L'utilisation d'un moteur de règles, bien qu'efficace, implique une solution qui n'est ni indépendante de la source, ni indépendante de la cible de la migration.
 - _Migration dirigée par les modèles_. La migration dirigée par les modèles implique le développement de méta-modèles pour effectuer. La stratégie respecte l'ensemble des contraintes que nous avons défini. Une migration semi-automatique ou complètement automatique est envisageable avec cette stratégie de migration. Comme pour l'utilisation d'un moteur de règle, dans le cas d'une migration semi-automatique, il peut y avoir du travail manuel à effectuer pour compléter la migration.
 
 \newpage

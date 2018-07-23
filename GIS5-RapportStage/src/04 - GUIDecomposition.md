@@ -3,7 +3,7 @@
 Les applications que nous devons migrer ont des interfaces graphiques.
 Avant de créer l'outil de migration, il faut comprendre ce qu'est une telle interface
     et comment nous pouvons la diviser.
-Diviser un problème en petit sous-problème est une méthode efficace pour résoudre des problèmes complexes.
+Diviser un problème en petits sous-problèmes est une méthode efficace pour résoudre des problèmes complexes.
 Nous avons identifié trois parties dans une interface graphique :
 
 * L'interface utilisateur
