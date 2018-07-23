@@ -14,8 +14,8 @@ Berger-Levrault étant une importante entreprise dans le domaine de l'édition d
     elle a des contraintes spécifiques vis-à-vis d'un outil de migration.
 En effet, la solution logicielle que j'ai produite doit respecter les contraintes suivantes :
 
-- _Depuis GWT_
-- _Vers Angular_
+- _Depuis GWT (BLCore)_. La solution doit au moins fonctionner dans le cas de Berger-Levrault. Elle peut être plus général mais ne doit pas faire de concession sur le résultat final.
+- _Vers Angular_. Dans le cas d'une automatisation ou semi-automatisation du processus de migration, celle-ci doit s'achever par la génération de code Angular. La solution peut contenir des structures facilitant son utilisation pour d'autre langages cible mais pas au détriment du projet fixé avec Berger-Levrault.
 - _Approche modulaire_. La migration doit être divisée en petites étapes. Cela permet de facilement remplacer une étape ou de l'étendre sans introduire d'instabilité. Cette contrainte est essentielle pour les entreprises qui désirent avoir un contrôle fin du processus de migration. L'approche modulaire permet entre autres aux entreprises de modifier l'implémentation de la stratégie pour respecter leurs contraintes spécifiques.
 - _Préservation de l'architecture_. Après la migration, nous devons retrouver la même architecture entre les différents composants de l'interface graphique (_c.-à-d._ un bouton qui appartenait à un panel dans l'application source appartiendra au même panel dans l'application cible). Cette contrainte permet de faciliter le travail de compréhension de l'application cible par les développeurs. En effet, ils vont retrouver la même architecture qu'ils avaient dans l'application source.
 - _Préservation du visuel_. Il ne doit pas y avoir de différence visuelle entre l'application source et l'application cible. Cette contrainte est particulièrement importante pour les logiciels commerciaux. En effet, les utilisateurs de l'application ne doivent pas être perturbés par la migration.

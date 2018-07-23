@@ -32,9 +32,12 @@ Mon travail durant ce stage ne traite que de la migration des applications front
 Les applications front-end de Berger-Levrault sont développées en Java en utilisant le framework GWT de Google.
 Dans l'optique d'homogénéiser le visuel de leurs applications, Berger-Levrault a étendu ce framework.
 Cette extension s'appelle **BLCore**.
-Les applications de Berger-Levrault utilisent et/ou étendent **BLCore**, qui lui même utilise et/ou étend **GWT** comme présenté dans la Figure \ref{architectureBL}.
+La Figure \ref{architectureBL} représente les différentes couches de framework utilisé par une application de Berger-Levrault.
+Les applications utilisent et/ou étendent **BLCore**, qui lui même utilise et/ou étend **GWT**.
+On retrouve aussi des applications, qui ne respectent pas la convention décidé par les équipes de Berger-Levrault,
+    ayant un lien direct avec le framework **GWT**.
 
-![Structure application](figures/Modele BL App - Structure.png){#architectureBL width=250px height=250px}
+![Structure application](figures/structure.png){#architectureBL width=250px height=250px}
 
 Les applications de Berger-Levrault sont complexes.
 Ce sont les plus importantes applications GWT en terme de ligne de code et de classes dans le monde.
