@@ -110,7 +110,7 @@ Des exemple de ces widgets sont le _SplitButton_, _RichTextArea_ ou _Switch_.
 Ces éléments n'appartiennent pas au modèle GUI d'origine et,
     combiné avec le cadre que nous avons créé, ils rendent l'implémentation de l'outil plus modulaire.
 
-### Importation
+### Importation {#implementationImport}
 
 La création des modèles représentant l'interface graphique est divisée en trois étapes comme présenté Section \ref{sec:processusMigration}.
 Dans le cas de Berger-Levrault, nous avons implémenté la stratégie en Pharo avec Moose.

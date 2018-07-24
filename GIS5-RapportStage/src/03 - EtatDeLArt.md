@@ -284,9 +284,10 @@ Ou encore, l'outil pourrait servir de "guide" pour les nouveaux développeurs pa
 Aucun des papiers trouvés et cités ne peut nous aider réellement à migrer le framework BLCore ou les applications si on décide que dans le futur, on supprime BLCore, puisqu'Angular, contrairement à GWT n'est pas du Java.
 En revanche, si Berger-Levrault souhaite garder l'équivalent de BLCore dans le futur, alors ces travaux pourraient nous aider à migrer dans un deuxième temps les applications.
 
-[^api]: API: Interface de programmation
-[^XUL]: XUL: XML-based User interface Language est un langage de description d’interfaces graphiques fondé sur XML créé dans le cadre du projet Mozilla
-[^DSL]: DSL: Domain Specific Language est un langage de programmation destiné à générer des programme dans un domaine spécifique.
+[^ast]: AST : Arbre Syntaxique Abstrait
+[^api]: API : Interface de programmation
+[^XUL]: XUL : XML-based User interface Language est un langage de description d’interfaces graphiques fondé sur XML créé dans le cadre du projet Mozilla
+[^DSL]: DSL : Domain Specific Language est un langage de programmation destiné à générer des programme dans un domaine spécifique.
 [^QVT]: QVT est un langage permettant de définir des transformation de modèle.
 
 \newpage
