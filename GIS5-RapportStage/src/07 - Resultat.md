@@ -89,11 +89,28 @@ Dans la version exporté, les couleurs de l'en-tête des panel est un peu plus c
 
 ![Zone de saisie - Avant/Après](figures/cmp2.PNG){#cmp2 width=75%}
 
-La Figure \ref{cmp2} présente des résultats moins bon qui sont dû à l'utilisation de layouts plus complexes.
+La Figure \ref{cmp2} présente les différences visuelles pour la Phase _Zone de saisie_ de l'application _bac-à-sable_.
+L'image de gauche correspond à la Phase avant la migration tandis que celle de gauche est la même Phase après la migration.
+Les deux images étant grande, nous les avons rogner pour afficher cette zone d'intérêt.
+La migration à bien permis de conserver l'architecture entre les éléments, ce que l'on peut voir avec les composants de formulaire à l'intérieur du panel _"zone de saisie"_.
+Cependant le layout n'a pas été correctement respecté, ce qui explique les différences visuelles entre les deux images.
 
 ## Visualisation {#visualisation}
 
+Pendant la construction de l'outil de migration, nous avons créer un des requêtes sur
+    le modèle d'interface graphique.
+Ces requêtes permettent de créer des graphiques et d'analyser la construction de l'interface graphique sans regarder le code source.
+
 ![Représentation de l’application bac à sable dans sa globalité](figures/firework.png){#firework width=80%}
+
+La Figure \ref{firework} présente une extrait de la visualisation des relations entre les
+    différentes entités de l'interface graphique de l'application _bac-à-sable_.
+Les Phase sont représentées en noires, les widgets en vert et les business page en rouge.
+Une Phase contenant une business page, une business page en contenant une autre ou un widget et un widget en contenant un autre sont représentés par une flèche partant du conteneur vers le contenu.
+Les liens de navigation sont représenté par une flèche bleu partant du widget sur lequel il faut effectuer une action vers la Phase qui est appelée.
+
+On peut voir sur la Figure \ref{firework} des agglomérats de widget.
+Ceux ci représente des widgets container comme des panels, qui contiennent d'autre widgets, comme des boutons ou du texte.
 
 ## Discussion {#discussion}
 
