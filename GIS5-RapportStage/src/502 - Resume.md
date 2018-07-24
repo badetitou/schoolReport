@@ -1,10 +1,20 @@
-\newpage
+---
+geometry: margin=2cm
+author: Benoît Verhaeghe
+fontsize: 11pt
+header-includes:
+  - '\usepackage{hyperref}'
+  - '\usepackage{graphicx}'
+  - '\usepackage[french]{babel}'
+  - '\usepackage{color}'
+  - '\usepackage{nopageno}'
+---
 
-# Résumé {-}
+# Résumé
 
-## Français {-}
+## Français
 
-Berger-Levrault est une entreprise majeur dans le monde de l'édition de logiciel.
+Berger-Levrault est une entreprise majeure dans le monde de l'édition de logiciel.
 Dans le cadre de l'évolution de ses applications, elle souhaite changer le langage d'implémentation de ces derniers.
 Pour cela, un travail préliminaire a été mené en Projet de Fin d’Étude où l’on a étudié une application de démonstration (« application _bac-à-sable_ ») qui reprend les principes d’organisation des applications de Berger-Levrault.
 Le but de ce stage est de vérifier que les résultats de l'étude préalable réalisée durant le PFE peut être appliqué grandeur nature sur des applications en production de Berger-Levrault et définir et implémenter une stratégie pour effectuer la migration des applications.
@@ -17,4 +27,4 @@ Lors de ce projet, nous avons notamment ;
 - Réalisé un état de l'art sur le domaine de la migration d'application.
 - Migré l'application _bac-à-sable_ de GWT vers Angular.
 
-## Anglais {-}
+## Anglais

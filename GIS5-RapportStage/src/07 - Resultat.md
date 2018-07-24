@@ -53,7 +53,7 @@ Nous détectons correctement 101 liens de navigation qui existent dans l'applica
 Les liens sont tous correctement liée au widget sur lequel il faut faire une action
     pour déclencher la transition et amène vers la bonne Phase.
 
-### Exportation en Angular
+### Exportation en Angular {#exportToAngular}
 
 Une fois l'importation complété, notre outil procède à l'exportation.
 L'exportation est évaluer selon les contraintes décrites Section \ref{contraintes}.
@@ -114,8 +114,43 @@ Ceux ci représente des widgets container comme des panels, qui contiennent d'au
 
 ## Discussion {#discussion}
 
-- Les évaluation n'ont été faîte que sur l'application _bac-à-sable_
-- Il n'y a pas de gestion de certaine manière de décrire une interface en GWT (cf xml file) - mais ça ne sera pas fait
-- La migration de l'application ici ne prend pas en compte les éventuelles evolutions parallèle du backend
+Les résultats que nous avons obtenu peuvent être discuter.
+En effet, ils peuvent être remis en cause en partie pour les raisons suivante.
+
+Bien que nous ayons testé régulièrement notre travail sur les applications de production de Berger-Levrault,
+    la recherche des pattern pour l'importation ainsi que l'évaluation de la migration n'a été faîte que sur l'application
+    _bac-à-sable_.
+Nous savons que l'application après migration compile mais nous n'avons pas de retours sur la réussite de l'exportation du visuelle.
+Il est aussi possible que les autres logiciels de Berger-Levrault contiennent des deviances dans le code que nous n'avons pas prévu
+    ce qui peut nuire au résultat final.
+
+\begin{figure}[htb]
+\centering
+\begin{lstlisting}
+<bl_grille id="panelCoche" largeur="100%" remplissage="5" espace="1" hauteur="300px">
+    <bl_ligne>
+        <bl_cellule alignementhorizontal="centre" alignementvertical="milieu">
+            <bl_cadre_epais titre="Boutons radio" largeur="100%">
+                <bl_bouton_radio id="radio1" groupe="groupe 1" libelle="option 1"/>
+                <bl_bouton_radio id="radio2" groupe="groupe 1" libelle="option 2"/>
+                <bl_bouton_radio id="radio3" groupe="groupe 2" libelle="option 3"/>
+                <bl_bouton_radio id="radio4" groupe="groupe 2" libelle="option 4"/>
+            </bl_cadre_epais>
+        </bl_cellule>
+    </bl_ligne>
+</bl_grille>
+\end{lstlisting}
+\caption{Définition d'interface graphique via fichier xml}
+\label{xml}
+\end{figure}
+
+En GWT, il est possible de définir une interface graphique grâce à un fichier xml.
+La Figure \ref{xml} présente un extrait d'un fichier de l'application _bac-à-sable_ qui permet de générer une interface graphique.
+La ligne déclare un panel de type grille.
+Il contient une ligne déclaré ligne 2.
+Au final, il contient 4 radio button déclarés ligne 5-8.
+Dans le cadre de ce projet, seul l'application _bac-à-sable_ utilise cette technique pour définir des interfaces.
+Nous avons donc décidé de ne pas traiter pour l'importation des Widgets les business pages définit de cette manière.
+En les considérant, le pourcentage de Widget que nous arrivons à importer ce voit réduire.
 
 \newpage

@@ -13,4 +13,4 @@ header-includes:
 
 # Annexe
 
-![CV](cv/cv.pdf){#CV width=90%}
+![CV](cv/cv.pdf){#CV width=70%}
