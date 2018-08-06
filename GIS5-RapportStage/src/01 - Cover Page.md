@@ -18,21 +18,21 @@ header-includes:
  
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2
 }
  
@@ -64,7 +64,7 @@ header-includes:
 
 \normalsize Tuteurs entreprise : M. Deruelle, M. Seriai \\
 Tuteur école : Mme Etien \\
-Responsables Inria : Mme Etien, M. Anquetil
+Superviseurs Inria : Mme Etien, M. Anquetil
 
 \vspace{0.8cm}
 

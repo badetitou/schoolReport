@@ -70,6 +70,11 @@ Il est possible que les tests automatiques ne fonctionnent plus après la migrat
     en effet, ils peuvent être basés sur des méta-données que nous modifions pendant la migration, par exemple pour des raisons de compatibilité dans le langage cible.
 Il nous faudra alors effectuer la migration des tests d'intégration de Berger-Levrault pour les rendre compatible avec l'application migrée.
 
+Dans le cas d'un manque de tests pour une fonctionnalité,
+    nous pourrions aussi créer des outils qui se basent sur les modèles de l'application à migrer pour
+    générer des tests.
+Ces outils assisterons les recetteurs de l'entreprise et permettrons de tester l'outil de migration final.
+
 ## Complétude du travail
 
 Le travail que nous avons mené nous a permis de migrer des pages web de l'application _bac-à-sable_.
