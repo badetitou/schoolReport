@@ -12,7 +12,7 @@ Une fois l'outil implémenté, nous avons cherché à vérifier nos résultats.
 Comme la stratégie mis en place est en deux étapes, _i.e._ importation et exportation,
     nous avons séparé la vérification de nos résultats en deux parties.
 
-### Rétro-Ingénierie
+### Rétro-Ingénierie {#retroInge}
 
 \begin{table}[hbtp]
     \caption{Résultat de l'importation}

@@ -11,7 +11,7 @@ Enfin, nous devons définir une ou plusieurs stratégies pour évaluer correctem
 Comme expliqué Section \ref{exportToAngular}, certains résultats de l'exportation ne sont pas correct à cause d'un manque de respect des layouts.
 C'est le cas de la Figure \ref{cmp2}.
 Ceci est dû à la manière dont est retranscrit l'idée de layout dans le méta-modèle d'interface graphique.
-Pour le moment, le layout est considéré comme un Attribut, il est donc difficile de représenter des comportements complexes.
+Pour le moment, le layout est considéré comme un Attribut, il nous est difficile de représenter des interfaces complexes.
 Plusieurs solutions peuvent être envisagées pour représenter les interfaces graphiques.
 
 Gotti et Mbarki [@gotti2016java] ont décidé d'utiliser le meta-modèle proposé par KDM [^kdm].
@@ -33,7 +33,7 @@ Une fois le layout implémenté nous aurons bien représenter l'interface utilis
 
 Nous avons déjà défini un méta-modèle de code comportemental qui est présenté Section \ref{metamodelComportemental}.
 Il faut encore implémenter ce modèle et modifier en conséquence les importer et exporter que nous avons créé.
-Cette amélioration devrait nous permettre de mieux représenter les comportement de l'application
+Cette amélioration devrait nous permettre de mieux représenter les comportements de l'application
     lorsqu'un utilisateur effectue une action sur l'interface.
 
 Enfin, il nous faut concevoir un méta-modèle pour le code métier.
@@ -42,9 +42,9 @@ Cela devrait permettre d'extraire et représenter les règles métiers d'une app
 ## Outil de validation
 
 Un des problèmes que nous avons actuellement est l'évaluation de la migration.
-Il est facile de prendre l'application source et l'application cible et de regarder manuellement
+Il est facile de prendre l'application source et l'application cible et de regarder _manuellement_
     si la migration a bien été effectué, mais sur des applications de la taille de celle de Berger-Levrault
-    il faudrait un système plus automatique.
+    il faudrait un système automatique.
 Les éléments à évaluer serait la validité des règles métiers dans l'application cible,
     le respect du visuel et l'application du code comportemental.
 
@@ -60,13 +60,55 @@ Une autre solution serait de comparer le visuel des pages web par comparaison d'
 Il faudrait alors prendre une impression de chaque Phase dans chacun de ses états,
     qui peut varier si l'on exécute du code comportemental,
     et la comparer avec l'impression de la page généré.
-Pour comparer les images, il est possible d'utiliser des solutions de comparaison pixels par pixel
+Pour comparer les images, il est possible d'utiliser des solutions de comparaison pixel par pixel
     ou d'utiliser une intelligence artificielle qui reconnaît les images similaires.
 
 ## Complétude du travail
 
+Le travail que nous avons mené nous a permis de migrer des pages web de l'application _bac-à-sable_.
+Cependant, comme présenté Section \ref{retroInge}, nous n'arrivons pas à migrer 100% des widgets.
+De plus, à cause du problème d'outil de validation, il est difficile de savoir si la migration s'effectue complètement,
+    et correctement.
+
+Comme nous avons vérifié nos travaux avec les même page web qui nous ont permis de créer les outils de migration,
+    nous n'avons pas connaissance de potentiel erreurs, ou oublis, qui rendrez l'outil moins performants.
+Afin de créer un outil complet, nous devrions chercher et gérer tous les écarts de programmation potentiels pour l'importer.
+
+De même, nous savons que nous n'avons pas géré le cas des interfaces graphiques définis via fichier xml.
+Bien que cela ne semble pas bloquant dans le cas des projet de Berger-Levrault car cette solution n'est utilisé
+    que dans l'application _bac-à-sable_.
+Il serait intéressant de voir s'il est _"facile"_ d'ajouter cette fonctionnalité.
+En particulier, l'ajout de cette fonctionnalité permettrait d'analyser l'extensibilité de l'importer.
+
 ## Exportation du Core
 
-- missing widget
+La stratégie que nous avons créer permet d'effectuer la migration d'interface graphique d'un langage source vers un langage cible.
+Entre autre, il est possible de configurer l'outil pour que l'application cible utilise tel ou tel autre framework
+    pour représenter les éléments graphique de l'interface final.
+
+Dans le cas d'une application Web, un certains nombre de widget sont déjà pré-existants.
+Pour chacun d'entre eux nous retrouvons un tag HTML.
+
+Lors de la migration, l'utilisation de ces widgets nous permet d'avoir rapidement un retour visuel.
+Mais sans l'exportation du style précis des widgets, il est impossible de respecter la contrainte
+    de _préservation du visuel_.
+
+De plus, il peut exister des widgets définis dans le langage source qui n'existe pas, ou partiellement, dans le langage cible.
+Dans ce cas, il faut soit accepter une différence entre les deux interfaces, soient créer ou utilisé un autre framework dans le langage cible.
+
+Pour la migration que veut mettre en place Berger-Levrault, le framework utilisé dans le langage source est BLCore.
+Comme il n'existe pas de framework BLCore utilisable en Angular, nous avons utilisé le framework PrimeNG qui nous
+    permet de facilement retrouver la majorité des widgets décrit dans BLCore.
+Il reste cependant des écarts visuel entre les deux framework et certains widget, comme la BLTableBulk qui est un widget abondamment utilisé dans les applications de l'entreprise,
+    n'a pas de correspondance.
+
+Afin de respecter la contrainte de _préservation du visuel_, une solution est donc de créer un équivalent du framework BLCore de Java en Angular.
+La migration d'un framework consiste en la détection des différents widgets qu'il définit,
+    leurs compositions, et le style qui leurs sont attachés.
+Les widgets peuvent aussi contenir du comportement qu'il faudra détecter en migrer.
+
+Un travail futur serait de développer un outil qui permettrai de détecter tous ces composants d'un widget et ainsi de faciliter leurs migrations.
+En fonctionnant en symbiose avec l'outil que nous avons créé pendant ce stage, il serait ainsi possible d'effectuer la migration d'une application graphique
+    en respectant la hiérarchie des widgets, les contraintes de layout et le visuel et comportement des widgets.
 
 \newpage
