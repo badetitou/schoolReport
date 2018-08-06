@@ -63,6 +63,13 @@ Il faudrait alors prendre une impression de chaque Phase dans chacun de ses éta
 Pour comparer les images, il est possible d'utiliser des solutions de comparaison pixel par pixel
     ou d'utiliser une intelligence artificielle qui reconnaît les images similaires.
 
+Pour la validation des règles métiers et l'application du code comportemental,
+    il est possible d'utiliser les tests utilisés en recette à Berger-Levrault.
+
+Il est possible que les tests automatiques ne fonctionnent plus après la migration,
+    en effet, ils peuvent être basés sur des méta-données que nous modifions pendant la migration, par exemple pour des raisons de compatibilité dans le langage cible.
+Il nous faudra alors effectuer la migration des tests d'intégration de Berger-Levrault pour les rendre compatible avec l'application migrée.
+
 ## Complétude du travail
 
 Le travail que nous avons mené nous a permis de migrer des pages web de l'application _bac-à-sable_.
