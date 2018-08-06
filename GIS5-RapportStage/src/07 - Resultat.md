@@ -128,16 +128,16 @@ Il est aussi possible que les autres logiciels de Berger-Levrault contiennent de
 \centering
 \begin{lstlisting}
 <bl_grille id="panelCoche" largeur="100%" remplissage="5" espace="1" hauteur="300px">
-    <bl_ligne>
-        <bl_cellule alignementhorizontal="centre" alignementvertical="milieu">
-            <bl_cadre_epais titre="Boutons radio" largeur="100%">
-                <bl_bouton_radio id="radio1" groupe="groupe 1" libelle="option 1"/>
-                <bl_bouton_radio id="radio2" groupe="groupe 1" libelle="option 2"/>
-                <bl_bouton_radio id="radio3" groupe="groupe 2" libelle="option 3"/>
-                <bl_bouton_radio id="radio4" groupe="groupe 2" libelle="option 4"/>
-            </bl_cadre_epais>
-        </bl_cellule>
-    </bl_ligne>
+  <bl_ligne>
+    <bl_cellule alignementhorizontal="centre" alignementvertical="milieu">
+      <bl_cadre_epais titre="Boutons radio" largeur="100%">
+         <bl_bouton_radio id="radio1" groupe="groupe 1" libelle="option 1"/>
+         <bl_bouton_radio id="radio2" groupe="groupe 1" libelle="option 2"/>
+         <bl_bouton_radio id="radio3" groupe="groupe 2" libelle="option 3"/>
+         <bl_bouton_radio id="radio4" groupe="groupe 2" libelle="option 4"/>
+       </bl_cadre_epais>
+    </bl_cellule>
+  </bl_ligne>
 </bl_grille>
 \end{lstlisting}
 \caption{Définition d'interface graphique via fichier xml}

@@ -1,7 +1,8 @@
 ---
-geometry: margin=2cm
+geometry: left=2.5cm,right=2.5cm,top=1.5cm,bottom=2cm
 author: Benoît Verhaeghe
-fontsize: 11pt
+fontsize: 12pt
+indent: true
 header-includes:
   - '\usepackage{hyperref}'
   - '\usepackage{graphicx}'
