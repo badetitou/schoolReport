@@ -166,6 +166,7 @@ Ou encore, l'outil pourrait servir de "guide" pour les nouveaux développeurs pa
   au développement courant des applications.
 
 [^ast]: AST : Arbre Syntaxique Abstrait
+[^DSL]: DSL : Domain Specific Language est un langage de programmation destiné à générer des programme dans un domaine spécifique.
 
 ## Positionnement sur la migration via les modèles {#positionnement}
 
@@ -173,6 +174,5 @@ Comme décrit Section \ref{sec:processusMigration}, nous avons décidé d'effect
 Nous avons utilisé une stratégie selon le _fer à cheval_.
 
 Afin d'appliquer cette stratégie de migration, nous avons dû définir plusieurs méta-modèles décrit Section \ref{sec:metamodelUI} et Section \ref{metamodelComportemental}.
-
 
 \newpage
