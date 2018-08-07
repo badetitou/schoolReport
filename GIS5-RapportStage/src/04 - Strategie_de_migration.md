@@ -27,8 +27,6 @@ Une dernière contrainte inhérent aux entreprises est la possibilité pour les 
 ## Comparaison de GWT et Angular
 
 \begin{table}[hbtp]
-    \caption{Comparaison des architectures de GWT et Angular}
-    \label{comparaison}
     \begin {center}
     \resizebox{\columnwidth}{!}{%
     \begin{tabular}{|l|l|l|}
@@ -44,6 +42,8 @@ Une dernière contrainte inhérent aux entreprises est la possibilité pour les 
     \end{tabular} %
     }
     \end{center}
+    \caption{Comparaison des architectures de GWT et Angular}
+    \label{comparaison}
 \end{table}
 
 Dans le cas de ce projet, le langage de programmation source et cible ont deux architectures différentes.

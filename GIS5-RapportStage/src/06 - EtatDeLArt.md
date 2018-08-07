@@ -50,22 +50,129 @@ Ce dernier va être capable de détecter les différents composants de l'interfa
 Puis l'outil va appliquer une action sur un élément de l'interface est détecter les changements s'il y en a.
 En répétant ces actions, la stratégie va permettre d'explorer les différentes interfaces qui sont utilisées dans l'application à analyser et comment interagir avec ces dernières.
 
-Memon *et al.* [@MemonWCRE2003] ont développé un logiciel nommé "GUI Ripper".
-Cet outil est une implémentation de la stratégie dynamique qui s'applique sur des applications exécutées sur un ordinateur (application de bureau).
+Les auteurs [@MemonWCRE2003;@samir2007swing2script;@shah2011reverse;@morgado2011reverse] ont développé des logiciels implémentant la stratégie dynamique.
+Cependant, toutes les solutions proposées s'applique sur des applications exécutées sur un ordinateur (application de bureau).
 Une adaptation serait nécessaire pour coller au spécificité des applications web comme dans notre cas.
 
-[@samir2007swing2script;@shah2011reverse;@morgado2011reverse]
-
-**Mixe**.
+**Mixe**. L'objectif de la stratégie mixe est d'utiliser la stratégie statique et la stratégie dynamique.
+Gotti _et al._ [@gotti2016java;] utilise une stratégie mixe pour l'analyse d'applications écrites en Java.
+La première étape consiste en la création d'un modèle grâce à une analyse statique du code source.
+Les auteurs retrouvent la composition des interfaces graphiques, les différents widgets et leurs propriétés.
+Ensuite, l'analyse dynamique va executer les différentes actions possibles sur tout les widgets et
+    analyser les modifications potentielles sur l'interface.
 
 ### Transformation de modèle vers modèle
 
+La _transformation de modèle vers modèle_ traite de la modification d'un modèle source vers un modèle cible.
+
+L'article de Baki *et al.* [@baki2016multi] présente un processus de migration d'un modèle UML vers un modèle SQL.
+Pour faire la migration, les auteurs ont décidé d'utiliser des règles de transformation.
+Ces règles prennent en entrée le modèle UML et donne en sortie le SQL définit par les règles.
+Plutôt que d'écrire les règles de migration à la main.
+Les auteurs ont décomposé ces règles en petites briques.
+Chaque brique peut correspondre soit à une condition à respecter pour que la règle soit validée, soit à un changement sur la sortie de la règle.
+Ensuite, les auteurs ont développé un algorithme de programmation génétique pouvant manipuler ces règles.
+A partir d'exemples l'algorithme apprend les règles de transformation à appliquer afin d'effectuer la transformation du modèle.
+Pour cela, il modifie les petites briques composant les règles et analyser si le modèle en sortie ressemble à
+  celui explicité pour tous les exemples.
+Enfin, l'algorithme est appliqué sur de vrais données.
+Ce travail peut être utilisé dans mon projet.
+En effet, je peux aussi effectuer la migration en utilisant un modèle de l'application source et un
+  modèle de l'application cible.
+
+Wang *et al.* [@wang2017automatic] ont créé une méthodologie et un outil permettant d'automatiquement faire la transformation d'un modèle vers un autre modèle.
+Leur outil se distingue en effectuant une migration qui se base sur une analyse syntaxique et sémantique.
+L'objectif de la méthodologie est d'effectuer la transformation d'un modèle vers un autre de manière itérative en modifiant le méta-modèle.
+Une condition d'utilisation contraignante décrite par les auteurs est la nécessité d'avoir
+  un méta-méta-modèle pour tous les méta-modèles intermédiaires.
+Les auteurs ont implémenté un méta-méta-modèle dans leur outil.
+Dans mon travail, une solution pour effectuer la migration serait d'utiliser des méta-modèles.
+Le premier modèle proviendrait de l'application source, le second modèle respecterait le méta-modèle de destination.
+J'ai donc la même problématique que les auteurs de passage d'un modèle à un autre.
+En définissant un méta-méta-modèle que respecterai le méta-modèle de départ de l'application source et un méta-modèle de destination,
+  la méthodologie proposée par les auteurs devrait pouvoir résoudre, totalement ou partiellement, mon problème de migration.
+
+![Migration selon le _fer à cheval_](figures/horseshoe.png){#horseshoe}
+
+Fleurey *et al.* [@fleurey2007model] et Garcés *et al.* [@garces2017white] ont travaillé sur la modernisation et la migration de logiciel.
+Ils ont développé des logiciels permettant de semi-automatiser la migration d'applications.
+Pour cela, ils ont suivit le principe du _"fer à cheval"_ présenté Figure \ref{horseshoe}.
+La migration se passe en quatre étapes.
+
+1. Ils génèrent un modèle de l'application à migrer.
+2. Ils transforment ce modèle en un "modèle pivot". Ce dernier contient la structure des données, les actions et algorithmes, l'interface graphique et la navigation dans l'application.
+3. Ils transforment le modèle pivot en un modèle respectant le méta-modèle du langage cible.
+4. Ils génèrent le code source final de l'application.
+
+Comme les auteurs, je vais devoir faire la migration d'une application et je vais devoir conserver structure de données, actions, interface graphique et navigation dans l'application.
+Mon travail peut donc s'inspirer de celui proposé par les auteurs si nous souhaitons utiliser les modèles pour effectuer la migration.
+
 ### Transformation de modèle vers texte
+
+La _transformation de modèle vers texte_ traite du passage d'un modèle source vers du texte.
+Le texte peut être du code source compilable ou non.
+
+L'article de Mukherjee *et al.* [@mukherjee2011automatic] présente un outil permettant de prendre en entrée les spécifications d'un programme et donne en sortie un programme utilisable.
+L'entrée est un fichier en XML et la sortie est un programme écrit en C ou en Java (en fonction du choix de l'utilisateur).
+Pour effectuer les transformations, les auteurs ont utilisé un système de règles de transformation.
+Je pourrai réutiliser ce travail si je passe par un modèle pour la migration.
+En effet, le fichier XML pris en entrée de l'outil des développeurs peut être assimilé à un modèle suivant un méta-modèle (définit dans l'article).
+Dans le cas où nous utilisons un modèle dans le cadre de la migration des applications de Berger-Levrault.
+Nous pourrions aussi être amené à utiliser un système de règle pour faire la migration du modèle au code source.
 
 ### Migration de librairie
 
+La _migration de librairie_ présente des solutions sur comment changer de framework.
+Ce travail est lié à notre problématique puisque, pour la migration des applications de Berger-Levrault, nous passons de l'utilisation du framework GWT à l'utilisation de frameworks associé à Angular.
+
+Chen *et al.* [@chen2016mining] ont développé un outil permettant de trouver des librairies similaires à une autre.
+Pour cela, les auteurs ont miné les tags des questions de Stack Overflow.
+Avec ces informations, ils ont pu mettre en relation des langages et leurs libraries ainsi que des équivalences entre librairies de langage différent.
+Pour la migration de Java/GWT vers Angular, il est possible que nous ayons besoin de changer de librairie (qui n'est pas BLCore).
+Plutôt que de récrire la librairie, la recherche d'une autre librairie permettant de résoudre les même problème peut être une solution.
+C'est dans ce contexte que le travail des auteurs peut guider notre recherche de librairie en mettant faisant correspondre les anciennes librairies utilisées par les applications de Berger-Levrault avec d'autre compatible utilisable avec Angular.
+
 ### Migration de langage
 
+La *migration de langage* traite de la transformation du code source directement (*i.e.* sans passer par un modèle).
+Pour cela, les auteurs créent des "règles" permettant de modifier le code source.
+
+Brant *et al.* [@brant2010extreme] ont écrit un compilateur utilisant un outil nommé SmaCC.
+SmaCC est un générateur d'analyseur pour Smalltalk.
+Ils ont aussi utilisé le SmaCC Transformation Toolkit qui permet de définir des règles de transformations qui seront utilisées par SmaCC.
+Ainsi, les auteurs sont parvenus à migrer une application Delphi de 1,5 million de lignes de code en C#.
+Comme les auteurs, je veux effectuer la migration du code source d'une application.
+Mon cas se différencie par les langages source et cible.
+Ce travail peut me servir si nous souhaitons effectuer la migration sans passer par un modèle intermédiaire.
+
+Un des problèmes de la migration du code source est la définition des règles.
+Newman *et al.* [@newman2017simplifying] ont proposé un outil facilitant la création de règle de transformation.
+Pour cela, l'outil "normalise" le code source en entré et essayer de le simplifier.
+Ainsi, les auteurs arrivent à réduire le nombre de règles de transformations à écrire et leurs complexités.
+Dans le cas de migration de Berger-Levrault, je dois gérer les multiples manières dont les fonctionnalités sont écrites.
+La normalisation du code source peut simplifier l'écriture des règles de transformation ou
+  les règles permettant de créer un modèle.
+
+Rolim *et al.* [@rolim2017learning] ont créé un outil qui apprend des règles de transformation de programme à partir d'exemple.
+Pour cela, les auteurs ont défini un DSL[^DSL] permettant d'exprimer les modifications faîtes sur l'AST[^ast] d'un programme.
+Ensuite, à partir d'une base d'exemple de transformation, l'outil recherche les règles de transformation entre les fichiers d'entré des exemples
+  et ceux de sorties.
+Une fois les règles trouvées et écrites dans le DSL prédéfini, l'outil prend en entrée un bout de code et donne en sortie le résultat des transformations.
+Ce travail peut nous servir pour la migration des applications de Berger-Levrault.
+En effet, nous pouvons imaginer faire la migration de tout ou partie des applications en utilisant un tel outil.
+De plus, on peut imaginer un outil qui apprendrai au fur et à mesure des développement des développeur et qui les
+  conseillerez dans un second temps sur d'autre développement avec les même problématiques déjà résolu.
+Ou encore, l'outil pourrait servir de "guide" pour les nouveaux développeurs participants à la migration ou
+  au développement courant des applications.
+
+[^ast]: AST : Arbre Syntaxique Abstrait
+
 ## Positionnement sur la migration via les modèles {#positionnement}
+
+Comme décrit Section \ref{sec:processusMigration}, nous avons décidé d'effectuer la migration en utilisant les modèles.
+Nous avons utilisé une stratégie selon le _fer à cheval_.
+
+Afin d'appliquer cette stratégie de migration, nous avons dû définir plusieurs méta-modèles décrit Section \ref{sec:metamodelUI} et Section \ref{metamodelComportemental}.
+
 
 \newpage

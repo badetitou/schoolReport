@@ -75,6 +75,28 @@ Dans un contexte Web, il peut s'agir du côté serveur de l'application.
 
 ![Méta-Modèle d’un application de Berger-Levrault](figures/behavioralModel.png){#behavioralModel width=100%}
 
+Le méta-modèle du code comportemental présenté Figure \ref{behavioralModel} contient le code lié au comportement de l'application.
+Il y a deux éléments principaux, Statement et Expression.
+
+Le **Statement** est la représentation des structures de contrôle des langages de programmation.
+Il y a l'alternative, la boucle, la notion de bloc et un lien vers une expression.
+
+Une **Expression** représente un morceau de code qui peut être évalué directement.
+Cela peut être une affectation avec la valeur de l'affectation,
+    un littéral (directement la valeur de l'élément écrit),
+    une expression booléenne,
+    une expression arithmétique
+    ou une invocation.
+Dans le cas d'une invocation, c'est la valeur de retour de la méthode
+    qui est utilisé comme valeur de l'expression.
+
+Les éléments **Action** constituent le lien vers le modèle d'interface graphique.
+C'est le conteneur de la logique d'un événement déclenché par une action.
+
+Grâce à ce modèle, nous pouvons représenter la logique
+    exécuté par un lorqu'un événement est déclenché par une action sur un widget
+    du modèle d'interface graphique.
+
 ## Implémentation du processus
 
 Pour tester la stratégie, nous avons implémenté un outil qui suit le processus de migration.

@@ -15,8 +15,6 @@ Comme la stratégie mis en place est en deux étapes, _i.e._ importation et expo
 ### Rétro-Ingénierie {#retroInge}
 
 \begin{table}[hbtp]
-    \caption{Résultat de l'importation}
-    \label{resultImport}
     \begin {center}
   %  \resizebox{\columnwidth}{!}{%
     \begin{tabular}{|c|c|c|c|}
@@ -28,6 +26,8 @@ Comme la stratégie mis en place est en deux étapes, _i.e._ importation et expo
     \end{tabular} %
    % }
     \end{center}
+    \caption{Résultat de l'importation}
+    \label{resultImport}
 \end{table}
 
 Le Tableau \ref{resultImport} présente les résultats que nous obtenons en exécutant la création du modèle d'interface graphique.
@@ -87,7 +87,7 @@ La Figure \ref{cmp1} présente les différences visuelles entre l'ancienne versi
 Nous pouvons voir que les différences sont minimes.
 Dans la version exporté, les couleurs de l'en-tête des panel est un peu plus claire et l'ombre porté des panel est plus dégradé.
 
-![Zone de saisie - Avant/Après](figures/cmp2.PNG){#cmp2 width=75%}
+![Zone de saisie - Avant/Après](figures/cmp2.PNG){#cmp2 width=100%}
 
 La Figure \ref{cmp2} présente les différences visuelles pour la Phase _Zone de saisie_ de l'application _bac-à-sable_.
 L'image de gauche correspond à la Phase avant la migration tandis que celle de gauche est la même Phase après la migration.
