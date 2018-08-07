@@ -55,7 +55,7 @@ Cependant, toutes les solutions proposées s'applique sur des applications exéc
 Une adaptation serait nécessaire pour coller au spécificité des applications web comme dans notre cas.
 
 **Mixe**. L'objectif de la stratégie mixe est d'utiliser la stratégie statique et la stratégie dynamique.
-Gotti _et al._ [@gotti2016java;] utilise une stratégie mixe pour l'analyse d'applications écrites en Java.
+Gotti _et al._ [@gotti2016java] utilise une stratégie mixe pour l'analyse d'applications écrites en Java.
 La première étape consiste en la création d'un modèle grâce à une analyse statique du code source.
 Les auteurs retrouvent la composition des interfaces graphiques, les différents widgets et leurs propriétés.
 Ensuite, l'analyse dynamique va executer les différentes actions possibles sur tout les widgets et
@@ -174,5 +174,110 @@ Comme décrit Section \ref{sec:processusMigration}, nous avons décidé d'effect
 Nous avons utilisé une stratégie selon le _fer à cheval_.
 
 Afin d'appliquer cette stratégie de migration, nous avons dû définir plusieurs méta-modèles décrit Section \ref{sec:metamodelUI} et Section \ref{metamodelComportemental}.
+Dans cette Section, nous allons nous positionner par rapport aux modèles proposées dans les autres papiers traitant de la représentation d'une application contenant une interface graphique.
+Puis nous présenterons et discuterons les modèles KDM et IFML qui ont été proposées par l'OMG[^OMG] [(https://www.omg.org/spec/KDM/)](https://www.omg.org/spec/KDM/) pour
+    représenter respectivement des applications et des interfaces graphiques.
+
+[^OMG]: OMG : Object Management Group
+
+### Méta-modèle d'interface utilisateur
+
+### Méta-modèle de navigation et de state flow
+
+### KDM
+
+L'OMG a défini la norme KDM[^KDM] pour prendre en charge l'évolution des logiciels.
+Le standard est un méta-modèle pour représenter un logiciel dans un haut niveau d'abstraction.
+
+![Architecture KDM](figures/kdm.png){#fig:kdm width=80%}
+
+Le Figure \ref{fig:kdm} présente un aperçu de l'architecture KDM.
+Il est divisé en douze paquets organisés en quatre couches.
+Le paquet d'interface utilisateur est composé d'un ensemble de méta-modèles à représenter
+    les composants et le comportement de l'interface utilisateur.
+L'action de package définit des méta-modèles pour représenter le comportement d'une application.
+Il peut être utilisé pour décrire la logique de l'application, par exemple conditions, boucle, appel.
+Il est similaire à notre méta-modèle de comportement.
+Le package de données représente les données de différentes bases de données.
+Il définit également un méta-modèle pour l'action de la base de données, par exemple, Insérer, Mettre à jour, Supprimer.
+Ces actions peuvent être liées à un déclencheur et exécutées automatiquement lorsqu'un événement se produit.
+
+![KDM Diagramme de Classe UIResources](figures/kdmUI.png){#fig:kdmUI width=80%}
+
+La Figure \ref{fig:kdmUI} est le diagramme de classes UIResources.
+Il définit de nombreuses entités pour l'abstraction d'une interface utilisateur.
+
+UIResource peut être défini comme UIDisplay, UIField ou UIEvent.
+Un UIField est utilisé pour représenter des formulaires, des champs de texte, un panneau, etc.
+Il est similaire au widget d'entité de notre modèle d'interface utilisateur.
+Nous pouvons également détecter le modèle composite avec
+    UIResource et AbstractUIElement.
+Ce motif fait la représentation du architecture d'interface utilisateur possible.
+
+UIDisplay peut être un écran ou un rapport.
+L'écran représente une fenêtre pour un logiciel de bureau ou une page Web.
+Le rapport représente un élément qui sera imprimé.
+Cette différence entre Report et Screen n'est pas représentée dans nos méta-modèles.
+
+Chaque AbstractUIElement peut avoir une UIAction.
+Une UIAction est utilisée pour représenter la séquence d'affichage dans une interface utilisateur.
+Cela inclut la logique pour passer d'une interface utilisateur à une autre.
+Ce n'est pas un modèle de navigation ni un modèle de flux d'état et c'est similaire à notre modèle de comportement.
+
+Une UIAction peut effectuer plusieurs événements UIE.
+UIEvent représente les événements appartenant à une interface utilisateur.
+Il peut s'agir de la notion de rappel ou de l'idée de navigation (\ ie passer d'une page Web à une autre).
+
+![KDM Diagramme de classe UIRelations](figures/kdmRelations.png){#fig:kdmRelations width=80%}
+
+La Figure \ref{fig:kdmRelations} est le diagramme de classes UIRelations.
+Il représente la disposition des UIElements avec les autres et le flux de
+    UIDisplay à un autre.
+
+Le flux entre deux Display n'est pas représenté dans nos méta-modèles.
+Il définit le comportement de l'interface utilisateur en tant que séquentiel
+    flux d'une instance de l'affichage à l'autre.
+
+UILayout définit la présentation d'un AbstractUIElement pour un affichage spécifique.
+Cette notion est similaire à notre méta-modèle Layout.
+
+[^KDM]: KDM: Knowledge Discovery Metamodel
+
+### IFML
+
+Brambilla _et al._ [@brambilla2014interaction] a défini le langage IFML (Interaction Flow Modeling Language) pour représenter une application frontale.
+Le travail est défini avec l'OMG [(http://www.ifml.org/)](http://www.ifml.org/).
+L’IFML a pour but de fournir un système pour décrire la partie vue d’une application,
+    avec les composants et les conteneurs, l'état des composants,
+    la logique de l'application et la liaison entre les données et l'interface utilisateur.
+
+Avec IFML, un logiciel peut être modélisé avec un ou plusieurs top-containers.
+Le conteneur représente une fenêtre principale pour une application de bureau ou une page Web pour une application Web.
+Ensuite, chaque conteneur a des sous-conteneurs ou peut contenir des composants.
+
+Un composant est le niveau abstrait d'un widget visible.
+Cet élément peut avoir des paramètres d'entrée ou de sortie.
+Un paramètre d'entrée d'une ressource de données signifie que le widget affiche la valeur des données.
+
+Le conteneur et le composant peuvent être associés à des événements.
+Un élément lié à un événement prend en charge l’interaction des utilisateurs, par exemple, cliquer, glisser-déposer, etc.
+Une fois l'action effectuée, l'effet est représenté par une connexion de flux d'interaction qui connecte l'événement
+    et les éléments affectés par l'événement.
+
+![IFML View Elements](figures/ifmlViewElements.png){#fig:ifmlViewElements width=80%}
+
+La Figure \ref{fig:ifmlViewElements} présente le meta-model _View Elements_ proposé
+    par IFML.
+Ce méta-modèle a le même objectif que le modèle d'interface graphique que nous avons conçu, c'est-à-dire représentant le
+    partie visible de l'interface utilisateur.
+Nous remarquons qu'ils sont légèrement différents.
+Les deux utilisent un modèle de conteneur et ont donc la notion de conteneur et de composant,
+    respectivement conteneur et feuille dans notre méta-modèle.
+Le méta-modèle IFML a introduit la notion de ComponentPart.
+Cette entité est nécessaire pour représenter tous les composants possibles car
+    les auteurs ont décidé de définir des éléments tels qu'une liste ou un formulaire en tant que composant.
+Dans notre cas, une liste est représentée comme un conteneur,
+    donc nous n'avons pas besoin d'un ComponentPart parce que nous pouvons utiliser le modèle de conteneur pour
+    représente le sous-élément d'un composant.
 
 \newpage

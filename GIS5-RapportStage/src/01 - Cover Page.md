@@ -16,7 +16,6 @@ header-includes:
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
- 
 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},
@@ -36,7 +35,7 @@ header-includes:
     showtabs=false,
     tabsize=2
 }
- 
+
 \lstset{style=mystyle}
 
 \renewcommand{\tablename}{Tableau}
