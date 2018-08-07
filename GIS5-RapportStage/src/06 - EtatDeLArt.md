@@ -175,16 +175,99 @@ Nous avons utilisé une stratégie selon le _fer à cheval_.
 
 Afin d'appliquer cette stratégie de migration, nous avons dû définir plusieurs méta-modèles décrit Section \ref{sec:metamodelUI} et Section \ref{metamodelComportemental}.
 Dans cette Section, nous allons nous positionner par rapport aux modèles proposées dans les autres papiers traitant de la représentation d'une application contenant une interface graphique.
-Puis nous présenterons et discuterons les modèles KDM et IFML qui ont été proposées par l'OMG[^OMG] [(https://www.omg.org/spec/KDM/)](https://www.omg.org/spec/KDM/) pour
-    représenter respectivement des applications et des interfaces graphiques.
+Puis nous présenterons et discuterons les modèles KDM et IFML qui ont été proposées par l'OMG[^OMG] [(https://www.omg.org/spec/KDM/)](https://www.omg.org/spec/KDM/) pour représenter respectivement des applications et des interfaces graphiques.
 
 [^OMG]: OMG : Object Management Group
 
 ### Méta-modèle d'interface utilisateur
 
-### Méta-modèle de navigation et de state flow
+Nous avons cherché les différences et points commun entre notre méta-modèle d'interface utilisateur et ceux proposé dans la littérature.
 
-### KDM
+[@gotti2016java] ont proposé un méta-modèle inspiré du modèle KDM (voir la Section \ref{sec:kdm}).
+Le modèle a les principales entités que nous avons également définies.
+On retrouve le patron de conception composite pour représenter le DOM d'une interface graphique.
+Leur widget s'appelle _Component_ et comme nous ils ont des propriétés.
+Ils ont également implémenté une propriété _Event_ pour le widget.
+Mais ils inversent le nom _event_ et _action_ comparés à notre solution.
+
+[@fleurey2007model] n'ont pas décrit le méta-modèle de l'interface graphique directement, mais
+    nous avons extrait des informations de leur modèle de navigation (voir \ref{sec:navigation}).
+Ils ont au moins deux éléments dans leur modèle d'interface graphique, _Window_
+    et _GraphicElement_.
+_Window_ semble correspondre à notre entité Phase.
+On peut supposer que le _GraphicElement_ est un widget.
+Le _GraphicElement_ a un _Event_.
+Nous n'avons pas la totalité du méta-modèle de l'interface graphique,
+    mais nous pouvons voir qu'il ressemble au notre.
+
+Le méta-modèle graphique de [@sanchez2014model] est très similaire au notre.
+Il y a les entités Widget et Window qui correspondent respectivement à
+    notre Widget et Phase.
+Leurs widgets ont une position x et y et la largeur et hauteur en tant que propriétés.
+Ceci est similaire au lien entre Widget et Attribute dans notre méta-modèle.
+Il y a aussi le patron de conception composite pour représenter le DOM.
+
+[@morgado2011reverse] utilisent un méta-modèle graphique mais ne le décrit pas.
+Nous savons seulement que l'interface graphique est représentée comme un arbre ce qui est similaire à un
+    DOM et peut être représenté grâce au patron de conception composite.
+
+Le méta-modèle graphique de [@garces2017white] diffère beaucoup de notre.
+Il y a les attributs, les événements, l'écran (qui est comme une phase)
+    mais il n'y a pas de widget.
+Cette absence s'explique par la différence dans la technologie source.
+Les auteurs ont travaillé sur un projet utilisant des Oracle Forms.
+Cette technologie est utilisée pour créer une interface simple avec seulement
+    des champs texte ou des formulaires.
+Les champs texte contiennent des données provenant d'une base de données.
+La disposition des éléments est aussi très simple dans l'exemple fourni
+    par les auteurs car les champs texte ou les formulaires sont affichés les uns en dessous des autres.
+Nous pouvons encore remarquer qu'ils utilisent une entité _Event_ pour représenter l'action de l'utilisateur avec le
+    interface utilisateur.
+
+[@MemonWCRE2003] représentent une interface utilisateur graphique avec seulement deux entités dans leur méta-modèle d'interface graphique.
+Une GUIWindow similaire à notre phase qui est constituée d'un ensemble de widgets.
+Ces widgets peuvent avoir des propriétés et toutes les propriétés ont une valeur associée.
+Les auteurs ont défini une interface utilisateur comme ensemble de widget et leurs propriétés,
+    ainsi, si un widget peut avoir deux valeurs différentes pendant l'exécution du programme,
+    il appartient à deux interfaces utilisateur différentes.
+Ce point est la différence majeure avec les méta-modèles que nous avons proposés car,
+    dans notre conception si la valeur d'une propriété change, nous sommes toujours dans la même interface utilisateur
+    mais un code de comportement a été exécuté.
+
+[@samir2007swing2script] ont travaillé sur la migration de l'application Java-Swing vers l'application Web Ajax.
+Ils ont créé un méta-modèle pour représenter l'interface utilisateur de l'application d'origine.
+Ce méta-modèle est stocké dans un fichier XUL et représente
+    les widgets avec leurs propriétés ainsi que la mise en page.
+Ces widgets appartiennent à une fenêtre, appelée Phase dans notre travail, et
+    peut déclencher un événement lorsqu'un _Input_ GUI est exécutée.
+Dans notre travail, nous avons le même système pour l'événement, mais l'_Input_ est englobé sous le concept d'action.
+
+[@shah2011reverse] utilisent une arbre pour représenter l'interface graphique.
+La racine de l'arbre est une _Frame_ ce qui correspond à notre phase.
+La racine contient des _Composants_ avec leurs propriétés.
+L'entité _Composant_ est similaire à notre entité Widget.
+
+[@joorabchi2012reverse] représentent une interface utilisateur avec un ensemble d'éléments d'interface utilisateur.
+Ces éléments sont notre définition d'un widget sans le patron de conception container.
+Pour chaque élément d’interface utilisateur, l’outil des auteurs peut gérer la détection
+    de plusieurs attributs et de l'événement.
+
+[@memon2007eventflow] utilisent un modèle d'interface graphique pour représenter l'état d'une application (voir \ref{sec:navigation}).
+Comme nous, ils ont les widgets avec des propriétés.
+L'auteur a fait la différence entre _Widget_ et _Container_,
+    il est similaire à l'utilisation du patron de conception container que nous utilisons.
+Avec la notion de _Container_, l'auteur est capable de représenter un DOM.
+
+[@mesbah2012crawling] n'ont pas présenté directement le méta-modèle de l'interface utilisateur qu'ils utilisent.
+Cependant, ils expliquent qu’ils utilisent une représentation avec un arbre pour
+    analyser différentes pages Web.
+Ils utilisent également la notion d'événement pouvant être déclenchée.
+Les auteurs instancient plusieurs méta-modèles d'interface utilisateur pour représenter les différentes pages Web de l'application.
+Ces instances peuvent être comparées à nos entités Phase.
+
+### Méta-modèle de navigation et de state flow {#sec:navigation}
+
+### KDM {#sec:kdm}
 
 L'OMG a défini la norme KDM[^KDM] pour prendre en charge l'évolution des logiciels.
 Le standard est un méta-modèle pour représenter un logiciel dans un haut niveau d'abstraction.
@@ -192,15 +275,15 @@ Le standard est un méta-modèle pour représenter un logiciel dans un haut nive
 ![Architecture KDM](figures/kdm.png){#fig:kdm width=80%}
 
 Le Figure \ref{fig:kdm} présente un aperçu de l'architecture KDM.
-Il est divisé en douze paquets organisés en quatre couches.
-Le paquet d'interface utilisateur est composé d'un ensemble de méta-modèles à représenter
-    les composants et le comportement de l'interface utilisateur.
-L'action de package définit des méta-modèles pour représenter le comportement d'une application.
+Il est divisé en douze paquetages organisés en quatre couches.
+Le paquetage d'interface utilisateur est composé d'un ensemble de méta-modèles pour représenter
+    les composants et le comportement de l'interface graphique.
+Le paquetage Action définit des méta-modèles pour représenter le comportement d'une application.
 Il peut être utilisé pour décrire la logique de l'application, par exemple conditions, boucle, appel.
-Il est similaire à notre méta-modèle de comportement.
-Le package de données représente les données de différentes bases de données.
-Il définit également un méta-modèle pour l'action de la base de données, par exemple, Insérer, Mettre à jour, Supprimer.
-Ces actions peuvent être liées à un déclencheur et exécutées automatiquement lorsqu'un événement se produit.
+Il est similaire à notre méta-modèle du code comportemental.
+Le paquetage Data représente les données utilisé dans l'application pouvant provenir de services distant ou de bases de données.
+Il définit également un méta-modèle représentant les actions que les bases de données peuvent utiliser, par exemple, insertion, mise à jour, suppression.
+Ces actions peuvent être exécutées automatiquement lorsqu'un événement se produit.
 
 ![KDM Diagramme de Classe UIResources](figures/kdmUI.png){#fig:kdmUI width=80%}
 
@@ -208,76 +291,58 @@ La Figure \ref{fig:kdmUI} est le diagramme de classes UIResources.
 Il définit de nombreuses entités pour l'abstraction d'une interface utilisateur.
 
 UIResource peut être défini comme UIDisplay, UIField ou UIEvent.
-Un UIField est utilisé pour représenter des formulaires, des champs de texte, un panneau, etc.
-Il est similaire au widget d'entité de notre modèle d'interface utilisateur.
-Nous pouvons également détecter le modèle composite avec
+Un UIField est utilisé pour représenter des formulaires, des champs de texte, des pannels, etc.
+Il est similaire au Widget de notre méta-modèle d'interface utilisateur.
+Nous pouvons également détecter le patron de conception _composite_ avec
     UIResource et AbstractUIElement.
-Ce motif fait la représentation du architecture d'interface utilisateur possible.
+Cela permet la représentation de l'architecture d'interface utilisateur possible.
 
-UIDisplay peut être un écran ou un rapport.
-L'écran représente une fenêtre pour un logiciel de bureau ou une page Web.
-Le rapport représente un élément qui sera imprimé.
+UIDisplay peut être un Screen ou un Report.
+Screen représente une fenêtre pour un logiciel de bureau ou une page Web.
+Report représente un élément qui sera imprimé.
 Cette différence entre Report et Screen n'est pas représentée dans nos méta-modèles.
 
 Chaque AbstractUIElement peut avoir une UIAction.
-Une UIAction est utilisée pour représenter la séquence d'affichage dans une interface utilisateur.
-Cela inclut la logique pour passer d'une interface utilisateur à une autre.
-Ce n'est pas un modèle de navigation ni un modèle de flux d'état et c'est similaire à notre modèle de comportement.
-
-Une UIAction peut effectuer plusieurs événements UIE.
-UIEvent représente les événements appartenant à une interface utilisateur.
-Il peut s'agir de la notion de rappel ou de l'idée de navigation (\ ie passer d'une page Web à une autre).
-
-![KDM Diagramme de classe UIRelations](figures/kdmRelations.png){#fig:kdmRelations width=80%}
-
-La Figure \ref{fig:kdmRelations} est le diagramme de classes UIRelations.
-Il représente la disposition des UIElements avec les autres et le flux de
-    UIDisplay à un autre.
-
-Le flux entre deux Display n'est pas représenté dans nos méta-modèles.
-Il définit le comportement de l'interface utilisateur en tant que séquentiel
-    flux d'une instance de l'affichage à l'autre.
-
-UILayout définit la présentation d'un AbstractUIElement pour un affichage spécifique.
-Cette notion est similaire à notre méta-modèle Layout.
+Une UIAction peut effectuer plusieurs UIEvent.
+UIEvent représente les événements qui impacte l'interface utilisateur.
+Il peut s'agir d'un _Callback_ ou de l'idée de navigation (_ie._ passer d'une page Web à une autre).
 
 [^KDM]: KDM: Knowledge Discovery Metamodel
 
 ### IFML
 
-Brambilla _et al._ [@brambilla2014interaction] a défini le langage IFML (Interaction Flow Modeling Language) pour représenter une application frontale.
-Le travail est défini avec l'OMG [(http://www.ifml.org/)](http://www.ifml.org/).
-L’IFML a pour but de fournir un système pour décrire la partie vue d’une application,
+Brambilla _et al._ [@brambilla2014interaction] a défini le langage IFML (Interaction Flow Modeling Language) pour représenter une l'interface graphique d'une application.
+Les méta-modèles ont été défini avec l'OMG [(http://www.ifml.org/)](http://www.ifml.org/).
+L’IFML a pour but de fournir un système pour décrire la partie visuel d’une application,
     avec les composants et les conteneurs, l'état des composants,
     la logique de l'application et la liaison entre les données et l'interface utilisateur.
 
-Avec IFML, un logiciel peut être modélisé avec un ou plusieurs top-containers.
-Le conteneur représente une fenêtre principale pour une application de bureau ou une page Web pour une application Web.
+Avec IFML, un logiciel peut être modélisé avec un ou plusieurs conteneurs racines.
+Un conteneur représente une fenêtre principale pour une application de bureau ou une page Web pour une application Web.
 Ensuite, chaque conteneur a des sous-conteneurs ou peut contenir des composants.
 
 Un composant est le niveau abstrait d'un widget visible.
 Cet élément peut avoir des paramètres d'entrée ou de sortie.
-Un paramètre d'entrée d'une ressource de données signifie que le widget affiche la valeur des données.
+Un paramètre d'entrée d'une décrite comme une donnée signifie que le widget affiche la valeur de la donnée.
 
-Le conteneur et le composant peuvent être associés à des événements.
-Un élément lié à un événement prend en charge l’interaction des utilisateurs, par exemple, cliquer, glisser-déposer, etc.
+Les conteneurs et les composants peuvent être associés à des événements.
+Un élément lié à un événement prend en charge l’interaction des utilisateurs, par exemple, cliquer, glisser-déposer, _etc._
 Une fois l'action effectuée, l'effet est représenté par une connexion de flux d'interaction qui connecte l'événement
     et les éléments affectés par l'événement.
 
 ![IFML View Elements](figures/ifmlViewElements.png){#fig:ifmlViewElements width=80%}
 
-La Figure \ref{fig:ifmlViewElements} présente le meta-model _View Elements_ proposé
-    par IFML.
-Ce méta-modèle a le même objectif que le modèle d'interface graphique que nous avons conçu, c'est-à-dire représentant le
+La Figure \ref{fig:ifmlViewElements} présente le méta-modèle _View Elements_ proposé par IFML.
+Ce méta-modèle a le même objectif que le modèle d'interface graphique que nous avons conçu, Il représente le
     partie visible de l'interface utilisateur.
 Nous remarquons qu'ils sont légèrement différents.
-Les deux utilisent un modèle de conteneur et ont donc la notion de conteneur et de composant,
+Les deux utilisent un patron de conception container et ont donc la notion de conteneur et de composant,
     respectivement conteneur et feuille dans notre méta-modèle.
 Le méta-modèle IFML a introduit la notion de ComponentPart.
-Cette entité est nécessaire pour représenter tous les composants possibles car
+Cette entité est nécessaire pour représenter tous les composants dans le méta-modèle IFML car
     les auteurs ont décidé de définir des éléments tels qu'une liste ou un formulaire en tant que composant.
 Dans notre cas, une liste est représentée comme un conteneur,
-    donc nous n'avons pas besoin d'un ComponentPart parce que nous pouvons utiliser le modèle de conteneur pour
-    représente le sous-élément d'un composant.
+    donc nous n'avons pas besoin d'un ComponentPart parce que nous pouvons utiliser le patron de conception container pour
+    représenter les sous-éléments d'un composant.
 
 \newpage

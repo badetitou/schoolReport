@@ -6,7 +6,6 @@ header-includes:
   - '\usepackage{hyperref}'
   - '\usepackage{graphicx}'
   - '\usepackage[french]{babel}'
-  - '\usepackage{pdfpages}'
 ---
 
 \newpage
