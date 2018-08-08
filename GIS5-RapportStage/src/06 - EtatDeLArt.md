@@ -129,7 +129,7 @@ Chen *et al.* [@chen2016mining] ont développé un outil permettant de trouver d
 Pour cela, les auteurs ont miné les tags des questions de Stack Overflow.
 Avec ces informations, ils ont pu mettre en relation des langages et leurs libraries ainsi que des équivalences entre librairies de langage différent.
 Pour la migration de Java/GWT vers Angular, il est possible que nous ayons besoin de changer de librairie (qui n'est pas BLCore).
-Plutôt que de récrire la librairie, la recherche d'une autre librairie permettant de résoudre les même problème peut être une solution.
+Plutôt que de récrire la librairie, la recherche d'une autre librairie permettant de résoudre les mêmes problèmes peut être une solution.
 C'est dans ce contexte que le travail des auteurs peut guider notre recherche de librairie en mettant faisant correspondre les anciennes librairies utilisées par les applications de Berger-Levrault avec d'autre compatible utilisable avec Angular.
 
 ### Migration de langage
