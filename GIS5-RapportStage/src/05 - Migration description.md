@@ -16,23 +16,23 @@ Nous allons présenter dans cette partie le processus de migration que nous avon
 
 ## Processus de migration {#sec:processusMigration}
 
-![Schema processus de migration](figures/processusMigration.png){#fig:processusMigration width=100%}
+![Schéma processus de migration](figures/processusMigration.png){#fig:processusMigration width=100%}
 
-À partir de l'état de l'art et des contraintes que nous avons explicités,
+À partir de l'état de l'art et des contraintes que nous avons explicité,
     nous avons conçu une stratégie pour effectuer la migration.
 Le processus que l'on a représenté Figure \ref{fig:processusMigration} est divisé en cinq étapes :
 
 1. _Extraction du modèle de la technologie source_ est la première étape permettant de construire l'ensemble des analyses et transformations que nous devons appliquer pour effectuer la migration. Elle consiste en la génération d'un modèle représentant le code source de l'application originel. Dans notre cas d'étude, le programme source est en java et donc le modèle que nous créons est une implémentation d'un méta-modèle permettant de représenter une application écrite en java.
 2. _Extraction de l'interface utilisateur_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relèvent du modèle d'interface utilisateur. Ce dernier, que nous avons dû concevoir, est expliqué Section \ref{sec:metamodelUI}.
-3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface utilisateur. Par exemple, si un clique sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, définit dans le modèle UI, lorsqu'un clique est effectué, on effectue un certain nombre d'actions dont une sur le texte, lui aussi définit dans le modèle UI.
-4. _Exportation de l'interface utilisateur_. Le modèle d'interface graphique étant construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface utilisateur. Cela consiste à la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaire au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérent à l'interface.
+3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface utilisateur. Par exemple, si un clic sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, définit dans le modèle UI, lorsqu'un clic est effectué, on effectue un certain nombre d'actions, dont une sur le texte, lui aussi définit dans le modèle UI.
+4. _Exportation de l'interface utilisateur_. Le modèle d'interface graphique étant construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface utilisateur. Cela consiste à la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaire au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérente à l'interface.
 5. Finalement, l'_Exportation du code comportemental_ est la génération du code comportemental qui est lié à l'interface utilisateur. Cette étape peut être effectuée en parallèle de la quatrième.
 
 ## Méta-modèle d'interface utilisateur {#sec:metamodelUI}
 
-![Méta-Modèle d’un application de Berger-Levrault](figures/guiModel.png){#guiModel width=80%}
+![Méta-Modèle d'interface utilisateur](figures/guiModel.png){#guiModel width=80%}
 
-Afin de représenter une interface utilisateur, nous avons conçu le méta-model proposé Figure \ref{guiModel}.
+Afin de représenter une interface utilisateur, nous avons conçu le méta-modèle proposé Figure \ref{guiModel}.
 Dans la suite de cette partie, nous présentons les différentes entités du méta-modèle.
 
 La __Phase__ représente le conteneur principal d'une page interface utilisateur.
@@ -48,8 +48,8 @@ Avec une application web, l'appelle d'une Phase peut correspondre à l'ouverture
 Les __Widgets__ sont les différents composants d'interface et les composants de disposition.
 Il existe deux types de widgets.
 Le __Leaf__ est un widget qui ne contient pas un autre widget dans l'interface.
-Le __Containers__ peut contenir un autre widget.
-Ce dernier permet de séparer les widgets en fonction de leur place dans l'organisation de la page web représenté.
+Le __Container__ peut contenir un autre widget.
+Ce dernier permet de séparer les widgets en fonction de leur place dans l'organisation de la page web représentée.
 
 Les __Attributes__ représentent les informations appartenant à un Widget et peuvent changer son aspect visuel ou son comportement.
 Les attributs communs sont la hauteur et la largeur pour définir précisément la dimension d'un widget.
@@ -63,17 +63,17 @@ Cet attribut définit la disposition de ses enfants et potentiellement sa propre
 Les __Actions__ sont propres aux Widgets.
 Elles représentent des actions qui peuvent être exécutées dans une interface graphique.
 __Call Service__ représente un appel à un service distant tel Internet.
-__Fire PopUp__ est l'action qui affiche un PopUp sur l'écran.
-Le PopUp ne peut pas être considéré comme un widget,
+__Fire PopUp__ est l'action qui affiche un pop-up sur l'écran.
+Le pop-up ne peut pas être considéré comme un widget,
     il n'est pas présent dans l'interface graphique,
     il apparaît seulement et disparaît.
 
 Le __Service__ est la référence à la fonctionnalité distante que l'application peut appeler à partir de son interface graphique.
-Dans un contexte Web, il peut s'agir du côté serveur de l'application.
+Dans un contexte web, il peut s'agir du côté serveur de l'application.
 
 ## Méta-modèle du code comportemental {#metamodelComportemental}
 
-![Méta-Modèle d’un application de Berger-Levrault](figures/behavioralModel.png){#behavioralModel width=100%}
+![Méta-Modèle du code comportemental](figures/behavioralModel.png){#behavioralModel width=100%}
 
 Le méta-modèle du code comportemental présenté Figure \ref{behavioralModel} contient le code lié au comportement de l'application.
 Il y a deux éléments principaux, Statement et Expression.
@@ -88,13 +88,13 @@ Cela peut être une affectation avec la valeur de l'affectation,
     une expression arithmétique
     ou une invocation.
 Dans le cas d'une invocation, c'est la valeur de retour de la méthode
-    qui est utilisé comme valeur de l'expression.
+    qui est utilisée comme valeur de l'expression.
 
 Les éléments **Action** constituent le lien vers le modèle d'interface graphique.
 C'est le conteneur de la logique d'un événement déclenché par une action.
 
 Grâce à ce modèle, nous pouvons représenter la logique
-    exécuté par un lorqu'un événement est déclenché par une action sur un widget
+    exécutée par un lorsqu'un événement est déclenché par une action sur un widget
     du modèle d'interface graphique.
 
 ## Implémentation du processus
@@ -110,7 +110,7 @@ Ce bloc contient l'implémentation du méta-modèle GUI.
 En plus du modèle, il y a un exportateur abstrait et une implémentation de
     l'exportateur pour Angular (_BL-Model-Exporter_ et _BL-Model-Exporter-Angular_, un importateur abstrait et le    code spécifique pour Java (_BL-Model-Importateur_ et _BL-Model-Importer-Java_).
 Parce que nous testons notre solution sur le système de Berger-Levrault,
-    nous avons également implémenté l'extension _"CoreWeb"_,
+    nous avons également implémenté l'extension _"Coreweb"_,
     alors que la stratégie de migration ne dépend pas de cette extension.
 Ces paquets étendent les précédents pour avoir un contrôle fin du processus de migration.
 Ce contrôle est important pour améliorer le résultat final.
@@ -123,12 +123,12 @@ Ce contrôle est important pour améliorer le résultat final.
 Pour implémenter le méta-modèle GUI (voir Figure \ref{guiModel}), nous avons utilisé la dernière version de Famix dans Moose.
 Cet outil est pratique car il fournit un générateur de méta-modèle, le builder.
 Pour définir les entités du méta-modèles, il faut les nommer dans la méthode `defineClasses` du builder.
-Pour les relations entre les entités, nous pouvons utilisé le format UML.
+Pour les relations entre les entités, nous pouvons utiliser le format UML.
 Ainsi une relation _"oneToMany"_ entre deux entités se définit de la manière suivante : `entity1 -* entity2`.
 
 Afin de tester la stratégie sur l'application de Berger-Levrault,
-    nous avons créé des types spécifiques de Widget pour Berger-Levrault.
-Des exemple de ces widgets sont le _SplitButton_, _RichTextArea_ ou _Switch_.
+    nous avons créé des types spécifiques de Widgets pour Berger-Levrault.
+Des exemples de ces widgets sont le _SplitButton_, _RichTextArea_ ou _Switch_.
 Ces éléments n'appartiennent pas au modèle GUI d'origine et,
     combiné avec le cadre que nous avons créé, ils rendent l'implémentation de l'outil plus modulaire.
 
@@ -139,7 +139,7 @@ Dans le cas de Berger-Levrault, nous avons implémenté la stratégie en Pharo a
 
 La première étape est la conception du modèle de la technologie source.
 Ce modèle avait déjà une implémentation existante dans Moose avec le projet _Famix-Java_.
-Nous avons donc réutilisé ce modèle pour ne pas avoir à re-concevoir un modèle pré-existant.
+Nous avons donc réutilisé ce modèle pour ne pas avoir à reconcevoir un modèle préexistant.
 De plus, ce travail préliminaire est compatible avec plusieurs outils qui ont été développés
     en interne à RMod.
 Entre autres, deux logiciels de génération du modèle Famix-Java depuis du code source java existait.
@@ -149,13 +149,13 @@ Le fichier _mse_ peut ensuite être importé dans la plateforme Moose.
 Pour le cas de Berger-Levrault, nous avons utilisé verveineJ car ce dernier permet aussi de _garder un lien_ entre le modèle
     généré et le code à partir duquel il l'a été.
 
-Une fois le modèle de la technologie source créé, et après avoir implémenté nos méta-modèles,
+Une fois le modèle de la technologie source créée, et après avoir implémenté nos méta-modèles,
     nous avons développé des outils en Pharo permettant d'effectuer la transformation du modèle source vers le modèle GUI.
 Nous allons maintenant décrire les techniques utilisées pour retrouver les éléments définis dans le modèle GUI depuis le modèle de technologie source.
 
 Les premiers éléments que nous avons voulu reconnaître sont les phases.
 En analysant les projets GWT, nous avons repéré un fichier _.xml_ dans lequel est stocké toutes les informations des phases.
-Nous avons donc ajouté une étape à l'importation qui est l'analyse d'un fichier _xml_.
+Nous avons donc ajouté une étape à l'importation qui est l'analyse d'un fichier _XML_.
 Ce fichier nous permet de _"facilement"_ récupéré la classe java correspondant à une phase,
     ainsi que le nom de la phase.
 
@@ -168,16 +168,16 @@ Puis, en faisant le lien entre le constructeur et la phase qui _"ajoute"_ la bus
     nous avons détecté les liens d'appartenances entre les pages métiers et les phases.
 
 Pour les widgets, nous avons dû tout d'abord trouver tous les widgets potentiellement instanciable.
-Pour cela, nous avons cherché toutes les sous-classes java de la classe GWT _Widget_.
-Ce sont les classes qui vont pouvoir être instancié et utilisé pour la construction du programme.
+Pour cela, nous avons cherché toutes les sous-classes Java de la classe GWT _Widget_.
+Ce sont les classes qui vont pouvoir être instanciées et utilisées pour la construction du programme.
 Ensuite, comme pour les business pages, nous avons cherché les appels des constructeurs des widgets et
-    avons relié ces appels à la business page qui les a ajouté.
+    avons relié ces appels à la business page qui les a ajoutés.
 
 Enfin, pour la détection des attributs et des actions associés à un widget.
 Nous avons, pour chaque widget, cherché dans quelle variable java il a été affecté.
-Puis nous avons cherché les appels de méthodes effectué depuis ces variables java.
+Puis nous avons cherché les appels de méthodes effectués depuis ces variables java.
 Les appels aux méthodes _"addActionHandler"_ sont transformés en action tandis que
-    les appels aux méthodes _"setX"_ ont été transformé en attribut.
+    les appels aux méthodes _"setX"_ ont été transformés en attribut.
 
 [^verveineJ]: [verveineJ : https://rmod.inria.fr/web/software/](https://rmod.inria.fr/web/software/)
 [^jdt2famix]: [jdt2famix : https://github.com/feenkcom/jdt2famix](https://github.com/feenkcom/jdt2famix)
@@ -195,10 +195,10 @@ Ce dernier est ajouté au modèle d'interface graphique, aux phases et business 
 La visite du modèle GUI va créer la hiérarchie de l'application cible ainsi que les fichiers
     de configuration.
 Ensuite, l'exportation visite toutes les phases.
-Pour chacune des phases, considéré comme des sous-projets en Angular dans l'architecture de l'application cible que nous avons défini,
+Pour chacune des phases, considéré comme des sous-projets en Angular dans l'architecture de l'application cible que nous avons définie,
     le visiteur génère les fichiers de configurations.
 Puis, pour chaque business page, le visiteur va générer un fichier HTML et un fichier TypeScript.
-Pour le fichier html, le visiteur construit le DOM à partir des widgets contenu dans la business page.
+Pour le fichier html, le visiteur construit le DOM à partir des widgets contenus dans la business page.
 Les widgets connaissant leurs attributs et actions,
     ils fournissent eux-mêmes leurs caractéristiques aux visiteurs.
 Ces caractéristiques englobent la génération du code comportemental.

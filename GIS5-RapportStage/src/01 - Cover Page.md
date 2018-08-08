@@ -63,7 +63,7 @@ header-includes:
 \vfill
 
 \normalsize Tuteurs entreprise : M. Deruelle, M. Seriai \\
-Tuteur école : Mme Etien \\
+Tutrice-école : Mme Etien \\
 Superviseurs Inria : Mme Etien, M. Anquetil
 
 \vspace{0.8cm}
