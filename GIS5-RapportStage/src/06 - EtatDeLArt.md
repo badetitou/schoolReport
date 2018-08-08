@@ -211,8 +211,8 @@ Il y a aussi le patron de conception composite pour représenter le DOM.
 Nous savons seulement que l'interface graphique est représentée comme un arbre ce qui est similaire à un
     DOM et peut être représenté grâce au patron de conception composite.
 
-Le méta-modèle graphique de [@garces2017white] diffère beaucoup de notre.
-Il y a les attributs, les événements, l'écran (qui est comme une phase)
+Le méta-modèle graphique de [@garces2017white] diffère beaucoup du notre.
+Il y a les attributs, les événements, les windows (qui sont comme les phases)
     mais il n'y a pas de widget.
 Cette absence s'explique par la différence dans la technologie source.
 Les auteurs ont travaillé sur un projet utilisant des Oracle Forms.
@@ -266,6 +266,49 @@ Les auteurs instancient plusieurs méta-modèles d'interface utilisateur pour re
 Ces instances peuvent être comparées à nos entités Phase.
 
 ### Méta-modèle de navigation et de state flow {#sec:navigation}
+
+On retrouve dans la littérature deux autres méta-modèles très présent.
+Le méta-modèle de navigation et le méta-modèle de state flow.
+
+Le méta-modèle de navigation permet de représenter un lien entre deux pages web ou fenêtres différents.
+Le lien peut être fait d'une page web à une autre, ou d'un widget vers une page web.
+Le méta-modèle de navigation peut aussi contenir un lien d'un widget vers un événement, et un autre de cet événement vers
+    une page web.
+
+Morgado _et al._ [@morgado2011reverse] et Fleurey _et al._ [@fleurey2007model] ont utilisé un méta-modèle de navigation
+    pour représenter les liens entre les différentes interfaces utilisateurs qu'ils détectent.
+Les premiers utilisent un méta-modèle supplémentaire qui décrit simplement l'ensemble des _fenêtres_ possible dans l'application.
+Son méta-modèle de navigation permet de faire le lien entre une action sur un widget et l'action de navigation qui en résulte.
+
+Pour Fleurey _et al._, le méta-modèle contient directement un lien entre la fenêtre de départ et celle d'arrivé.
+Le méta-modèle possède tout de même une entité appelé _Operation_, mais qui ne semble pas impliqué dans la navigation.
+
+Les informations de ces méta-modèles sont complètement contenu dans notre méta-modèle du code comportemental.
+Donc, bien que nous n'ayons pas de méta-modèle de navigation, nous faisons au moins ce qui est proposé dans ces papiers.
+
+Le méta-modèle de state flow permet de créer le lien entre différents états de l'interface utilisateur.
+Un état de l'interface utilisateur est défini par les widgets visibles et leurs propriétés.
+Ainsi, si la valeur d'une propriété change, nous un nouvel état est généré.
+
+[@memon2007eventflow;@mesbah2012crawling;@amalfitano2012using;@silva2010guisurfer;@aho2013industrial] ont tous utilisé un méta-modèle de state flow
+    afin de représenter les différentes transition entre les interfaces graphiques.
+Pour définir un état, leurs outils va analyser les valeurs des propriétés des widgets visibles sur un écran.
+Une fois une action exécuté, l'outil va détecter si l'état d'un widget a changé, dans ce cas un nouvel état de l'application est créé.
+Ainsi, les auteurs sont capables de représenter les impacts d'une action sur l'interface graphique.
+
+Pour définir un état, Joorabchi _et al._ [@joorabchi2012reverse] ont décidé d'effectuer une comparaison d'image.
+Après chaque action sur un widget, exécuté par un outil, il prenne une image de l'application et la compare avec une image prise avant l'action.
+Si les deux images sont différentes, alors les auteurs ont découvert un changement d'état provenant d'une action.
+
+Le méta-modèle de state flow permet de représenter l'impact d'un événement sur l'interface utilisateur.
+Le code à executer sur l'interface afin de passer d'un état à un autre est contenu dans notre méta-modèle du code comportemental.
+
+Notre méta-modèle de code comportemental permet de représenter les informations
+    contenu par les méta-modèle de navigation et de state flow.
+Cependant, nous ne représentons pas l'état d'entrée et l'état de sortie après une action,
+    mais l'état d'entrée d'une fenêtre et la logique à appliquer après une action pour obtenir l'état de sortie.
+Cette différence est dû à notre objectif qui est de migrer cette logique dans un nouveau langage et non
+    d'analyser les différents états possible de l'application.
 
 ### KDM {#sec:kdm}
 
