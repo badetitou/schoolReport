@@ -7,15 +7,15 @@ Diviser un problème en petits sous-problèmes est une méthode efficace pour r�
 Nous avons identifié trois parties dans une interface graphique :
 
 * L'interface utilisateur
-* Le code de l'entreprise
 * Le code comportemental
+* Le code métier
 
 ## Interface utilisateur
 
 L'interface utilisateur est la partie visible.
 Cet élément représente l'interface de l'application.
 Elle comprend les composants de l'interface.
-L'interface utilisateur ne contient pas la visualisation exacte d'un composant,
+L'interface utilisateur ne contient pas le style visuel exact d'un composant,
     mais elle peut préciser certaines caractéristiques inhérentes au composant, comme la possibilité d'être cliqué,
     ou certaines propriétés du composant, comme sa couleur ou sa taille.
 Plus que les composants, elle décrit également la disposition
@@ -27,9 +27,9 @@ Dans le cas où une application est composée de plusieurs fenêtres (ou de page
 
 Le code comportemental est la partie _exécutable_ de l'application.
 Cela correspond à la logique de l'application.
-Il peut avoir deux manifestations du code comportemental.
+Il peut y avoir deux manifestations du code comportemental.
 Il peut être exécuté soit par une action de l'utilisateur sur un composant d'interface (comme un clic) ou par le système lui-même.
-Comme un langage de programmation _"classique"_, le code métier contient des structures de contrôle (_c.-à-d._ boucle et alternative).
+Comme dans un langage de programmation _"classique"_, le code métier contient des structures de contrôle (_c.-à-d._ boucle et alternative).
 Lié à l'interface utilisateur, le code comportemental définit la logique de l'interface utilisateur.
 Cependant, le code comportemental n'exprime pas la logique de l'application.
 Cette partie est dédiée au code comportemental.
@@ -37,8 +37,8 @@ Cette partie est dédiée au code comportemental.
 ## Code métier
 
 Le code métier définit les informations spécifiques d'une application.
-Il est composé par les règles générales de l'application
-    (comment calculer les taxes ?), l'adresse des services distants (quel serveur mon code métier doit demander), les données de l'application (quelle base de données ? quel type d'objet).
+Il est composé des règles générales de l'application
+    (comment calculer les taxes ?), de l'adresse des services distants (quel serveur mon code métier doit demander), des données de l'application (quelle base de données ? quel type d'objet).
 Le code métier n'est donc pas directement lié à l'interface utilisateur.
 
 \newpage

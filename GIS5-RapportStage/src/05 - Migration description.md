@@ -1,9 +1,8 @@
 # Mise en place de la migration par via les modèles
 
-Suite à l'étude des contraintes inhérentes aux problèmes de migration dans le cadre
-    d'une entreprise.
-Et après la recherche de l'état de l'art.
-Nous avons travaillé sur la conception et l'implémentation d'une stratégie de migration
+Suite à l'étude des contraintes inhérentes aux problèmes de migration dans le cadre d'une entreprise,
+    et tout en effectuant un état de l'art,
+    nous avons travaillé sur la conception et l'implémentation d'une stratégie de migration
     respectant les critères que nous avons fixés.
 
 Comme vu Section \ref{sec:strategieMigration}, seule la migration en utilisant les modèles nous permet
@@ -22,9 +21,9 @@ Nous allons présenter dans cette partie le processus de migration que nous avon
     nous avons conçu une stratégie pour effectuer la migration.
 Le processus que l'on a représenté Figure \ref{fig:processusMigration} est divisé en cinq étapes :
 
-1. _Extraction du modèle de la technologie source_ est la première étape permettant de construire l'ensemble des analyses et transformations que nous devons appliquer pour effectuer la migration. Elle consiste en la génération d'un modèle représentant le code source de l'application originel. Dans notre cas d'étude, le programme source est en java et donc le modèle que nous créons est une implémentation d'un méta-modèle permettant de représenter une application écrite en java.
+1. _Extraction du modèle de la technologie source_ est la première étape permettant de construire l'ensemble des analyses et transformations que nous devons appliquer pour effectuer la migration. Elle consiste en la génération d'un modèle représentant le code source de l'application originel. Dans notre cas d'étude, le programme source est en Java et donc le modèle que nous créons est une implémentation d'un méta-modèle permettant de représenter une application écrite en Java.
 2. _Extraction de l'interface utilisateur_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relèvent du modèle d'interface utilisateur. Ce dernier, que nous avons dû concevoir, est expliqué Section \ref{sec:metamodelUI}.
-3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface utilisateur. Par exemple, si un clic sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, définit dans le modèle UI, lorsqu'un clic est effectué, on effectue un certain nombre d'actions, dont une sur le texte, lui aussi définit dans le modèle UI.
+3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface utilisateur (UI). Par exemple, si un clic sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, définit dans le modèle UI, lorsqu'un clic est effectué, on effectue un certain nombre d'actions, dont une sur le texte, lui aussi définit dans le modèle UI.
 4. _Exportation de l'interface utilisateur_. Le modèle d'interface graphique étant construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface utilisateur. Cela consiste à la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaire au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérente à l'interface.
 5. Finalement, l'_Exportation du code comportemental_ est la génération du code comportemental qui est lié à l'interface utilisateur. Cette étape peut être effectuée en parallèle de la quatrième.
 
@@ -33,43 +32,44 @@ Le processus que l'on a représenté Figure \ref{fig:processusMigration} est div
 ![Méta-Modèle d'interface utilisateur](figures/guiModel.png){#guiModel width=80%}
 
 Afin de représenter une interface utilisateur, nous avons conçu le méta-modèle proposé Figure \ref{guiModel}.
-Dans la suite de cette partie, nous présentons les différentes entités du méta-modèle.
+Dans la suite de cette section, nous présentons les différentes entités du méta-modèle.
 
-La __Phase__ représente le conteneur principal d'une page interface utilisateur.
+La **Phase** représente le conteneur principal d'une page interface utilisateur.
 Cela peut correspondre à une _fenêtre_ d'une application du bureau, une page web, ou
     dans notre cas d'un onglet d'une page web.
-Une Phase peut contenir plusieurs Business page.
-Elle peut aussi être appelée par un widget grâce à une Call Phase Action.
-Lorsqu'une Phase est appelée, l'interface change pour afficher la Phase.
+Une Phase peut contenir plusieurs **Business Page**.
+Elle peut aussi être appelée par un widget grâce à une **Action** de type **Call Phase**.
+Lorsqu'une Phase est appelée, l'interface change pour l'afficher.
 Dans le cas d'une application de bureau, l'interface change ou une nouvelle fenêtre est ouverte
     avec l'interface de la Phase.
-Avec une application web, l'appelle d'une Phase peut correspondre à l'ouverture d'un nouvel onglet, le changement d'onglet actif ou la transformation de la page web courante.
+Pour application web, l'appelle d'une Phase peut correspondre à l'ouverture d'un nouvel onglet, le changement d'onglet actif ou la transformation de la page web courante.
 
-Les __Widgets__ sont les différents composants d'interface et les composants de disposition.
+Les **Widgets** sont les différents composants d'interface et les composants de disposition.
 Il existe deux types de widgets.
-Le __Leaf__ est un widget qui ne contient pas un autre widget dans l'interface.
-Le __Container__ peut contenir un autre widget.
+Le **Leaf** est un widget qui ne contient pas d'autre widget.
+Le **Container** qui peut contenir un ou plusieurs autres widgets.
 Ce dernier permet de séparer les widgets en fonction de leur place dans l'organisation de la page web représentée.
 
-Les __Attributes__ représentent les informations appartenant à un Widget et peuvent changer son aspect visuel ou son comportement.
-Les attributs communs sont la hauteur et la largeur pour définir précisément la dimension d'un widget.
-Il y a aussi des attributs pour contenir des attributs tels que le texte contenu par un widget.
+Les **Attributes** représentent les informations appartenant à un widget et peuvent changer son aspect visuel ou son comportement.
+Des attributs communs sont la hauteur et la largeur pour définir précisément la dimension d'un widget.
+Il y a aussi des attributs qui contiennent des données.
 Par exemple, un widget représentant un bouton peut avoir un attribut _text_ explicite le texte du bouton.
-Un attribut peut changer le comportement, ce pourrait être le cas d'un attribut _enable_.
+Un attribut peut changer le comportement d'un widget, c'est le cas de l'attribut _enable_.
 Un bouton avec l'attribut _enable_ positionné sur _false_ représente un bouton sur lequel nous ne pouvons pas cliquer.
 Enfin, les widgets peuvent avoir un attribut qui aura un impact sur le visuel de l'application.
-Cet attribut définit la disposition de ses enfants et potentiellement sa propre dimension pour respecter la mise en pages.
+Ce type d'attribut permet de définir un layout à respecter par les widgets contenus dans un autre
+    et potentiellement les dimensions de ce dernier pour respecter une mise en pages particulière.
 
-Les __Actions__ sont propres aux Widgets.
+Les __Actions__ sont propres aux widgets.
 Elles représentent des actions qui peuvent être exécutées dans une interface graphique.
-__Call Service__ représente un appel à un service distant tel Internet.
+__Call Service__ représente un appel à un service distant comme une URL sur internet.
 __Fire PopUp__ est l'action qui affiche un pop-up sur l'écran.
 Le pop-up ne peut pas être considéré comme un widget,
     il n'est pas présent dans l'interface graphique,
     il apparaît seulement et disparaît.
 
-Le __Service__ est la référence à la fonctionnalité distante que l'application peut appeler à partir de son interface graphique.
-Dans un contexte web, il peut s'agir du côté serveur de l'application.
+Le __Service__ est la référence de fonctionnalité distante que l'application peut appeler à partir de son interface graphique.
+Dans le contexte d'une application client/serveur, il peut s'agir du côté serveur de l'application.
 
 ## Méta-modèle du code comportemental {#metamodelComportemental}
 
@@ -106,17 +106,18 @@ L'outil a été implémenté en Pharo[^pharo] et nous avons utilisé la platefor
 
 Le Figure \ref{codeImpl} présente la logique d'implémentation.
 Le bloc principal est _BL-Model_.
-Ce bloc contient l'implémentation du méta-modèle GUI.
+Ce bloc contient l'implémentation du méta-modèle GUI[^GUI].
 En plus du modèle, il y a un exportateur abstrait et une implémentation de
     l'exportateur pour Angular (_BL-Model-Exporter_ et _BL-Model-Exporter-Angular_, un importateur abstrait et le    code spécifique pour Java (_BL-Model-Importateur_ et _BL-Model-Importer-Java_).
 Parce que nous testons notre solution sur le système de Berger-Levrault,
-    nous avons également implémenté l'extension _"Coreweb"_,
-    alors que la stratégie de migration ne dépend pas de cette extension.
+    nous avons également implémenté l'extension _"CoreWeb"_,
+    la stratégie de migration ne dépend pas cependant pas de cette extension.
 Ces paquets étendent les précédents pour avoir un contrôle fin du processus de migration.
 Ce contrôle est important pour améliorer le résultat final.
 
 [^moose]: Moose est une plateforme pour l'analyse de logiciels et de données - [http://www.moosetechnology.org/](http://www.moosetechnology.org/)
-[^pharo]: [Pharo est un langage de programmation objet, réflexif et dynamiquement typé - (http://pharo.org/)](http://pharo.org/)
+[^pharo]: Pharo est un langage de programmation objet, réflexif et dynamiquement typé - [http://pharo.org/](http://pharo.org/)
+[^GUI] : GUI : Graphical User Interface - Interface Graphique
 
 ### Meta-modèle
 
@@ -127,10 +128,10 @@ Pour les relations entre les entités, nous pouvons utiliser le format UML.
 Ainsi une relation _"oneToMany"_ entre deux entités se définit de la manière suivante : `entity1 -* entity2`.
 
 Afin de tester la stratégie sur l'application de Berger-Levrault,
-    nous avons créé des types spécifiques de Widgets pour Berger-Levrault.
+    nous avons créé des types spécifiques de widgets pour Berger-Levrault.
 Des exemples de ces widgets sont le _SplitButton_, _RichTextArea_ ou _Switch_.
 Ces éléments n'appartiennent pas au modèle GUI d'origine et,
-    combiné avec le cadre que nous avons créé, ils rendent l'implémentation de l'outil plus modulaire.
+    combiné avec le framework que nous avons créé, ils rendent l'implémentation de l'outil plus modulaire.
 
 ### Importation {#implementationImport}
 
@@ -142,11 +143,11 @@ Ce modèle avait déjà une implémentation existante dans Moose avec le projet 
 Nous avons donc réutilisé ce modèle pour ne pas avoir à reconcevoir un modèle préexistant.
 De plus, ce travail préliminaire est compatible avec plusieurs outils qui ont été développés
     en interne à RMod.
-Entre autres, deux logiciels de génération du modèle Famix-Java depuis du code source java existait.
+Entre autres, deux logiciels de génération du modèle Famix-Java depuis du code source Java existent.
 Les outils sont verveineJ[^verveineJ] et jdt2Famix[^jdt2famix].
 Ces deux derniers permettent de créer depuis le code source un fichier _mse_.
 Le fichier _mse_ peut ensuite être importé dans la plateforme Moose.
-Pour le cas de Berger-Levrault, nous avons utilisé verveineJ car ce dernier permet aussi de _garder un lien_ entre le modèle
+Dans le cadre su projet avec de Berger-Levrault, nous avons utilisé verveineJ car ce dernier permet aussi de _garder un lien_ entre le modèle
     généré et le code à partir duquel il l'a été.
 
 Une fois le modèle de la technologie source créée, et après avoir implémenté nos méta-modèles,
@@ -160,12 +161,12 @@ Ce fichier nous permet de _"facilement"_ récupéré la classe java correspondan
     ainsi que le nom de la phase.
 
 Ensuite, nous avons développé l'outil d'importation de manière incrémentale.
-Nous avons donc cherché les Business Page.
+Nous avons donc cherché les business pages.
 Grâce à l'analyse préliminaire des applications de Berger-Levrault, nous avons détecté que
     les business pages en GWT correspondent à des classes qui implémente l'interface _IPageMetier_.
 Une fois les classes trouvées, nous avons recherché les appels des constructeurs des classes.
-Puis, en faisant le lien entre le constructeur et la phase qui _"ajoute"_ la business page à leur contenu,
-    nous avons détecté les liens d'appartenances entre les pages métiers et les phases.
+Puis, en faisant le lien entre les appels et les phases qui _"ajoute"_ à leurs contenu,
+    nous avons détecté les liens d'appartenances entre les business pages et les phases.
 
 Pour les widgets, nous avons dû tout d'abord trouver tous les widgets potentiellement instanciable.
 Pour cela, nous avons cherché toutes les sous-classes Java de la classe GWT _Widget_.
@@ -174,13 +175,15 @@ Ensuite, comme pour les business pages, nous avons cherché les appels des const
     avons relié ces appels à la business page qui les a ajoutés.
 
 Enfin, pour la détection des attributs et des actions associés à un widget.
-Nous avons, pour chaque widget, cherché dans quelle variable java il a été affecté.
+Nous avons, pour chaque widget, cherché dans quelle variable Java il a été affecté.
 Puis nous avons cherché les appels de méthodes effectués depuis ces variables java.
 Les appels aux méthodes _"addActionHandler"_ sont transformés en action tandis que
     les appels aux méthodes _"setX"_ ont été transformés en attribut.
 
 [^verveineJ]: [verveineJ : https://rmod.inria.fr/web/software/](https://rmod.inria.fr/web/software/)
 [^jdt2famix]: [jdt2famix : https://github.com/feenkcom/jdt2famix](https://github.com/feenkcom/jdt2famix)
+
+**TODO Ajouter un exemple**
 
 ### Exportation
 
@@ -189,8 +192,8 @@ Une fois la génération du modèle d'interface graphique et du modèle du code 
 L'exportation consiste en la génération du code source de l'application cible.
 
 La première étape de l'implémentation de l'exportation est l'utilisation
-    d'un patron de conception _"visiteur"_.
-Ce dernier est ajouté au modèle d'interface graphique, aux phases et business pages.
+    du patron de conception _"visiteur"_.
+Ce dernier est appliqué au modèle d'interface graphique, aux phases et business pages.
 
 La visite du modèle GUI va créer la hiérarchie de l'application cible ainsi que les fichiers
     de configuration.

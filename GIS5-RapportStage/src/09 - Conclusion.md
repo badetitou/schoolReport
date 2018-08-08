@@ -1,7 +1,7 @@
 # Conclusion
 
 Durant ce stage, j'ai continué le projet de migration que j'ai entrepris pendant
-    mon projet de fin d'études à Polytech Lille.
+    mon Projet de Fin d'Études à Polytech Lille.
 Après une première étape d'analyse que j'avais menée durant ce stage,
     j'ai approfondi les recherches de l'état de l'art et créé des outils permettant de faciliter la migration des applications de Berger-Levrault.
 
@@ -13,9 +13,9 @@ Puis, j'ai implémenté en partie les outils nécessaires pour effectuer la migr
     en suivant le processus de migration.
 Ainsi, j'ai pu commencer l'exportation de certains éléments des applications GWT en Angular.
 
-La stratégie de migration est bien définie et l'implémentation du modèle d'interface graphique avec les outils d'importation et d'exportation donne des résultats encourageants sur la suite du projet.
+La stratégie de migration est bien définie et l'implémentation du méta-modèle d'interface graphique avec les outils d'importation et d'exportation donne des résultats encourageants sur la suite du projet.
 Il reste encore du travail d'implémentation et de définition de méta-modèles.
-En effet, je n'ai pas encore conçu les méta-modèles pour les _layout_, le code comportemental et le code métier.
+En effet, je n'ai pas encore conçu les méta-modèles pour les _layout_ et le code métier.
 Une fois conçus, il faudra les implémenter tout en gardant la structure du projet cohérent.
 
 Un autre travail doit être mené sur la validation des résultats.
