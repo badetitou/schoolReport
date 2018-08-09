@@ -154,6 +154,35 @@ Une fois le modèle de la technologie source créée, et après avoir implément
     nous avons développé des outils en Pharo permettant d'effectuer la transformation du modèle source vers le modèle GUI.
 Nous allons maintenant décrire les techniques utilisées pour retrouver les éléments définis dans le modèle GUI depuis le modèle de technologie source.
 
+\begin{figure}[htb]
+\centering
+\begin{lstlisting}
+public class SamplePageMetier1 extends AbstractSimplePageMetier {
+    @Override
+    public void buildPageUi(Object object) {
+        BLLinkLabel lblPgSuivante = new BLLinkLabel("Next page");
+        lblPgSuivante.addClickHandler(new ClickHandler(){
+            @Override
+            public void onClick(ClickEvent event) {
+                SamplePageMetier1.this.fireOnSuccess("param 1");
+            }
+        });
+        lblPgSuivante.setEnabled(false);
+        // add the content
+        vpMain.add(new Label("<Business content>"));
+        vpMain.add(lblPgSuivante);
+        super.setBuild(true);
+    }
+}
+\end{lstlisting}
+\caption{Définition d'interface graphique en Java}
+\label{uiJava}
+\end{figure}
+
+La Figure \ref{uiJava} présente un extrait du code de l'application _bac à sable_.
+Il s'agit de la méthode `buildPageUi(Object object)` qui contient le code à exécuter pour construire l'interface graphique de
+    la business page "SamplePageMetier1".
+
 Les premiers éléments que nous avons voulu reconnaître sont les phases.
 En analysant les projets GWT, nous avons repéré un fichier _.xml_ dans lequel est stocké toutes les informations des phases.
 Nous avons donc ajouté une étape à l'importation qui est l'analyse d'un fichier _XML_.
@@ -164,8 +193,10 @@ Ensuite, nous avons développé l'outil d'importation de manière incrémentale.
 Nous avons donc cherché les business pages.
 Grâce à l'analyse préliminaire des applications de Berger-Levrault, nous avons détecté que
     les business pages en GWT correspondent à des classes qui implémente l'interface _IPageMetier_.
+Dans la Figure \ref{uiJava}, la classe SamplePageMetier1 étend AbstractSimplePageMetier, et ce dernier
+    implémente l'interface.
 Une fois les classes trouvées, nous avons recherché les appels des constructeurs des classes.
-Puis, en faisant le lien entre les appels et les phases qui _"ajoute"_ à leurs contenu,
+Puis, en faisant le lien entre les appels et les phases qui _"ajoute"_ à leurs contenus,
     nous avons détecté les liens d'appartenances entre les business pages et les phases.
 
 Pour les widgets, nous avons dû tout d'abord trouver tous les widgets potentiellement instanciable.
@@ -173,17 +204,24 @@ Pour cela, nous avons cherché toutes les sous-classes Java de la classe GWT _Wi
 Ce sont les classes qui vont pouvoir être instanciées et utilisées pour la construction du programme.
 Ensuite, comme pour les business pages, nous avons cherché les appels des constructeurs des widgets et
     avons relié ces appels à la business page qui les a ajoutés.
+Dans la Figure \ref{uiJava}, il y a deux appels à des constructeurs de widget.
+Le constructeur de BLLinkLabel est appelé ligne 4 et celui de Label ligne 13.
+La variable `vpMain` correspond au panel principal de la business page.
+Les lignes 13 et 14 correspondent à l'ajout d'un widget dans une business page
+    grâce aux appels à la méthode `add()`.
 
 Enfin, pour la détection des attributs et des actions associés à un widget.
 Nous avons, pour chaque widget, cherché dans quelle variable Java il a été affecté.
 Puis nous avons cherché les appels de méthodes effectués depuis ces variables java.
 Les appels aux méthodes _"addActionHandler"_ sont transformés en action tandis que
     les appels aux méthodes _"setX"_ ont été transformés en attribut.
+Dans le cas de la Figure \ref{uiJava},
+    le BLLinkLable, dont la variable est `lblPgSuivante`, est lié à une action et à un attribut.
+Les lignes 5 à 10 correspondent à l'ajout d'une action et le code à executer quand l'action est exécutée.
+La ligne 11 correspond à l'ajout de l'attribut "Enabled" avec comme valeur `false`.
 
 [^verveineJ]: [verveineJ : https://rmod.inria.fr/web/software/](https://rmod.inria.fr/web/software/)
 [^jdt2famix]: [jdt2famix : https://github.com/feenkcom/jdt2famix](https://github.com/feenkcom/jdt2famix)
-
-**TODO Ajouter un exemple**
 
 ### Exportation
 
