@@ -3,6 +3,7 @@ geometry: left=2.5cm,right=2.5cm,top=1.5cm,bottom=2cm
 author: Benoît Verhaeghe
 fontsize: 12pt
 indent: true
+csl: "../../StateOfTheArt/csl/ieee.csl"
 header-includes:
   - '\usepackage{hyperref}'
   - '\usepackage{graphicx}'
@@ -10,6 +11,7 @@ header-includes:
   - '\usepackage{pdfpages}'
   - '\usepackage{listings}'
   - '\usepackage{color}'
+  - '\input{../../papers/myConfig/macros}'
 ---
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
