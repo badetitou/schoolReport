@@ -108,7 +108,8 @@ Le Figure \ref{codeImpl} présente la logique d'implémentation.
 Le bloc principal est _BL-Model_.
 Ce bloc contient l'implémentation du méta-modèle GUI[^GUI].
 En plus du modèle, il y a un exportateur abstrait et une implémentation de
-    l'exportateur pour Angular (_BL-Model-Exporter_ et _BL-Model-Exporter-Angular_, un importateur abstrait et le    code spécifique pour Java (_BL-Model-Importateur_ et _BL-Model-Importer-Java_).
+    l'exportateur pour Angular (_BL-Model-Exporter_ et _BL-Model-Exporter-Angular_)
+    et un importateur abstrait ainsi que le code spécifique pour Java (_BL-Model-Importateur_ et _BL-Model-Importer-Java_).
 Parce que nous testons notre solution sur le système de Berger-Levrault,
     nous avons également implémenté l'extension _"CoreWeb"_,
     la stratégie de migration ne dépend pas cependant pas de cette extension.
@@ -117,7 +118,7 @@ Ce contrôle est important pour améliorer le résultat final.
 
 [^moose]: Moose est une plateforme pour l'analyse de logiciels et de données - [http://www.moosetechnology.org/](http://www.moosetechnology.org/)
 [^pharo]: Pharo est un langage de programmation objet, réflexif et dynamiquement typé - [http://pharo.org/](http://pharo.org/)
-[^GUI] : GUI : Graphical User Interface - Interface Graphique
+[^GUI]: GUI : Graphical User Interface - Interface Graphique
 
 ### Meta-modèle
 
