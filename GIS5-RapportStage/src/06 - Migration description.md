@@ -26,14 +26,14 @@ Toutes les solutions doivent respecter les contraintes définies Section \ref{co
 
 ![Schéma processus de migration](figures/processusMigration.png){#fig:processusMigration width=100%}
 
-À partir de l'état de l'art et des contraintes que nous avons explicité,
+À partir de l'état de l'art et des contraintes que nous avons explicitées,
     nous avons conçu une stratégie pour effectuer la migration.
 Le processus que l'on a représenté Figure \ref{fig:processusMigration} est divisé en cinq étapes :
 
 1. _Extraction du modèle de la technologie source_ est la première étape permettant de construire l'ensemble des analyses et transformations que nous devons appliquer pour effectuer la migration. Elle consiste en la génération d'un modèle représentant le code source de l'application originel. Dans notre cas d'étude, le programme source est en Java et donc le modèle que nous créons est une implémentation d'un méta-modèle permettant de représenter une application écrite en Java.
 2. _Extraction de l'interface utilisateur_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relèvent du modèle d'interface utilisateur. Ce dernier, que nous avons dû concevoir, est expliqué Section \ref{sec:metamodelUI}.
-3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface utilisateur (UI). Par exemple, si un clic sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, définit dans le modèle UI, lorsqu'un clic est effectué, on effectue un certain nombre d'actions, dont une sur le texte, lui aussi définit dans le modèle UI.
-4. _Exportation de l'interface utilisateur_. Le modèle d'interface graphique étant construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface utilisateur. Cela consiste à la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaire au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérente à l'interface.
+3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface utilisateur (UI). Par exemple, si un clic sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, défini dans le modèle UI, lorsqu'un clic est effectué, on effectue un certain nombre d'actions, dont une sur le texte, lui aussi défini dans le modèle UI.
+4. _Exportation de l'interface utilisateur_. Le modèle d'interface graphique étant construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface utilisateur. Cela consiste en la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaires au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérente à l'interface.
 5. Finalement, l'_Exportation du code comportemental_ est la génération du code comportemental qui est lié à l'interface utilisateur. Cette étape peut être effectuée en parallèle de la précédente.
 
 ## Méta-modèle d'interface utilisateur {#sec:metamodelUI}
@@ -84,7 +84,7 @@ Dans le contexte d'une application client/serveur, il peut s'agir du côté serv
 
 ![Méta-Modèle du code comportemental](figures/behavioralModel.png){#behavioralModel width=100%}
 
-Le méta-modèle du code comportemental présenté Figure \ref{behavioralModel} contient le code lié au comportement de l'application.
+Le méta-modèle du code comportemental présenté Figure \ref{behavioralModel} représente le code lié au comportement de l'application.
 Il y a deux éléments principaux, Statement et Expression.
 
 Le **Statement** est la représentation des structures de contrôle des langages de programmation.
@@ -132,7 +132,7 @@ Ce contrôle est important pour améliorer le résultat final.
 ### Importation {#implementationImport}
 
 La création des modèles représentant l'interface graphique est divisée en trois étapes comme présenté Section \ref{sec:processusMigration}.
-Dans le cas de Berger-Levrault, nous avons implémenté la stratégie en Pharo avec Moose.
+Dans le cas de Berger-Levrault, nous avons implémenté l'approche en Pharo avec Moose.
 
 La première étape est la conception du modèle de la technologie source.
 Ce modèle avait déjà une implémentation existante dans Moose avec le projet _Famix-Java_.
@@ -143,10 +143,10 @@ Entre autres, deux logiciels de génération du modèle Famix-Java depuis du cod
 Les outils sont verveineJ[^verveineJ] et jdt2Famix[^jdt2famix].
 Ces deux derniers permettent de créer depuis le code source un fichier _mse_.
 Le fichier _mse_ peut ensuite être importé dans la plateforme Moose.
-Dans le cadre su projet avec de Berger-Levrault, nous avons utilisé verveineJ car ce dernier permet aussi de _garder un lien_ entre le modèle
+Dans le cadre du projet avec Berger-Levrault, nous avons utilisé verveineJ car ce dernier permet aussi de _garder un lien_ entre le modèle
     généré et le code à partir duquel il l'a été.
 
-Une fois le modèle de la technologie source créée, et après avoir implémenté nos méta-modèles,
+Une fois le modèle de la technologie source créé, et après avoir implémenté nos méta-modèles,
     nous avons développé des outils en Pharo permettant d'effectuer la transformation du modèle source vers le modèle GUI.
 Nous allons maintenant décrire les techniques utilisées pour retrouver les éléments définis dans le modèle GUI depuis le modèle de technologie source.
 
@@ -223,18 +223,17 @@ La ligne 11 correspond à l'ajout de l'attribut "Enabled" avec comme valeur `fal
 
 Une fois la génération du modèle d'interface graphique et du modèle du code comportemental terminé,
     il est possible de lancer l'exportation.
-L'exportation consiste en la génération du code source de l'application cible.
+L'exportation consiste en la génération du code de l'application cible.
 
 La première étape de l'implémentation de l'exportation est l'utilisation
     du patron de conception _"visiteur"_.
 Ce dernier est appliqué au modèle d'interface graphique.
 
-La visite du modèle GUI va créer la hiérarchie de l'application cible ainsi que les fichiers
-    de configuration.
+La visite du modèle GUI crée la hiérarchie de l'application cible ainsi que les fichiers de configuration.
 Ensuite, l'exportation visite toutes les phases.
-Pour chacune des phases, considéré comme des sous-projets en Angular dans l'architecture de l'application cible que nous avons définie,
+Pour chacune des phases, considérées comme des sous-projets en Angular dans l'architecture de l'application cible que nous avons définie,
     le visiteur génère les fichiers de configurations.
-Puis, pour chaque business page, le visiteur va générer un fichier HTML et un fichier TypeScript.
+Puis, pour chaque business page, le visiteur génére un fichier HTML et un fichier TypeScript.
 Pour le fichier html, le visiteur construit le DOM à partir des widgets contenus dans la business page.
 Les widgets connaissant leurs attributs et actions,
     ils fournissent eux-mêmes leurs caractéristiques aux visiteurs.

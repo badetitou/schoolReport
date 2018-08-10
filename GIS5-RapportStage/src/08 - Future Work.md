@@ -32,7 +32,7 @@ Une fois le layout implémenté nous pourrons bien représenter l'interface util
     des méta-modèles pour le code comportemental et le code métier.
 
 Nous avons déjà défini un méta-modèle de code comportemental qui est présenté Section \ref{metamodelComportemental}.
-Il faut encore implémenter ce modèle et modifier en conséquence les importateur et exportateur que nous avons créé.
+Il faut encore implémenter ce modèle et modifier en conséquence les importateur et exportateur que nous avons créés.
 Cette amélioration devrait nous permettre de mieux représenter les comportements de l'application
     lorsqu'un utilisateur effectue une action sur l'interface.
 
@@ -43,7 +43,7 @@ Cela devrait permettre d'extraire et représenter les règles métiers d'une app
 
 Un des problèmes que nous avons actuellement est l'évaluation de la migration.
 Il est facile de prendre l'application source et l'application cible et de regarder _manuellement_
-    si la migration a bien été effectuée, mais sur des applications de la taille de celle de Berger-Levrault
+    si la migration a bien été effectuée, mais sur des applications de la taille de celles de Berger-Levrault
     nous avons besoin d'un système automatique.
 Les éléments à évaluer sont les règles métiers dans l'application cible,
     le respect du visuel et l'application du code comportemental.

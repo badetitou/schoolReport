@@ -44,7 +44,7 @@ Nous retrouvons dans les pages métiers celles qui implémentent l'interface _IP
 La factorisation du code est une complication dans le calcul du nombre exact de business page que nous devons détecter pendant l'importation.
 Cette difficulté d'évaluation est discutée Section \ref{discussion}.
 
-Nous réussissons à identifier 2081 widgets, cependant avec les heuristiques nous avons défini Section \ref{implementationImport} nous devrions avoir 2141 widgets.
+Nous réussissons à identifier 2081 widgets, cependant avec les heuristiques que nous avons définis Section \ref{implementationImport} nous devrions avoir 2141 widgets.
 Ce qui correspond à un total de 98 % de widget que nous réussissons à créer.
 Il existe cependant un écart que nous n'arrivons pas encore à évaluer dont l'on discute Section \ref{discussion}.
 
@@ -115,7 +115,7 @@ Dans la version exportée, les couleurs de l'en-tête des panels sont un peu plu
 La Figure \ref{cmp2} présente les différences visuelles pour la Phase _Zone de saisie_ de l'application _bac àsable_.
 L'image de gauche correspond à la phase avant la migration tandis que celle de gauche est la même Phase après la migration.
 Les deux images étant grandes, nous les avons rognés pour afficher cette zone d'intérêt.
-La migration à bien permit de conserver l'architecture entre les éléments, ce que l'on peut voir avec les composants de formulaire à l'intérieur du panel _"zone de saisie"_.
+La migration a bien permis de conserver l'architecture entre les éléments, ce que l'on peut voir avec les composants de formulaire à l'intérieur du panel _"zone de saisie"_.
 Cependant le layout n'a pas été correctement respecté, ce qui explique les différences visuelles entre les deux images.
 
 ## Visualisation {#visualisation}

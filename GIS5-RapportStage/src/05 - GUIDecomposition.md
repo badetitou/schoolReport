@@ -29,7 +29,7 @@ Le code comportemental est la partie _exécutable_ de l'application.
 Cela correspond à la logique de l'application.
 Il peut y avoir deux manifestations du code comportemental.
 Il peut être exécuté soit par une action de l'utilisateur sur un composant d'interface (comme un clic) ou par le système lui-même.
-Comme dans un langage de programmation _"classique"_, le code métier contient des structures de contrôle (_c.-à-d._ boucle et alternative).
+Comme dans un langage de programmation _"classique"_, le code comportemental contient des structures de contrôle (_c.-à-d._ boucle et alternative).
 Lié à l'interface utilisateur, le code comportemental définit la logique de l'interface utilisateur.
 Cependant, le code comportemental n'exprime pas la logique de l'application.
 Cette partie est dédiée au code comportemental.

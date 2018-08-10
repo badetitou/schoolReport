@@ -36,21 +36,21 @@ Silva _et al._ [@silva2010guisurfer], Lelli _et al._ [@lelli2016automatic] et St
     qui analysent du code source provenant de langage non destiné au web, mais permettant de décrire une interface graphique.
 Leurs cas d'études sont des applications de bureau ayant une interface graphique.
 Ces logiciels cherchent la définition des widgets dans le code source.
-Une fois les créations des widgets trouvés dans le code source, les logiciels analysent les méthodes invoquées ou invoquant les widgets afin de découvrir les relations entre les widgets et leurs attributs.
+Une fois les créations des widgets trouvées dans le code source, les logiciels analysent les méthodes invoquées ou invoquant les widgets afin de découvrir les relations entre les widgets et leurs attributs.
 
 Sánchez Ramón *et al.* [@sanchez2014model] ont développé une solution permettant d'extraire depuis un ancien logiciel son interface graphique.
-Le cas d'étude des auteurs est une application source ayant était créée avec Oracle Forms.
+Le cas d'étude des auteurs est une application source créée avec Oracle Forms.
 Contrairement aux cas d'études précédents, l'interface est définie dans un fichier à part explicitant pour chaque widget sa position fixe.
 Chaque widget a ainsi une position X, Y ainsi qu'une hauteur et une largeur.
-La stratégie de l'auteur consiste à déterminer la hiérarchie des widgets depuis ces informations.
+La stratégie des autheurs consiste à déterminer la hiérarchie des widgets depuis ces informations.
 
 **Dynamique**. La stratégie dynamique consiste à analyser l'interface graphique
     d'une application pendant qu'elle est en fonctionnement.
-L'utilisateur va lancer un logiciel dont l'interface est à extraire,
-    puis il va lancer l'outil d'analyse dynamique.
-Ce dernier va être capable de détecter les différents composants de l'interface et les actions qu'il peut leurs appliquer.
-Puis l'outil va appliquer une action sur un élément de l'interface et détecter les changements s'il y en a.
-En répétant ces actions, la stratégie va permettre d'explorer les différentes interfaces qui sont utilisées dans l'application à analyser et comment interagir avec ces dernières.
+L'utilisateur lance un logiciel dont l'interface est à extraire,
+    puis il lance l'outil d'analyse dynamique.
+Ce dernier est capable de détecter les différents composants de l'interface et les actions qu'il peut leur appliquer.
+Puis l'outil applique une action sur un élément de l'interface et détecter les changements s'il y en a.
+En répétant ces actions, l'approche permet d'explorer les différentes interfaces qui sont utilisées dans l'application à analyser et comment interagir avec ces dernières.
 
 Les auteurs Memon _et al._ [@MemonWCRE2003], Samir _et al._ [@samir2007swing2script], Shah et Tilevich [@shah2011reverse] et Morgado _et al._ [@morgado2011reverse]
     ont développé des logiciels implémentant la stratégie dynamique.
@@ -62,7 +62,7 @@ Gotti _et al._ [@gotti2016java] utilisent une stratégie hybride pour l'analyse 
 La première étape consiste en la création d'un modèle grâce à une analyse statique du code source.
 Les auteurs retrouvent la composition des interfaces graphiques, les différents widgets et leurs propriétés.
 Ensuite, l'analyse dynamique exécute les différentes actions possibles sur tous les widgets et
-    analyser les modifications potentielles sur l'interface.
+    analyse les modifications potentielles sur l'interface après avoir effectué les actions.
 
 ### Transformation de modèle vers modèle
 
@@ -76,11 +76,11 @@ Les auteurs ont décomposé ces règles en petites briques.
 Chaque brique peut correspondre soit à une condition à respecter pour que la règle soit validée, soit à un changement sur la sortie de la règle.
 Ensuite, les auteurs ont développé un algorithme de programmation génétique pouvant manipuler ces règles.
 À partir d'exemples l'algorithme apprend les règles de transformation à appliquer afin d'effectuer la transformation du modèle.
-Pour cela, il modifie les petites briques composant les règles et analyser si le modèle en sortie ressemble à
+Pour cela, il modifie les petites briques composant les règles et analyse si le modèle en sortie ressemble à
   celui explicité pour tous les exemples.
 Enfin, l'algorithme est appliqué sur de vraies données.
 Nous avons décidé de ne pas expérimenter cette stratégie de migration.
-En effet, dans le cas d'étude des auteurs, il préexiste un certain nombre d'exemples qui va favoriser l'apprentissage de l'algorithme de machine learning.
+En effet, dans le cas d'étude des auteurs, il préexiste un certain nombre d'exemples qui favorise l'apprentissage de l'algorithme de machine learning.
 Nous ne possédons pas dans notre projet d'exemples et le nombre de déviances dans le code peut vite poser un souci à la formation de l'intelligence artificielle.
 
 Wang *et al.* [@wang2017automatic] ont créé une méthodologie et un outil permettant de faire automatiquement la transformation d'un modèle vers un autre modèle.
@@ -118,7 +118,7 @@ Le texte peut être du code source compilable ou non.
 L'article de Mukherjee *et al.* [@mukherjee2011automatic] présente un outil permettant de prendre en entrée les spécifications d'un programme et donne en sortie un programme utilisable.
 L'entrée est un fichier en XML et la sortie est un programme écrit en C ou en Java (en fonction du choix de l'utilisateur).
 Pour effectuer les transformations, les auteurs ont utilisé un système de règles de transformation.
-Ce travail est lié à notre problématique d'exportation de méta-modèle.
+Ce travail est lié à notre problématique d'exportation des méta-modèles.
 En effet, le fichier XML pris en entrée de l'outil des développeurs peut être assimilé à un modèle suivant un méta-modèle.
 Dans ce cas, la génération de code depuis un fichier XML n'est pas très différente de celui de la génération de code depuis des modèles.
 
@@ -130,7 +130,7 @@ Ce travail est lié à notre problématique puisque, pour la migration des appli
 Chen *et al.* [@chen2016mining] ont développé un outil permettant de trouver des librairies similaires à une autre.
 Pour cela, les auteurs ont miné les tags des questions de Stack Overflow.
 Avec ces informations, ils ont pu mettre en relation des langages et leurs librairies ainsi que des équivalences entre librairies de langage différent.
-Pour la migration de Java/GWT vers Angular, nous nous ayons besoin de changer de librairie (qui n'est pas BLCore).
+Pour la migration de Java/GWT vers Angular, nous nous ayons besoin de changer de librairie.
 Plutôt que de réécrire la librairie, la recherche d'une autre librairie permettant de résoudre les mêmes problèmes peut être une solution.
 C'est dans ce contexte que le travail des auteurs peut guider notre recherche de librairie en faisant correspondre les anciennes librairies utilisées par les applications de Berger-Levrault avec d'autres compatibles avec Angular.
 
@@ -151,14 +151,14 @@ Nous n'avons pas appliqué ce travail pour la transcription du code source vers 
 
 Un des problèmes de la migration du code source est la définition des règles.
 Newman *et al.* [@newman2017simplifying] ont proposé un outil facilitant la création de règles de transformation.
-Pour cela, l'outil "normalise" le code source en entré et essayer de le simplifier.
+Pour cela, l'outil "normalise" le code source en entrée et essaie de le simplifier.
 Ainsi, les auteurs arrivent à réduire le nombre de règles de transformations à écrire et leurs complexités.
 Dans le cas de migration de Berger-Levrault, nous devons gérer les multiples manières dont les fonctionnalités sont écrites.
 La normalisation du code source peut simplifier l'écriture des règles de transformation ou
   les règles permettant de créer les méta-modèles.
 
-Rolim *et al.* [@rolim2017learning] ont créé un outil qui apprend des règles de transformation de programme à partir d'exemple.
-Pour cela, les auteurs ont défini un DSL[^DSL] permettant d'exprimer les modifications faîtes sur l'AST[^ast] d'un programme.
+Rolim *et al.* [@rolim2017learning] ont créé un outil qui apprend des règles de transformation de programme à partir d'exemples.
+Pour cela, les auteurs ont défini un DSL[^DSL] permettant d'exprimer les modifications faites sur l'AST[^ast] d'un programme.
 Ensuite, à partir d'une base d'exemple de transformation, l'outil recherche les règles de transformation entre les fichiers d'entrée des exemples
   et ceux de sorties.
 Une fois les règles trouvées et écrites dans le DSL prédéfini, l'outil prend en entrée un bout de code et donne en sortie le résultat des transformations.
@@ -374,7 +374,7 @@ Les auteurs Memon _et al._[@memon2007eventflow], Mesbah _et al._[@mesbah2012craw
     , Silva _et al._[@silva2010guisurfer] et Aho _et al._[@aho2013industrial] ont tous utilisé un méta-modèle de state flow
     afin de représenter les différentes transitions entre les interfaces graphiques.
 Pour définir un état, leurs outils vont analyser les valeurs des propriétés des widgets visibles sur un écran.
-Une fois une action exécutée, l'outil va détecter si l'état d'un widget a changé, dans ce cas un nouvel état de l'application est créé.
+Une fois une action exécutée, l'outil détecte si l'état d'un widget a changé, dans ce cas un nouvel état de l'application est créé.
 Ainsi, les auteurs sont capables de représenter les impacts d'une action sur l'interface graphique.
 
 Pour définir un état, Joorabchi _et al._ [@joorabchi2012reverse] ont décidé d'effectuer une comparaison d'image.
