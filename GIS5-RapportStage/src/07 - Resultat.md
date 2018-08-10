@@ -1,4 +1,4 @@
-# Résultats et Discussion
+# Résultats et Discussion {#sec:resultatEtDicussion}
 
 Nous allons maintenant présenter les résultats que nous avons obtenus suite à l'implémentation de la stratégie de migration.
 

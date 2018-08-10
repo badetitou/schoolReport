@@ -12,7 +12,7 @@ header-includes:
   - '\usepackage{listings}'
   - '\usepackage{color}'
   - '\usepackage{subcaption}'
-  - '\input{../../papers/myConfig/macros}'
+  - '\input{src/macros}'
 ---
 
 \definecolor{codegreen}{rgb}{0,0.6,0}

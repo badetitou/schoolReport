@@ -10,4 +10,6 @@ header-includes:
 
 # Annexe
 
-![CV](cv/cv.pdf){#CV width=70%}
+![Représentation de l'application _bac à sable_ dans sa globalité](figures/firework.png){#firework}
+
+![CV](cv/cv.pdf){#CV width=90%}

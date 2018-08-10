@@ -1,4 +1,4 @@
-# Travaux futurs
+# Travaux futurs {#sec:futurWork}
 
 Nous avons réussi à construire des bases solides pour l'outil de migration.
 Afin de l'améliorer, il faudrait encore ajouter la gestion des layout, du code comportemental et du code métier.
@@ -97,8 +97,8 @@ En particulier, cela permettrait d'analyser l'extensibilité de l'importateur.
 
 ## Exportation du Core
 
-La stratégie que nous avons créée permet d'effectuer la migration d'interface graphique d'un langage source vers un langage cible.
-De plus, il est possible de configurer l'outil pour que l'application cible utilise tel ou tel framework
+L'approche que nous avons créée permet d'effectuer la migration d'interface graphique d'un langage source vers un langage cible.
+De plus, il est possible de configurer l'outil pour que l'application cible utilise tel ou tel _framework_
     pour représenter les éléments graphiques de l'interface finale.
 
 Dans le cas d'une application web, un certain nombre de widgets sont déjà préexistants.
@@ -109,17 +109,17 @@ Lors de la migration, l'utilisation de ces widgets nous permet d'avoir rapidemen
 Mais sans l'exportation du style précis des widgets, il est impossible de respecter la contrainte
     de _préservation du visuel_.
 
-De plus, il peut exister des widgets définis dans le langage source qui n'existe pas, ou partiellement, dans le langage cible.
-Dans ce cas, il faut soit accepter une différence entre les deux interfaces, soient créer ou utilisé un autre framework dans le langage cible.
+De plus, il peut exister des widgets définis dans le langage source qui n'existent pas, ou partiellement, dans le langage cible.
+Dans ce cas, il faut soit accepter une différence entre les deux interfaces, soit créer ou utiliser un autre _framework_ dans le langage cible.
 
-Pour la migration que veut mettre en place Berger-Levrault, le framework utilisé dans le langage source est BLCore.
-Comme il n'existe pas de framework BLCore utilisable en Angular, nous avons utilisé le framework PrimeNG qui nous
+Pour la migration que veut mettre en place Berger-Levrault, le _framework_ utilisé dans le langage source est BLCore.
+Comme il n'existe pas de _framework_ BLCore utilisable en Angular, nous avons utilisé le _framework_ PrimeNG qui nous
     permet de facilement retrouver la majorité des widgets décrits dans BLCore.
 Il reste cependant des écarts visuels entre les deux frameworks et certains widgets, comme la BLTableBulk qui est un widget abondamment utilisé dans les applications de l'entreprise,
     n'a pas de correspondance.
 
-Afin de respecter la contrainte de _préservation du visuel_, une solution est donc de créer un équivalent du framework BLCore de Java en Angular.
-La migration d'un framework consiste en la détection des différents widgets qu'il définit,
+Afin de respecter la contrainte de _préservation du visuel_, une solution est donc de créer un équivalent du _framework_ BLCore de Java en Angular.
+La migration d'un _framework_ consiste en la détection des différents widgets qu'il définit,
     avec leurs compositions, leurs styles et leurs code comportemental.
 
 Un travail futur serait de développer un outil qui permettrait de détecter tous ces composants d'un widget et ainsi de faciliter leurs migrations.

@@ -1,4 +1,4 @@
-# GUI Décomposition {#guiDecomposition}
+# GUI Décomposition {#sec:guiDecomposition}
 
 Les applications que nous devons migrer ont des interfaces graphiques.
 Avant de créer l'outil de migration, il faut comprendre ce qu'est une telle interface

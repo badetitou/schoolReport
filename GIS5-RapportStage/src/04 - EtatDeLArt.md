@@ -1,4 +1,4 @@
-# État de l'art
+# État de l'art {#sec:stateOfTheArt}
 
 Dans le cadre de la conception de l'outil de migration,
     nous avons étudié la littérature pour identifier
@@ -124,8 +124,8 @@ Dans ce cas, la génération de code depuis un fichier XML n'est pas très diff�
 
 ### Migration de librairie
 
-La _migration de librairie_ présente des solutions sur comment changer de framework.
-Ce travail est lié à notre problématique puisque, pour la migration des applications de Berger-Levrault, nous passons de l'utilisation du framework GWT à l'utilisation de frameworks associé à Angular.
+La _migration de librairie_ présente des solutions sur comment changer de _framework_.
+Ce travail est lié à notre problématique puisque, pour la migration des applications de Berger-Levrault, nous passons de l'utilisation du _framework_ GWT à l'utilisation de frameworks associé à Angular.
 
 Chen *et al.* [@chen2016mining] ont développé un outil permettant de trouver des librairies similaires à une autre.
 Pour cela, les auteurs ont miné les tags des questions de Stack Overflow.

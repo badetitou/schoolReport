@@ -1,4 +1,4 @@
-# Description du problème
+# Description du problème {#sec:descProbleme}
 
 Dans le contexte de l'évolution des applications de Berger-Levrault,
     l'entreprise a estimé la transformation du code à 4000 jours-hommes de développement.
@@ -20,7 +20,7 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
 - _Préservation de l'architecture_. Après la migration, nous devons retrouver la même architecture entre les différents composants de l'interface graphique (_c.-à-d._ un bouton qui appartenait à un panel dans l'application source appartiendra au panel correspondant dans l'application cible). Cette contrainte permet de faciliter le travail de compréhension de l'application générée par les développeurs. En effet, ils vont retrouver la même architecture qu'ils avaient dans l'application source.
 - _Préservation du visuel_. Il ne doit pas y avoir de différence visuelle entre l'application source et l'application cible. Cette contrainte est particulièrement importante pour les logiciels commerciaux. En effet, les utilisateurs de l'application ne doivent pas être perturbés par la migration.
 - _Automatique_. La solution apportée doit être automatique. Les utilisateurs de l'outil automatisée ne doivent pas intervenir pendant le processus de migration ou très peu. Ainsi, l'outil peut être utilisé avec un minimum de connaissance préalable.
-- _Amélioration de la qualité_. La migration doit permettre de traiter les possibles déviances du programme source. Par exemple, dans le cas de Berger-Levrault, l'outil de migration doit être capable de gérer les éléments utilisés par l'application à migrer et provenant du framework GWT. Cet exemple d'utilisation du framework GWT par l'Application 1 est représenté Figure \ref{architectureBL}.
+- _Amélioration de la qualité_. La migration doit permettre de traiter les possibles déviances du programme source. Par exemple, dans le cas de Berger-Levrault, l'outil de migration doit être capable de gérer les éléments utilisés par l'application à migrer et provenant du _framework_ GWT. Cet exemple d'utilisation du _framework_ GWT par l'Application 1 est représenté Figure \ref{architectureBL}.
 
 Une dernière contrainte inhérente aux entreprises est la possibilité pour les équipes de développement de continuer la maintenance des applications pendant le développement de la stratégie de migration et la migration elle-même.
 
@@ -53,7 +53,7 @@ Pour la migration d'application GWT vers Angular, les fichiers _.java_ seront s�
 Le Tableau \ref{comparaison} synthétise les différences entre l'architecture d'une application en Java et celle en Angular.
 Les différences se font pour trois notions, les pages web, leurs styles et les fichiers de configuration.
 
-Avec le framework GWT, un seul fichier Java est nécessaire pour représenter une page web.
+Avec le _framework_ GWT, un seul fichier Java est nécessaire pour représenter une page web.
 L'ensemble de la page web peut donc être contenu dans ce fichier,
     même s'il reste possible de décomposer les différents éléments de la page web en plusieurs classes.
 Les fichiers Java contiennent les différents widgets de la page web, leurs positions les uns par rapport aux autres et leurs organisations hiérarchiques.
