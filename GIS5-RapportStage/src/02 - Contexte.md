@@ -24,7 +24,7 @@ Le passage à une architecture à services est aussi souhaité pour améliorer l
 
 Mon travail durant ce stage ne traite que de la migration des applications _front-end_.
 
-[^framework]: Framework: ensemble cohérent de composants logiciels structurels, qui sert à créer les fondations ainsi que les grandes lignes de tout ou d’une partie d'un logiciel (architecture).
+[^framework]: _Framework_: ensemble cohérent de composants logiciels structurels, qui sert à créer les fondations ainsi que les grandes lignes de tout ou d’une partie d'un logiciel (architecture).
 
 ## Description du problème
 
@@ -88,7 +88,7 @@ C'est une application complète qui fonctionne exactement comme une destinée au
 En raison de son statut d'application modèle pour les développeurs,
     elle contient tout ce qui est utilisable dans les autres applications.
 
-Bien que plus petite que les applications en production, elle contient tout de même plus de 1 000 classes.
+Bien que plus petite que les applications en production, elle contient tout de même plus de 1 000 classes Java.
 Le _bac à sable_ définit plus de 50 pages web
     qui peuvent être simples ou complexes (_c.-à-d._ qui comporte des formulaires, effectue des requêtes sur des serveurs distants, etc.).
 
@@ -97,4 +97,4 @@ Nous avons aussi régulièrement vérifié que notre travail pouvait s'appliquer
 Pour cela, nous avons utilisé notre prototype sur l'application _RH_ de Berger-Levrault.
 L'application _RH_ est destiné aux clients désirant centralisé la gestion du personnel
     de leurs compagnie dans une solution logiciel sur le web.
-Elle est constitué de plus 450 pages web.
+Elle est constitué de plus 450 pages web et de 19 000 classes Java.

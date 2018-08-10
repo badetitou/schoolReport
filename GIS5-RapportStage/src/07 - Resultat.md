@@ -55,31 +55,6 @@ Les liens sont tous correctement connectés aux widgets sur lesquels il faut fai
 
 ### Exportation en Angular {#exportToAngular}
 
-Une fois l'importation complétée, notre outil procède à l'exportation.
-L'exportation est évaluée selon les contraintes décrites Section \ref{contraintes}.
-Le code doit permettre de garder le même visuel et préserver l'architecture des éléments de l'interface.
-De plus, le programme exporté doit être compilable et facile à lire pour un développeur,
-    cette dernière contrainte réduit la difficulté pour les équipes de Berger-Levrault d'accepter la migration.
-
-La lisibilité du code est évaluée selon les critères suivants :
-
-- Nom significatif pour les variables, les fonctions et les classes
-- Respect des conventions du langage cible
-- Indentation du code
-
-Pour la lisibilité du code, dans le cadre de la migration, l'outil conserve au maximum les noms des éléments de l'application source.
-Nous supposons donc que, même si les développeurs ont mal nommé leurs variables dans l'application source, ils ne seront pas perturbés par les nouveaux noms de variable.
-
-Le respect des conventions n'est pas respecté à 100 % actuellement.
-Nous avons réussi à exporter correctement vers l'architecture Angular et la disposition des différents éléments de chaque fichier est faite correctement (par exemple, les variables sont déclarées juste après la déclaration d'une classe).
-Cependant certaines conventions ne sont pas respectées, notamment dans le nommage des classes que nous exportons en majuscule au lieu de respecter le pascalCase[^pascalCase]
-    qui est la norme Angular.
-
-[^pascalCase]: Pascal Case : les mots sont liés sans espace. Chaque mot commence par une Majuscule.
-
-Pour l'indentation du code, la convention est que l'indentation équivaut à 4 espaces.
-L'outil de migration exporte le code complètement indenté sauf pour les fichiers HTML.
-
 \begin{figure}
 \begin{subfigure}{0.45\textwidth}
 \includegraphics[width=\linewidth,trim={0 10cm 30cm 0},clip]{figures/cmp1/avant.png}

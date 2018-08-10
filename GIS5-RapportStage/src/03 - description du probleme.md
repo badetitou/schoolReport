@@ -14,15 +14,40 @@ Berger-Levrault étant une importante entreprise dans le domaine de l'édition d
     elle a des contraintes spécifiques vis-à-vis d'un outil de migration.
 En effet, la solution logicielle doit respecter les contraintes suivantes :
 
-- _Depuis GWT (BLCore)_. La solution doit au moins fonctionner dans le cas de Berger-Levrault. Elle peut être plus générale, mais ne doit pas faire de concession sur le résultat final.
-- _Vers Angular_. Dans le cas d'une automatisation ou semi-automatisation du processus de migration, celle-ci doit s'achever par la génération de code Angular. La solution peut contenir des structures facilitant son utilisation pour d'autres langages cibles mais pas au détriment du projet fixé avec Berger-Levrault.
-- _Approche modulaire_. La migration doit être divisée en petites étapes. Cela permet de facilement remplacer une étape ou de l'étendre sans introduire d'instabilité. Cette contrainte est essentielle pour les entreprises qui désirent avoir un contrôle fin du processus de migration. L'approche modulaire permet, entre autres, aux entreprises de modifier l'implémentation de la stratégie pour respecter leurs contraintes spécifiques.
-- _Préservation de l'architecture_. Après la migration, nous devons retrouver la même architecture entre les différents composants de l'interface graphique (_c.-à-d._ un bouton qui appartenait à un panel dans l'application source appartiendra au panel correspondant dans l'application cible). Cette contrainte permet de faciliter le travail de compréhension de l'application générée par les développeurs. En effet, ils vont retrouver la même architecture qu'ils avaient dans l'application source.
-- _Préservation du visuel_. Il ne doit pas y avoir de différence visuelle entre l'application source et l'application cible. Cette contrainte est particulièrement importante pour les logiciels commerciaux. En effet, les utilisateurs de l'application ne doivent pas être perturbés par la migration.
-- _Automatique_. La solution apportée doit être automatique. Les utilisateurs de l'outil automatisée ne doivent pas intervenir pendant le processus de migration ou très peu. Ainsi, l'outil peut être utilisé avec un minimum de connaissance préalable.
-- _Amélioration de la qualité_. La migration doit permettre de traiter les possibles déviances du programme source. Par exemple, dans le cas de Berger-Levrault, l'outil de migration doit être capable de gérer les éléments utilisés par l'application à migrer et provenant du _framework_ GWT. Cet exemple d'utilisation du _framework_ GWT par l'Application 1 est représenté Figure \ref{architectureBL}.
+- _Depuis GWT (BLCore) et Vers Angular_. Dans le cas d'une automatisation ou semi-automatisation du processus de migration,
+    celui-ci doit pouvoir prendre du code GWT en entrée et s'achever par la génération de code Angular.
+    La solution peut contenir des structures facilitant son utilisation pour d'autres langages cibles mais pas au détriment du projet fixé avec Berger-Levrault.
+- _Approche modulaire_. Une approche divisée en petites étapes améliorerai la maintenabilité de l'outil de migration [@sanchez2014model].
+    Elle permettrai de facilement remplacer une étape ou de l'étendre sans introduire d'instabilité.
+    Cette contrainte est essentielle pour les entreprises qui désirent avoir un contrôle fin du processus de migration.
+    L'approche modulaire permet, entre autres, aux entreprises de modifier l'implémentation de la stratégie pour respecter leurs contraintes spécifiques.
+- _Préservation de l'architecture_. Après la migration, nous devons retrouver la même structure entre les différents composants de l'interface graphique (_c.-à-d._ un bouton qui appartenait à un panel dans l'application source appartiendra au panel correspondant dans l'application cible).
+    Cette contrainte permet de faciliter le travail de compréhension de l'application générée par les développeurs.
+    En effet, ils vont retrouver la même architecture qu'ils avaient dans l'application source.
+- _Préservation du visuel_. La migration doit pouvoir conserver le visuel aussi proche que possible.
+    Cette contrainte est particulièrement importante pour les logiciels commerciaux.
+    En effet, les utilisateurs de l'application ne doivent pas être perturbés par la migration.
+    Il est aussi possible que Berger-Levrault est envie de profiter de la migration
+        pour rafraîchir le visuel de leurs applications.
+    Dans ce cas le l'outil peut proposer de faciliter certains points de cette transformation graphique.
+- _Automatique_. La solution apportée doit être automatique.
+    Les utilisateurs de l'outil automatisée ne doivent pas intervenir pendant le processus de migration ou très peu.
+    Ainsi, l'outil peut être utilisé avec un minimum de connaissance préalable.
+    Dans le cas où le prototype n'a pas besoin de l'intervention humaine pendant le processus de migration,
+        il sera plus facile à utiliser sur des grand système [@moore1994knowledge].
+- _Amélioration de la qualité_. La migration doit permettre de traiter les possibles déviances du programme source.
+    Par exemple, dans le cas de Berger-Levrault, l'outil de migration doit être capable de gérer les éléments utilisés par l'application à migrer et provenant du _framework_ GWT.
+    Cet exemple d'utilisation du _framework_ GWT par l'Application 1 est représenté \figref{architectureBL}.
+- _Continuation du service_. Pendant la conception de la stratégie de migration, le développement du prototype permettant la migration et la migration elle-même,
+        les équipes de développement doivent pour continuer la maintenance des applications.
+    Cette contrainte est essentielle puisque Berger-Levrault, en raison de son activité, ne peux pas demander à ses clients d'accepter
+        un arrêt des améliorations et correction de bug pendant plusieurs mois.
+- _Lisibilité_. Afin de facilité le travail de compréhension du code migré,
+        il serait bien que la migration produise une application respectant les normes définis par les développeurs.
+    Dans le cas de Berger-Levrault, il s'agit du respect du nommage des variables en CamelCase[^CamelCase]
+        et l'utilisation de nom significatif.
 
-Une dernière contrainte inhérente aux entreprises est la possibilité pour les équipes de développement de continuer la maintenance des applications pendant le développement de la stratégie de migration et la migration elle-même.
+[^CamelCase]: _Camel Case_ : les mots sont liés sans espace. Chaque mot commence par une Majuscule.
 
 ## Comparaison de GWT et Angular
 
