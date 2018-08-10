@@ -93,7 +93,6 @@ Le _bac à sable_ définit plus de 50 pages web
     qui peuvent être simples ou complexes (_c.-à-d._ qui comporte des formulaires, effectue des requêtes sur des serveurs distants, etc.).
 
 \bvc{explication travail pour comprendre}
-
 Nous avons aussi régulièrement vérifié que notre travail pouvait s'appliquer sur les projets plus importants de Berger-Levrault.
 Pour cela, nous avons utilisé notre prototype sur l'application _RH_ de Berger-Levrault.
 L'application _RH_ est destiné aux clients désirant centralisé la gestion du personnel
