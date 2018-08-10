@@ -8,8 +8,6 @@ header-includes:
   - '\usepackage[french]{babel}'
 ---
 
-\newpage
-
 # Annexe
 
 ![CV](cv/cv.pdf){#CV width=70%}

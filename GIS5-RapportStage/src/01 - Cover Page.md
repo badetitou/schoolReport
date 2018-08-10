@@ -11,6 +11,7 @@ header-includes:
   - '\usepackage{pdfpages}'
   - '\usepackage{listings}'
   - '\usepackage{color}'
+  - '\usepackage{subcaption}'
   - '\input{../../papers/myConfig/macros}'
 ---
 

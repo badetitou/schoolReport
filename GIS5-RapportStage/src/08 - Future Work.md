@@ -51,7 +51,7 @@ Les éléments à évaluer sont les règles métiers dans l'application cible,
 Pour le respect du visuel, plusieurs solutions peuvent être envisagées dans le cas de Berger-Levrault.
 
 Il est possible de comparer les DOM des applications car nous travaillons avec des applications web.
-Cependant le DOM ne prend en compte que l'architecture d'une page web et non pas sa représentation visuelle.
+Cependant le DOM ne prend en compte que la structure d'une page web et non pas sa représentation visuelle.
 Une étude des fichiers CSS serait alors indispensable.
 De plus, le fichier généré pour Angular n'est pas forcément une copie du fichier généré par GWT, il peut y avoir des différences dans le DOM
     qui ne sont pas répercuté dans l'aspect visuel de la page web.
@@ -125,5 +125,3 @@ La migration d'un framework consiste en la détection des différents widgets qu
 Un travail futur serait de développer un outil qui permettrait de détecter tous ces composants d'un widget et ainsi de faciliter leurs migrations.
 En fonctionnant en symbiose avec l'outil que nous avons créé pendant ce stage, il serait ainsi possible d'effectuer la migration d'une application graphique
     en respectant la hiérarchie des widgets, les contraintes de layout et le visuel et comportement des widgets.
-
-\newpage

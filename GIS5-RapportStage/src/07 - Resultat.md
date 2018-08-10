@@ -8,7 +8,7 @@ Enfin, nous discuterons des résultats Section \ref{discussion}.
 
 ## Résultats {#resultat}
 
-Une fois l'outil implémenté, nous avons cherché à vérifier nos résultats.
+Une fois le prototype implémenté, nous avons cherché à vérifier nos résultats.
 Comme la stratégie mise en place est en deux étapes, importation et exportation,
     nous avons séparé la vérification de nos résultats en deux parties.
 
@@ -38,13 +38,13 @@ Puis nous avons comparé le chiffre obtenu avec le nombre de phases que nous ins
 Dans le cas d'étude avec Berger-Levrault, nous avons recensé 56 phases, ce qui correspond exactement au nombre de phases déclaré dans le fichier de configuration.
 
 Pour les business pages, nous avons compté 45 classes qui implémentent _IPageMetier_.
-Après l'importation, nous générons 76 pages métiers.
-Nous retrouvons dans les pages métiers générées celles qui implémentent l'interface _IPageMetier_ ainsi que 31 que nous avons généré.
-Ces dernières proviennent de code qui a été factorisé par les développeurs de l'application.
+Après l'importation, nous identifions 76 pages métiers.
+Nous retrouvons dans les pages métiers celles qui implémentent l'interface _IPageMetier_ ainsi que 31 qui
+    dernières proviennent de code qui a été factorisé par les développeurs de l'application.
 La factorisation du code est une complication dans le calcul du nombre exact de business page que nous devons détecter pendant l'importation.
 Cette difficulté d'évaluation est discutée Section \ref{discussion}.
 
-Nous réussissons à généré 2081 widgets, cependant avec les heuristiques nous avons défini Section \ref{implementationImport} nous devrions avoir 2141 widgets.
+Nous réussissons à identifier 2081 widgets, cependant avec les heuristiques nous avons défini Section \ref{implementationImport} nous devrions avoir 2141 widgets.
 Ce qui correspond à un total de 98 % de widget que nous réussissons à créer.
 Il existe cependant un écart que nous n'arrivons pas encore à évaluer dont l'on discute Section \ref{discussion}.
 
@@ -80,7 +80,18 @@ Cependant certaines conventions ne sont pas respectées, notamment dans le nomma
 Pour l'indentation du code, la convention est que l'indentation équivaut à 4 espaces.
 L'outil de migration exporte le code complètement indenté sauf pour les fichiers HTML.
 
-![Home - Avant/Après](figures/cmp1.PNG){#cmp1 width=75%}
+\begin{figure}
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\linewidth,trim={0 10cm 30cm 0},clip]{figures/cmp1/avant.png}
+\caption{Avant} \label{fig:cmp1a}
+\end{subfigure}
+\hspace*{\fill} % separation between the subfigures
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\linewidth,trim={0 10cm 30cm 0},clip]{figures/cmp1/apres.png}
+\caption{Après} \label{fig:cmp1b}
+\end{subfigure}
+\caption{Phase Home} \label{cmp1}
+\end{figure}
 
 Le code exporté est compilable à 100 % et est exécutable.
 L'exportation conserve l'architecture entre les éléments de l'interface graphique tels que détectés dans la partie importation.
@@ -88,9 +99,20 @@ La Figure \ref{cmp1} présente les différences visuelles entre l'ancienne versi
 Nous pouvons voir que les différences sont minimes.
 Dans la version exportée, les couleurs de l'en-tête des panels sont un peu plus claires et l'ombre portée des panels est plus dégradée.
 
-![Zone de saisie - Avant/Après](figures/cmp2.PNG){#cmp2 width=100%}
+\begin{figure}
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\linewidth,trim={16cm 10cm 15cm 0},clip]{figures/cmp2/avant.png}
+\caption{Avant} \label{fig:cmp2a}
+\end{subfigure}
+\hspace*{\fill} % separation between the subfigures
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\linewidth,trim={0cm 12cm 30cm 1cm},clip]{figures/cmp2/apres.png}
+\caption{Après} \label{fig:cmp2b}
+\end{subfigure}
+\caption{Phase Zone de saisie} \label{cmp2}
+\end{figure}
 
-La Figure \ref{cmp2} présente les différences visuelles pour la Phase _Zone de saisie_ de l'application _bac-à-sable_.
+La Figure \ref{cmp2} présente les différences visuelles pour la Phase _Zone de saisie_ de l'application _bac àsable_.
 L'image de gauche correspond à la phase avant la migration tandis que celle de gauche est la même Phase après la migration.
 Les deux images étant grandes, nous les avons rognés pour afficher cette zone d'intérêt.
 La migration à bien permit de conserver l'architecture entre les éléments, ce que l'on peut voir avec les composants de formulaire à l'intérieur du panel _"zone de saisie"_.
@@ -101,7 +123,7 @@ Cependant le layout n'a pas été correctement respecté, ce qui explique les di
 Pendant la construction de l'outil de migration, nous avons créé des requêtes sur le modèle d'interface graphique.
 Ces requêtes permettent de créer des graphiques et d'analyser la construction de l'interface graphique sans regarder le code source.
 
-![Représentation de l’application bac à sable dans sa globalité](figures/firework.png){#firework width=80%}
+![Extrait de la représentation de l’application _bac à sable_](figures/firework.png){#firework width=80%}
 
 La Figure \ref{firework} présente un extrait de la visualisation des relations entre les
     différentes entités de l'interface graphique de l'application _bac à sable_.
@@ -151,5 +173,3 @@ Il contient une _"ligne"_ déclarée ligne 2 et 4 _"radio button"_ déclarés li
 Dans le cadre de ce projet, seule l'application _bac à sable_ utilise cette technique pour définir des interfaces.
 Nous avons donc décidé de ne pas traiter l'importation des widgets pour les business pages définit de cette manière.
 En les considérant, le pourcentage de widget que nous arrivons à importer se voit réduit.
-
-\newpage

@@ -17,25 +17,24 @@ Ce travail est la suite du travail préliminaire que j'ai mené pendant mon Proj
 ## Problématique
 
 Berger-Levrault possède des applications client/serveur qu’elle souhaite rajeunir.
-En particulier, le front-end est développé en GWT et doit migrer vers Angular 6.
-Le back-end est une application monolithique et doit évoluer vers une architecture de services web.
-Le changement de framework[^framework] graphique est imposé par l'arrêt du développement de GWT
-  par Google et le problème de compatibilité arrière entre Angular 6 et Angular 1 (AngularJS).
+En particulier, le _front-end_ est développé en GWT et doit migrer vers Angular 6.
+Le _back-end_ est une application monolithique et doit évoluer vers une architecture de services web.
+Le changement de _framework_[^framework] graphique est imposé par l'arrêt du développement de GWT par Google.
 Le passage à une architecture à services est aussi souhaité pour améliorer l’offre commerciale et la rendre plus flexible.
 
-Mon travail durant ce stage ne traite que de la migration des applications front-end.
+Mon travail durant ce stage ne traite que de la migration des applications _front-end_.
 
 [^framework]: Framework: ensemble cohérent de composants logiciels structurels, qui sert à créer les fondations ainsi que les grandes lignes de tout ou d’une partie d'un logiciel (architecture).
 
 ## Description du problème
 
-Les applications front-end de Berger-Levrault sont développées en Java en utilisant le framework GWT de Google.
-Dans l'optique d'homogénéiser le visuel de leurs applications, Berger-Levrault a étendu ce framework.
+Les applications _front-end_ de Berger-Levrault sont développées en Java en utilisant le _framework_ GWT de Google.
+Dans l'optique d'homogénéiser le visuel de leurs applications, Berger-Levrault a étendu ce _framework_.
 Cette extension s'appelle BLCore.
-La Figure \ref{architectureBL} représente les différentes couches de framework utilisé par une application de Berger-Levrault.
+La Figure \ref{architectureBL} représente les différentes couches de _framework_ utilisé par une application de Berger-Levrault.
 Comme le représentent les flèches, les applications utilisent BLCore, qui lui même utilise GWT.
 On retrouve aussi des applications, qui ne respectent pas la convention décidée par les équipes de Berger-Levrault,
-    ayant un lien direct avec le framework GWT.
+    ayant un lien direct avec le _framework_ GWT.
 
 ![Structure application](figures/structure.png){#architectureBL width=250px height=250px}
 
@@ -46,10 +45,10 @@ Bien qu'une migration complète de l'application en réécrivant l'ensemble du c
     c'est une tâche coûteuse et sujette à erreurs.
 Automatiser toute la migration semble donc être la bonne solution, cependant les développeurs
     ne seront pas formés sur la nouvelle technologie et sur son utilisation dans les nouvelles applications.
-Le manque de connaissance du langage cible va ralentir les développements et peut faire _peur_ aux développeurs
+Le manque de connaissance du langage cible va ralentir les développements et peut faire peur aux développeurs
     qui pourraient refuser une telle solution.
 Une alternative pour contourner ce problème serait de créer des outils facilitant la migration et de ne migrer qu'une partie de l'application.
-Les développeurs pourront alors effectuer la fin de la migration assistée par l'outil et seront formés sur le nouveau langage et sur l'application en le pratiquant assisté de nos outils.
+Les développeurs pourront alors effectuer la fin de la migration assistée par l'outil ce qui les formera sur le nouveau langage et sur l'application.
 
 La complexité de la migration des applications de Berger-Levrault réside dans
   leurs tailles, mais aussi et surtout dans le changement de langage.
@@ -72,10 +71,6 @@ Enfin, j'ai commencé le développement d'une suite d'outil permettant de mettre
     la stratégie définie et l'évaluer.
 
 J'ai effectué cette étude sur l'application _bac à sable_ de Berger-Levrault.
-Cette dernière permet aux employés de Berger-Levrault de consulter les éléments disponibles depuis BLCore.
+Cette dernière permet aux employés de Berger-Levrault de consulter les éléments disponibles dans BLCore.
 Bien que plus petite que les applications en production, elle contient tout de même plusieurs centaines de classes.
 J'ai aussi régulièrement vérifié que mon travail pouvait s'appliquer sur les projets plus importants de Berger-Levrault.
-
-**TODO : Expliquer comment j'ai vérifié**
-
-\newpage

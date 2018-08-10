@@ -5,7 +5,7 @@ Durant ce stage, j'ai continué le projet de migration que j'ai entrepris pendan
 Après une première étape d'analyse que j'avais menée durant ce stage,
     j'ai approfondi les recherches de l'état de l'art et créé des outils permettant de faciliter la migration des applications de Berger-Levrault.
 
-La première étape de mon stage a été la définition formelle des éléments composant une application d'une interface graphique.
+La première étape de mon stage a été la définition précise des éléments composant une application d'une interface graphique.
 Une application graphique est divisée en trois parties, l'interface graphique, le code comportemental et le code métier.
 Ensuite, j'ai défini les différentes contraintes à respecter pour répondre aux besoins de Berger-Levrault
     et conçu un processus permettant d'effectuer la migration en suivant ces obligations.
