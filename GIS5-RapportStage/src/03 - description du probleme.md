@@ -19,7 +19,7 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
     La solution peut contenir des structures facilitant son utilisation pour d'autres langages cibles mais pas au détriment du projet fixé avec Berger-Levrault.
 - _Approche modulaire_. Une approche divisée en petites étapes améliorerai la maintenabilité de l'outil de migration [@sanchez2014model].
     Elle permettrai de facilement remplacer une étape ou de l'étendre sans introduire d'instabilité.
-    Cette contrainte est essentielle pour les entreprises qui désirent avoir un contrôle fin du processus de migration.
+    Le respect de cette contrainte offre plus de contrôle sur le processus de migration aux les entreprises.
     L'approche modulaire permet, entre autres, aux entreprises de modifier l'implémentation de la stratégie pour respecter leurs contraintes spécifiques.
 - _Préservation de l'architecture_. Après la migration, nous devons retrouver la même structure entre les différents composants de l'interface graphique (_c.-à-d._ un bouton qui appartenait à un panel dans l'application source appartiendra au panel correspondant dans l'application cible).
     Cette contrainte permet de faciliter le travail de compréhension de l'application générée par les développeurs.
@@ -30,13 +30,15 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
     Il est aussi possible que Berger-Levrault est envie de profiter de la migration
         pour rafraîchir le visuel de leurs applications.
     Dans ce cas le l'outil peut proposer de faciliter certains points de cette transformation graphique.
-- _Automatique_. La solution apportée doit être automatique.
-    Les utilisateurs de l'outil automatisée ne doivent pas intervenir pendant le processus de migration ou très peu.
+- _Automatique_. Une solution automatique facilite l'accessibilité de l'outil.
+    Pour simplifier le processus de migration, il serait bien que les utilisateurs de l'outil n'aient pas à intervenir pendant le processus de migration ou très peu.
     Ainsi, l'outil peut être utilisé avec un minimum de connaissance préalable.
     Dans le cas où le prototype n'a pas besoin de l'intervention humaine pendant le processus de migration,
         il sera plus facile à utiliser sur des grand système [@moore1994knowledge].
-- _Amélioration de la qualité_. La migration doit permettre de traiter les possibles déviances du programme source.
-    Par exemple, dans le cas de Berger-Levrault, l'outil de migration doit être capable de gérer les éléments utilisés par l'application à migrer et provenant du _framework_ GWT.
+- _Amélioration de la qualité_. La migration doit permettre de traiter le maximum de déviance du programme source possibles.
+    Il est possible que certaines déviances ne soient pas traitable ou demande un effort trop important,
+        elles seront alors traité post-migration.
+    Dans le cas de Berger-Levrault, l'outil de migration peut gérer les éléments, utilisés par l'application à migrer, provenant du _framework_ GWT.
     Cet exemple d'utilisation du _framework_ GWT par l'Application 1 est représenté \figref{architectureBL}.
 - _Continuation du service_. Pendant la conception de la stratégie de migration, le développement du prototype permettant la migration et la migration elle-même,
         les équipes de développement doivent pour continuer la maintenance des applications.

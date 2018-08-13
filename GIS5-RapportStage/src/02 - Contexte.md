@@ -87,6 +87,8 @@ Cette dernière permet aux employés de Berger-Levrault de consulter les éléme
 C'est une application complète qui fonctionne exactement comme une destinée aux clients de Berger-Levrault.
 En raison de son statut d'application modèle pour les développeurs,
     elle contient tout ce qui est utilisable dans les autres applications.
+En plus des outils utilisable par les développeurs,
+    l'application est aussi composé de code déviant des règles de programmation définit par Berger-Levrault.
 
 Bien que plus petite que les applications en production, elle contient tout de même plus de 1 000 classes Java.
 Le _bac à sable_ définit plus de 50 pages web
