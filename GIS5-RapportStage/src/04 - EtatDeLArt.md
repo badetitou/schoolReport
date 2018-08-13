@@ -3,13 +3,12 @@
 Dans le cadre de la conception de l'outil de migration,
     nous avons étudié la littérature pour identifier
     les techniques respectant les critères définis par Berger-Levrault.
-Dans un premier temps, la Section \ref{migrationTechnique} présente les différentes
+Dans un premier temps, la \secref{migrationTechnique} présente les différentes
     techniques qui sont utilisées pour faire effectuer la migration d'application.
-Dans un second temps, la Section \ref{positionnement} positionnera notre travail
-    par rapport à ceux proposés dans la littérature et utilisant la même technique
-    de migration.
+Dans un second temps, la \secref{positionnement} positionnera notre travail
+    par rapport à ceux proposés dans la littérature.
 
-## Technique de migration {#migrationTechnique}
+## Technique de migration {#sec:migrationTechnique}
 
 Nous avons extrait de la littérature plusieurs domaines de recherche connexes au
     travail que nous voulons mener sur la migration d'application.
@@ -21,28 +20,45 @@ Les approchent proposées permettent soit d'effectuer la migration d'application
 
 La rétro-ingénierie discute de comment représenter une interface graphique
     dans l'objectif de pouvoir l'analyser et comment générer cette représentation.
-Le choix de représentation des interfaces graphiques est discuté Section \ref{positionnement}.
 
-Les auteurs utilisent trois techniques pour instancier leurs méta-modèles.
+Les auteurs utilisent trois techniques pour créer ces représentations : statique, dynamique ou hybride.
 
-**Statique**. La stratégie statique consiste à analyser le code source de l'application comme on analyserait du texte.
-En fonction du langage source, l'analyse statique peut être plus ou moins facile à mettre en place.
+**Statique**. La stratégie statique consiste à analyser du code source et à en extraire de l'information.
+La stratégie statique n'execute pas le code de l'application à analyser.
 
-Dans le cas de Cloutier _et al._ [@cloutier2016wavi], les auteurs ont pu analyser directement les fichiers HTML, CSS et JavaScript.
+Dans le cas de Cloutier _et al._ [@cloutier2016wavi], les auteurs ont analysé directement les fichiers HTML, CSS et JavaScript.
 Ceci leurs permet de construire un arbre syntaxique du code source du site web
     et d'extraire les différents widgets depuis le fichier HTML.
+Le travail des auteurs ne permet pas de capturer le comportement des éléments graphique.
+De plus, le travail consiste surtout en la recherche de lien entre les différents composants
+    du programme (classes JavaScript, tag HTML, etc.) et non pas la représentation d'une interface graphique.
 
 Silva _et al._ [@silva2010guisurfer], Lelli _et al._ [@lelli2016automatic] et Staiger _et al._ [@staiger2007reverse] utilisent des outils
     qui analysent du code source provenant de langage non destiné au web, mais permettant de décrire une interface graphique.
 Leurs cas d'études sont des applications de bureau ayant une interface graphique.
 Ces logiciels cherchent la définition des widgets dans le code source.
 Une fois les créations des widgets trouvées dans le code source, les logiciels analysent les méthodes invoquées ou invoquant les widgets afin de découvrir les relations entre les widgets et leurs attributs.
+Bien que le travail des auteurs semble intéressant dans le cadre du projet de migration que nous menons,
+    les auteurs ne proposent pas de solution sur la manière d'évaluer le résultat de l'outil de rétro-ingénierie sur des applications
+    composés de beaucoup d'écran.
 
 Sánchez Ramón *et al.* [@sanchez2014model] ont développé une solution permettant d'extraire depuis un ancien logiciel son interface graphique.
 Le cas d'étude des auteurs est une application source créée avec Oracle Forms.
 Contrairement aux cas d'études précédents, l'interface est définie dans un fichier à part explicitant pour chaque widget sa position fixe.
 Chaque widget a ainsi une position X, Y ainsi qu'une hauteur et une largeur.
-La stratégie des autheurs consiste à déterminer la hiérarchie des widgets depuis ces informations.
+La stratégie des auteurs consiste à déterminer la hiérarchie des widgets depuis ces informations.
+Cependant, Oracle Forms est utilisée pour créer une interface simple avec seulement des champs texte ou des formulaires.
+Les champs texte contiennent des données provenant d'une base de données.
+La disposition des éléments est aussi très simple dans l'exemple fourni
+    par les auteurs car les champs texte ou les formulaires sont affichés les uns en dessous des autres.
+Dans notre cas, les interfaces sont plus complexe et demande une analyse plus poussé que la recherche de la position des widgets.
+
+La stratégie statique permet d'effectuer l'analyse d'une application sans avoir besoin de l'exécuter.
+Cependant elle a des lacunes sur l'analyse des structures de contrôles comme les boucles si,
+    si elles contiennent des informations à rechercher dans le code.
+Dans le cas des interfaces graphiques, il est possible qu'une partie du code soit hébergé par un serveur distant,
+    dans ce cas, l'analyse statique n'a pas accès aux résultats des appels au serveur distant (surtout si ceux-ci dépendent de l'appel originel),
+    ce qui amène à un manque d'information.
 
 **Dynamique**. La stratégie dynamique consiste à analyser l'interface graphique
     d'une application pendant qu'elle est en fonctionnement.
@@ -57,12 +73,23 @@ Les auteurs Memon _et al._ [@MemonWCRE2003], Samir _et al._ [@samir2007swing2scr
 Cependant, toutes les solutions proposées s'appliquent sur des applications exécutées sur un ordinateur (application de bureau).
 Une adaptation serait nécessaire pour coller aux spécificités des applications web comme dans notre cas.
 
+L'analyse dynamique permet de parcourir toutes les fenêtres d'une application et d'obtenir des informations provenant de code exécuté.
+Cependant, l'analyse impact les performances de l'application à analyser.
+Dans le cas de petites applications ou d'application statique, l'impact n'est pas bloquant ou peut être fait en interne.
+Mais dans le cadre des applications de Berger-Levrault, l'utilisation de la stratégie dynamique ne peut pas être envisagé car
+    l'impact sur les performances pose un problème aux clients de l'entreprise.
+
 **Hybride**. L'objectif de la stratégie hybride est d'utiliser la stratégie statique et la stratégie dynamique.
 Gotti _et al._ [@gotti2016java] utilisent une stratégie hybride pour l'analyse d'applications écrites en Java.
 La première étape consiste en la création d'un modèle grâce à une analyse statique du code source.
 Les auteurs retrouvent la composition des interfaces graphiques, les différents widgets et leurs propriétés.
 Ensuite, l'analyse dynamique exécute les différentes actions possibles sur tous les widgets et
     analyse les modifications potentielles sur l'interface après avoir effectué les actions.
+
+Cette stratégie semble permet de collecter un maximum d'information en combinant les avantages
+    des stratégies statique et dynamique.
+Bien que la stratégie dynamique permet de réduire les problèmes d'analyse de la stratégie statique.
+Les contraintes inhérentes à la stratégie dynamique restent présent et important dans le cadre de notre projet.
 
 ### Transformation de modèle vers modèle
 
@@ -170,7 +197,7 @@ Par exemple, une fois la migration semi-automatique effectuée par la solution q
 [^ast]: AST : Arbre Syntaxique Abstrait
 [^DSL]: DSL : Domain Specific Language est un langage de programmation destiné à générer des programmes dans un domaine spécifique.
 
-## Positionnement sur la migration via les modèles {#positionnement}
+## Positionnement sur la migration via les modèles {#sec:positionnement}
 
 Comme décrit Section \ref{sec:processusMigration}, nous avons décidé d'effectuer la migration en utilisant les modèles.
 Nous avons utilisé une stratégie selon le _fer à cheval_.
@@ -291,12 +318,7 @@ Il y a les attributs, les événements, les windows (qui sont comme les phases),
     mais il n'y a pas de widget.
 Cette absence s'explique par la différence dans la technologie source.
 Les auteurs ont travaillé sur un projet utilisant des Oracle Forms.
-Cette technologie est utilisée pour créer une interface simple avec seulement
-    des champs texte ou des formulaires.
-Les champs texte contiennent des données provenant d'une base de données.
-La disposition des éléments est aussi très simple dans l'exemple fourni
-    par les auteurs car les champs texte ou les formulaires sont affichés les uns en dessous des autres.
-Nous pouvons encore remarquer qu'ils utilisent une entité _Event_ pour représenter l'action de l'utilisateur 
+Nous pouvons encore remarquer qu'ils utilisent une entité _Event_ pour représenter l'action de l'utilisateur
     avec l'interface utilisateur.
 
 Memon _et al._[@MemonWCRE2003] représentent une interface utilisateur graphique avec seulement deux entités dans leur méta-modèle d'interface graphique.
