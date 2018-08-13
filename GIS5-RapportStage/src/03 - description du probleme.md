@@ -8,7 +8,7 @@ Un de mes objectifs à Berger-Levrault est de définir une stratégie de migrati
 
 [^mloc]: MLOC : _Million Lines of Code_
 
-## Contraintes {#contraintes}
+## Contraintes {#sec:contraintes}
 
 Berger-Levrault étant une importante entreprise dans le domaine de l'édition de logiciel,
     elle a des contraintes spécifiques vis-à-vis d'un outil de migration.

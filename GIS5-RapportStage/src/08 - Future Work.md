@@ -172,3 +172,4 @@ Cependant, nous ne représentons pas l'état d'entrée et l'état de sortie apr�
     mais l'état d'entrée d'une fenêtre et la logique à appliquer après une action pour obtenir l'état de sortie.
 Cette différence est dû à notre objectif qui est de migrer cette logique dans un nouveau langage et non
     d'analyser les différents états possibles de l'application.
+    

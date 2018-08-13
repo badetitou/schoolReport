@@ -1,26 +1,39 @@
 # Mise en place de la migration par les modèles {#sec:secImplementation}
 
 Suite à l'étude des contraintes inhérentes aux problèmes de migration dans le cadre d'une entreprise,
-    et tout en effectuant un état de l'art,
+    et à l'état de l'art que nous avons mené,
     nous avons travaillé sur la conception et l'implémentation d'une stratégie de migration
     respectant les critères que nous avons fixés.
 
-Comme vu Section \ref{sec:strategieMigration}, seule la migration en utilisant les modèles nous permet
-    de respecter toutes les contraintes.
-Ce type de migration nous impose la conception de méta-modèles.
+\secref{approcheMigration}, nous présentons les différentes approches que nous avons identifié pour effectuer la migration.
+Puis, \secref{processusMigration} nous décrivons le processus de migration que nous avons conçu.
+Et enfin \secref{metamodelUI} et \secref{metamodelComportemental} nous présentons les
+    différents outils que nous avons du créer ainsi que leurs implémentations.
 
-Nous allons présenter dans cette partie le processus de migration que nous avons conçu,
-    puis le méta-modèle d'interface utilisateur utilisé dans le ce processus,
-    et enfin expliquer l'implémentation de cette stratégie.
-
-## Stratégies de migration {#sec:strategieMigration}
+## Approches pour effectuer la migration {#sec:approcheMigration}
 
 Nous avons identifié plusieurs manières d'effectuer la migration d'une application.
-Toutes les solutions doivent respecter les contraintes définies Section \ref{contraintes}.
+Toutes les solutions doivent respecter les contraintes définies \secref{contraintes}.
 
-- _Migration manuelle_. Cette stratégie correspond au redéveloppement complet des applications sans l'utilisation d'outils aidant à la migration. La migration manuelle permet de facilement corriger les potentielles erreurs de l'application d'origine et de reconcevoir l'application cible en suivant les préceptes du langage cible.  
-- _Utilisation d'un moteur de règles_. L'utilisation d'un moteur de règles pour migrer partiellement ou en totalité une application a déjà été appliquée sur d'autres projets [@brant2010extreme; @feldman1990fortran; @grosse2012automatic]. Pour utiliser cette stratégie, nous devons définir et créer des règles qui prennent en entrée le code source et qui produisent le code pour l'application migrée. La Figure \ref{exampleRuleEngine} montre un exemple de règle de transformation. Dans ce cas, elle permet de changer la position des opérateurs dans une expression mathématique, l'opérateur qui était entre les opérandes de l'opération est maintenant en suffixe de l'expression. Il est possible que la migration ne soit pas complète. Dans ce cas, les développeurs devront finir le processus de migration avec du travail manuel. L'utilisation d'un moteur de règles, bien qu'efficace, implique une solution qui n'est ni indépendante de la source ni indépendante de la cible de la migration.
-- _Migration dirigée par les modèles_. La migration dirigée par les modèles implique le développement de méta-modèles. La stratégie respecte l'ensemble des contraintes que nous avons défini. Une migration semi-automatique ou complètement automatique est envisageable avec cette stratégie de migration. Comme pour l'utilisation d'un moteur de règle, dans le cas d'une migration semi-automatique, il peut y avoir du travail manuel à effectuer pour achever la migration.
+- _Migration manuelle_. Cette stratégie correspond au redéveloppement complet des applications sans l'utilisation d'outils aidant à la migration.
+    La migration manuelle permet de facilement corriger les potentielles erreurs de l'application d'origine et de reconcevoir l'application cible en suivant les préceptes du langage cible.  
+- _Utilisation d'un moteur de règles_. L'utilisation d'un moteur de règles pour migrer partiellement
+        ou en totalité une application a déjà été appliquée sur d'autres projets [@brant2010extreme; @feldman1990fortran; @grosse2012automatic].
+    Pour utiliser cette stratégie, nous devons définir et créer des règles qui prennent en entrée le code source et qui produisent le code pour l'application migrée.
+    par exemple, une règle de transformation permettant de déplacer l'opérateur d'une expression mathématique
+        en la plaçant en tant que suffice de l'expression transformerai l'expression `"4 + 2"` en `"4 2 +"`.
+    Il est envisageable d'effectuer la migration partiellement avec cette approche.
+    Dans ce cas, les développeurs devront finir le processus de migration avec du travail manuel.
+    L'utilisation d'un moteur de règles, bien qu'efficace, implique une solution qui n'est ni indépendante de la source ni indépendante de la cible de la migration.
+- _Migration dirigée par les modèles_. La migration dirigée par les modèles implique le développement de méta-modèles.
+    La stratégie respecte l'ensemble des contraintes que nous avons défini.
+    Une migration semi-automatique ou complètement automatique est envisageable avec cette stratégie de migration.
+    Comme pour l'utilisation d'un moteur de règle, dans le cas d'une migration semi-automatique, il peut y avoir du travail manuel à effectuer pour achever la migration.
+
+L'utilisation d'un moteur de règles comme la migration dirigée par les modèles sont envisageable.
+Cependant, la migration par les modèles pourrait permettre de généralisé nos prototypes
+    et d'après notre étude de la littérature c'est une approche courante pour effectuer la migration d'application.
+Nous avons donc décidé d'utiliser cette approche pour effectuer la migration.
 
 ## Processus de migration {#sec:processusMigration}
 
@@ -28,36 +41,44 @@ Toutes les solutions doivent respecter les contraintes définies Section \ref{co
 
 À partir de l'état de l'art et des contraintes que nous avons explicitées,
     nous avons conçu une stratégie pour effectuer la migration.
-Le processus que l'on a représenté Figure \ref{fig:processusMigration} est divisé en cinq étapes :
+Le processus que l'on a représenté \figref{processusMigration} est divisé en cinq étapes :
 
 1. _Extraction du modèle de la technologie source_ est la première étape permettant de construire l'ensemble des analyses et transformations que nous devons appliquer pour effectuer la migration. Elle consiste en la génération d'un modèle représentant le code source de l'application originel. Dans notre cas d'étude, le programme source est en Java et donc le modèle que nous créons est une implémentation d'un méta-modèle permettant de représenter une application écrite en Java.
-2. _Extraction de l'interface utilisateur_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relèvent du modèle d'interface utilisateur. Ce dernier, que nous avons dû concevoir, est expliqué Section \ref{sec:metamodelUI}.
+2. _Extraction de l'interface utilisateur_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relèvent du modèle d'interface utilisateur. Ce dernier, que nous avons dû concevoir, est expliqué \secref{metamodelUI}.
 3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface utilisateur (UI). Par exemple, si un clic sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, défini dans le modèle UI, lorsqu'un clic est effectué, on effectue un certain nombre d'actions, dont une sur le texte, lui aussi défini dans le modèle UI.
 4. _Exportation de l'interface utilisateur_. Le modèle d'interface graphique étant construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface utilisateur. Cela consiste en la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaires au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérente à l'interface.
 5. Finalement, l'_Exportation du code comportemental_ est la génération du code comportemental qui est lié à l'interface utilisateur. Cette étape peut être effectuée en parallèle de la précédente.
 
 ## Méta-modèle d'interface utilisateur {#sec:metamodelUI}
 
-![Méta-Modèle d'interface utilisateur](figures/guiModel.png){#guiModel width=80%}
+![Méta-Modèle d'interface utilisateur](figures/guiModel.png){#fig:guiModel width=80%}
 
 Afin de représenter les interfaces utilisateurs des applications de Berger-Levrault,
-    nous avons conçu le méta-modèle illustré Figure \ref{guiModel}.
+    nous avons conçu le méta-modèle illustré \figref{guiModel}.
+Ce méta-modèle est la synthèse des méta-modèles que nous avons trouvé lors de l'état de l'art et présenté \secref{stateMetaUI}.
 Dans la suite de cette section, nous présentons les différentes entités du méta-modèle.
 
 La **Phase** représente le conteneur principal d'une page interface utilisateur.
 Cela peut correspondre à une _fenêtre_ d'une application du bureau, une page web, ou
     dans notre cas d'un onglet à une page web.
+Dans le modèle KDM, une Phase correspond à un _Screen_ (type de UIDisplay).
+
 Une Phase peut contenir plusieurs **Business Page**.
 Elle peut aussi être appelée par un widget grâce à une **Action** de type **Call Phase**.
 Lorsqu'une Phase est appelée, l'interface change pour l'afficher.
 Dans le cas d'une application de bureau, l'interface change ou une nouvelle fenêtre est ouverte avec l'interface de la Phase.
 Pour une application web, l'appel d'une Phase peut correspondre à l'ouverture d'un nouvel onglet, le changement d'onglet actif ou la transformation de la page web courante.
+Cette notion de business page n'est présente dans aucun des autres papiers,
+    elle est inhérente au projet de Berger-Levrault et peux facilement être modifier pour correspondre à ce que l'on
+    trouve dans la littérature.
+Il suffirai de changer la relation entre phase et business page pour une relation entre phase et widget.
 
 Les **Widgets** sont les différents composants d'interface et les composants de disposition.
 Il existe deux types de widgets.
 Le **Leaf** est un widget qui ne contient pas d'autre widget.
 Le **Container** qui peut contenir un ou plusieurs autres widgets.
-Ce dernier permet de séparer les widgets en fonction de leur place dans l'organisation de la page web représentée.
+Ce dernier permet de séparer les widgets en fonction de leur place dans l'organisation de la page web représentée,
+    pour cela nous utilisons le patron de conception _composite_ fortement utilisé dans la littérature.
 
 Les **Attributes** représentent les informations appartenant à un widget et peuvent changer son aspect visuel ou son comportement.
 Des attributs communs sont la hauteur et la largeur pour définir précisément la dimension d'un widget.
@@ -68,9 +89,12 @@ Un bouton avec l'attribut _enable_ positionné sur _false_ représente un bouton
 Enfin, les widgets peuvent avoir un attribut qui aura un impact sur le visuel de l'application.
 Ce type d'attribut permet de définir un layout à respecter par les widgets contenus dans un autre
     et potentiellement les dimensions de ce dernier pour respecter une mise en pages particulière.
+Nous ne retrouvons pas la notion d'attribut dans les méta-modèles proposé par l'OMG,
+    cependant ils ont été introduit par les papiers [@gotti2016java;@sanchez2014model;@morgado2011reverse;@garces2017white;@memon2007eventflow;@samir2007swing2script;@shah2011reverse;@joorabchi2012reverse;@MemonWCRE2003;@mesbah2012crawling;@amalfitano2012using;@silva2010guisurfer].
 
 Les __Actions__ sont propres aux widgets.
 Elles représentent des actions qui peuvent être exécutées dans une interface graphique.
+C'est une notion qui est présente dans les méta-modèles proposé par l'OMG.
 __Call Service__ représente un appel à un service distant comme une URL sur internet.
 __Fire PopUp__ est l'action qui affiche un pop-up sur l'écran.
 Le pop-up ne peut pas être considéré comme un widget,
@@ -82,9 +106,9 @@ Dans le contexte d'une application client/serveur, il peut s'agir du côté serv
 
 ## Méta-modèle du code comportemental {#sec:metamodelComportemental}
 
-![Méta-Modèle du code comportemental](figures/behavioralModel.png){#behavioralModel width=100%}
+![Méta-Modèle du code comportemental](figures/behavioralModel.png){#fig:behavioralModel width=100%}
 
-Le méta-modèle du code comportemental présenté Figure \ref{behavioralModel} représente le code lié au comportement de l'application.
+Le méta-modèle du code comportemental présenté \figref{behavioralModel} représente le code lié au comportement de l'application.
 Il y a deux éléments principaux, Statement et Expression.
 
 Le **Statement** est la représentation des structures de contrôle des langages de programmation.

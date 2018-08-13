@@ -284,7 +284,7 @@ Une fois l'action effectuée, l'effet est représenté par une connexion de flux
 
 La Figure \ref{fig:ifmlViewElements} présente le méta-modèle _View Elements_ proposé par IFML.
 Ce méta-modèle a pour objectif de représenter la partie visible de l'interface utilisateur.
-Il utilise le patron de conception container et ont donc la notion de conteneur et de composant afin de représenter le DOM.
+Il utilise le patron de conception  _composite_ et ont donc la notion de conteneur et de composant afin de représenter le DOM.
 Le méta-modèle IFML introduit aussi la notion de ComponentPart.
 Cette entité est nécessaire pour représenter tous les composants dans le méta-modèle IFML car
     les auteurs ont décidé de définir les éléments tels que les listes ou les formulaires en tant que composant.
@@ -297,9 +297,9 @@ L'utilisation d'un ComponentPart permet d'ajouter d'autre composant aux listes e
 Nous présentons dans cette Section les méta-modèles ou représentation d'interface graphique proposés dans la littérature.
 Nous comparons ces propositions avec ceux proposés par l'OMG.
 
-Gotti _et al._[@gotti2016java] ont proposé un méta-modèle inspiré du modèle KDM (voir la \secref{sec:omg}).
+Gotti _et al._[@gotti2016java] ont proposé un méta-modèle inspiré du modèle KDM (voir la \secref{omg}).
 Le méta-modèle a les principales entités défini dans le modèle KDM.
-On retrouve le patron de conception composite pour représenter le DOM d'une interface graphique.
+On retrouve le patron de conception _composite_ pour représenter le DOM d'une interface graphique.
 La notion de UIElement s'appelle _Components_.
 Les components comme les fenêtres ont une notion de _Property_ qui a été ajouté par les développeurs
     pour représenter des informations comme, par exemple, la couleur d'un bouton.
@@ -319,11 +319,11 @@ Le méta-modèle graphique de Sanchez _et al._[@sanchez2014model] est très à 
 Il y a les entités Widget et Window qui correspondent respectivement aux entités GUIElement et UIDisplay.
 Leurs widgets ont une position X et Y et la largeur et hauteur en tant que propriétés.
 Ceci n'est pas représenté dans les méta-modèles KDM et IFML.
-Il y a aussi le patron de conception composite pour représenter le DOM.
+Il y a aussi le patron de conception  _composite_ pour représenter le DOM.
 
 Morgado _et al._[@morgado2011reverse] utilisent un méta-modèle graphique, mais ne le décrivent pas.
 Nous savons seulement que l'interface graphique est représentée comme un arbre ce qui est similaire à un
-    DOM et peut être représenté grâce au patron de conception composite.
+    DOM et peut être représenté grâce au patron de conception  _composite_.
 
 Le méta-modèle graphique de Garces _et al._[@garces2017white] diffère beaucoup de ceux précédemment décrit.
 Il y a les attributs, les événements, les windows, mais il n'y a pas de widget.
@@ -365,11 +365,11 @@ Ces éléments correspondent à la notre définition d'un UIField.
 Pour chaque élément d’interface utilisateur, l’outil des auteurs peut gérer la détection
     de plusieurs attributs et d'événements.
 Les attributs sont absents des modèles proposés par l'OMG.
-On ne retrouve pas le patron de conception _container_ dans le travail de ces auteurs.
+On ne retrouve pas le patron de conception  _composite_ dans le travail de ces auteurs.
 
 Memon _et al._[@memon2007eventflow] utilisent un modèle d'interface graphique pour représenter l'état d'une application.
 Ils ont aussi utilisé la notion de UIField.
-Les auteurs utilise le patron de conception _container_ afin de représenter le DOM d'une application.
+Les auteurs utilise le patron de conception  _composite_ afin de représenter le DOM d'une application.
 
 Mesbah _et al._[@mesbah2012crawling] n'ont pas présenté directement le méta-modèle de l'interface utilisateur qu'ils utilisent.
 Cependant, ils utilisent une représentation avec un arbre pour analyser différentes pages web.
@@ -377,7 +377,7 @@ Ils utilisent également la notion d'événement pouvant être déclenchée.
 Les auteurs instancient plusieurs méta-modèles d'interface utilisateur pour représenter les différentes pages web de l'application.
 Ces instances peuvent être comparées à plusieurs éléments UIDisplay.
 
-Nous retrouvons dans les papiers la représentation du DOM grâce à avec un arbre ou un méta-modèle utilisant le patron de conception composite.
+Nous retrouvons dans les papiers la représentation du DOM grâce à avec un arbre ou un méta-modèle utilisant le patron de conception  _composite_.
 Les notions de UIDisplay est aussi omniprésente.
 Contrairement à ce qui est utilisé dans les méta-modèles KDM et IFML, l'utilisation d'une entité _Attribut_ est souvent utilisé.
 

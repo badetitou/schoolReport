@@ -1,42 +1,37 @@
-# GUI Décomposition {#sec:guiDecomposition}
+# Décomposition d'une application avec GUI {#sec:guiDecomposition}
 
-Les applications que nous devons migrer ont des interfaces graphiques.
-Avant de créer l'outil de migration, il faut comprendre ce qu'est une telle interface
-    et comment nous pouvons la diviser.
-Diviser un problème en petits sous-problèmes est une méthode efficace pour résoudre des problèmes complexes.
+Avant de créer l'outil de migration,
+    nous avons étudier puis décomposer la notion d'interface graphique.
+Diviser un problème en sous-problèmes est une méthode efficace pour résoudre des problèmes complexes.
 Nous avons identifié trois parties dans une interface graphique :
 
-* L'interface utilisateur
+* La partie visuelle
 * Le code comportemental
 * Le code métier
 
-## Interface utilisateur
+## Partie visuelle
 
-L'interface utilisateur est la partie visible.
-Cet élément représente l'interface de l'application.
-Elle comprend les composants de l'interface.
-L'interface utilisateur ne contient pas le style visuel exact d'un composant,
-    mais elle peut préciser certaines caractéristiques inhérentes au composant, comme la possibilité d'être cliqué,
+La partie visuelle peut être mis en correspondance avec le méta-modèle UI de KDM (voir \secref{omg}).
+Elle contient les différents élément de l'interface.
+La partie visuelle définit les les caractéristiques inhérentes aux composants, comme la possibilité d'être cliqué,
     ou certaines propriétés du composant, comme sa couleur ou sa taille.
 Plus que les composants, elle décrit également la disposition
     de ces composants par rapport aux autres.
+Nous avons vu que cela est souvent représenté grâce au patron de conception  _composite_.
 Dans le cas où une application est composée de plusieurs fenêtres (ou de pages web pour une application web),
-    l'interface utilisateur contient toutes les fenêtres.
+    la partie visuelle contient toutes les fenêtres.
 
 ## Code comportemental
 
-Le code comportemental est la partie _exécutable_ de l'application.
-Cela correspond à la logique de l'application.
-Il peut y avoir deux manifestations du code comportemental.
-Il peut être exécuté soit par une action de l'utilisateur sur un composant d'interface (comme un clic) ou par le système lui-même.
+Le code comportemental définit le _flow_ d'action qui s'exécute lorsqu'un
+    utilisateur interagit avec la partie visuelle de l'application.
+L'utilisateur peut effectuer une action sur un composant de l'interface (comme un clic).
+Il est aussi possible que ce soit le système lui-même qui décide de déclencher une suite d'action suite à un événement extérieur.
 Comme dans un langage de programmation _"classique"_, le code comportemental contient des structures de contrôle (_c.-à-d._ boucle et alternative).
-Lié à l'interface utilisateur, le code comportemental définit la logique de l'interface utilisateur.
-Cependant, le code comportemental n'exprime pas la logique de l'application.
-Cette partie est dédiée au code comportemental.
 
 ## Code métier
 
-Le code métier définit les informations spécifiques d'une application.
+Le code métier définit tout ce qui n'est défini ni dans la partie visuelle ni dans le code comportemental.
+Ce correspond à tous ce qui est lié à l'application mais pas à la partie visuelle.
 Il est composé des règles générales de l'application
     (comment calculer les taxes ?), de l'adresse des services distants (quel serveur mon code métier doit demander), des données de l'application (quelle base de données ? quel type d'objet).
-Le code métier n'est donc pas directement lié à l'interface utilisateur.
