@@ -27,11 +27,11 @@ Les auteurs ont défini un sous-ensemble de layout qu'il est possible de connect
 Cette solution est celle qui se rapproche le plus des techniques de conception que nous utilisons.
 
 Afin d'améliorer la représentation que nous avons d'une application graphique,
-    il faudrait que l'on représente toutes les couches d'une interface graphique comme décrite Section \ref{guiDecomposition}.
+    il faudrait que l'on représente toutes les couches d'une interface graphique comme décrite \secref{guiDecomposition}.
 Une fois le layout implémenté nous pourrons bien représenter l'interface utilisateur, il nous faudra encore définir et implémenter
     des méta-modèles pour le code comportemental et le code métier.
 
-Nous avons déjà défini un méta-modèle de code comportemental qui est présenté Section \ref{metamodelComportemental}.
+Nous avons déjà défini un méta-modèle de code comportemental qui est présenté Section \secref{metamodelComportemental}.
 Il faut encore implémenter ce modèle et modifier en conséquence les importateur et exportateur que nous avons créés.
 Cette amélioration devrait nous permettre de mieux représenter les comportements de l'application
     lorsqu'un utilisateur effectue une action sur l'interface.
@@ -125,3 +125,50 @@ La migration d'un _framework_ consiste en la détection des différents widgets 
 Un travail futur serait de développer un outil qui permettrait de détecter tous ces composants d'un widget et ainsi de faciliter leurs migrations.
 En fonctionnant en symbiose avec l'outil que nous avons créé pendant ce stage, il serait ainsi possible d'effectuer la migration d'une application graphique
     en respectant la hiérarchie des widgets, les contraintes de layout et le visuel et comportement des widgets.
+
+
+### Méta-modèle de navigation et de state flow {#sec:navigation}
+
+On retrouve dans la littérature deux autres méta-modèles très présents.
+Le méta-modèle de navigation et le méta-modèle de state flow.
+
+Le méta-modèle de navigation permet de représenter un lien entre deux pages web ou fenêtres différentes.
+Le lien peut être fait d'une page web à une autre, ou d'un widget vers une page web.
+Le méta-modèle de navigation peut aussi contenir un lien d'un widget vers un événement, et un autre de cet événement vers
+    une page web.
+
+Morgado _et al._ [@morgado2011reverse] et Fleurey _et al._ [@fleurey2007model] ont utilisé un méta-modèle de navigation
+    pour représenter les liens entre les différentes interfaces utilisateur qu'ils détectent.
+Les premiers utilisent un méta-modèle supplémentaire qui décrit simplement l'ensemble des _fenêtres_ possible dans l'application.
+Son méta-modèle de navigation permet de faire le lien entre une action sur un widget et l'action de navigation qui en résulte.
+
+Pour Fleurey _et al._, le méta-modèle contient directement un lien entre la fenêtre de départ et celle d'arrivée.
+Le méta-modèle possède tout de même une entité appelée _Operation_, mais qui ne semble pas impliquée dans la navigation.
+
+Les informations de ces méta-modèles sont complètement contenues dans notre méta-modèle du code comportemental.
+Donc, bien que nous n'ayons pas de méta-modèle de navigation, nous faisons au moins ce qui est proposé dans ces papiers.
+
+Le méta-modèle de state flow permet de créer le lien entre différents états de l'interface utilisateur.
+Un état de l'interface utilisateur est défini par les widgets visibles et leurs propriétés.
+Ainsi, si la valeur d'une propriété change, un nouvel état est généré.
+
+Les auteurs Memon _et al._[@memon2007eventflow], Mesbah _et al._[@mesbah2012crawling], Amalfitano _et al._[@amalfitano2012using]
+    , Silva _et al._[@silva2010guisurfer] et Aho _et al._[@aho2013industrial] ont tous utilisé un méta-modèle de state flow
+    afin de représenter les différentes transitions entre les interfaces graphiques.
+Pour définir un état, leurs outils vont analyser les valeurs des propriétés des widgets visibles sur un écran.
+Une fois une action exécutée, l'outil détecte si l'état d'un widget a changé, dans ce cas un nouvel état de l'application est créé.
+Ainsi, les auteurs sont capables de représenter les impacts d'une action sur l'interface graphique.
+
+Pour définir un état, Joorabchi _et al._ [@joorabchi2012reverse] ont décidé d'effectuer une comparaison d'image.
+Après chaque action sur un widget, exécuté par un outil, ils prennent une image de l'application et la comparent avec une image prise avant l'action.
+Si les deux images sont différentes, alors les auteurs ont découvert un changement d'état provenant d'une action.
+
+Le méta-modèle de state flow permet de représenter l'impact d'un événement sur l'interface utilisateur.
+Le code à executer sur l'interface afin de passer d'un état à un autre est contenu dans notre méta-modèle du code comportemental.
+
+Notre méta-modèle de code comportemental permet de représenter les informations
+    contenues par les méta-modèle de navigation et de state flow.
+Cependant, nous ne représentons pas l'état d'entrée et l'état de sortie après une action,
+    mais l'état d'entrée d'une fenêtre et la logique à appliquer après une action pour obtenir l'état de sortie.
+Cette différence est dû à notre objectif qui est de migrer cette logique dans un nouveau langage et non
+    d'analyser les différents états possibles de l'application.

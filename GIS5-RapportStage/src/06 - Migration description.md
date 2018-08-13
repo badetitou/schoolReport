@@ -80,7 +80,7 @@ Le pop-up ne peut pas être considéré comme un widget,
 Le __Service__ est la référence de fonctionnalité distante que l'application peut appeler à partir de son interface graphique.
 Dans le contexte d'une application client/serveur, il peut s'agir du côté serveur de l'application.
 
-## Méta-modèle du code comportemental {#metamodelComportemental}
+## Méta-modèle du code comportemental {#sec:metamodelComportemental}
 
 ![Méta-Modèle du code comportemental](figures/behavioralModel.png){#behavioralModel width=100%}
 
