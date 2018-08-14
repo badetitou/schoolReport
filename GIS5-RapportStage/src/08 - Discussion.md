@@ -1,28 +1,52 @@
 # Discussion {#sec:discussion}
 
-Bien que nous ayons testé régulièrement notre travail sur les applications de production de Berger-Levrault,
-    la recherche des patterns pour l'importation ainsi que l'évaluation de la migration n'a été faîte que sur l'application
-    _bac à sable_.
-Nous savons que l'application après migration compile, mais nous n'avons pas de retours sur la réussite de l'exportation du visuel.
-Il est aussi possible que les autres logiciels de Berger-Levrault contiennent des déviances dans le code que nous n'avons pas prévu
-    ce qui peut nuire au résultat final.
+Bien que les résultats obtenus sont encourageant.
+Notre travail n'a été évalué que sur l'application _bac à sable_.
+Cette application doit contenir tout les types d'éléments que doivent utilisé les développeurs de Berger-Levrault,
+    cependant il est possible que des déviances dans le code soient présent dans les applications en production et absent de l'application _bac à sable_.
+
+La \secref{interfaceXML} présente un biais que nous acceptons de ne pas traiter.
+Puis la \secref{discussionValidation} décrit les difficulté d'évaluation du prototype que nous avons conçu.
+Enfin, la \secref{discussionLayout} et la \secref{discussionComportement} présentent deux partie de l'interface non traité que
+    nous avons identifié.
+
+## Interfaces depuis un fichier XML {#sec:interfaceXML}
 
 En GWT, il est possible de définir une interface graphique grâce à un fichier XML.
-Dans le cadre de ce projet, seule l'application _bac à sable_ utilise cette technique pour définir des interfaces.
+Pour cela, les développeurs définissent dans le fichier XML les tag qui correspondent aux widgets.
+Un widget contenu dans un autre est ainsi représenté par une balise XML à l'intérieur d'une autre balise.
+
+Dans le cadre de Berger-Levrault, seule l'application _bac à sable_ utilise cette technique pour définir des interfaces.
 Nous avons donc décidé de ne pas traiter l'importation des widgets pour les business pages définit de cette manière.
-En les considérant, le pourcentage de widget que nous arrivons à importer se voit réduit.
+
+## Outil de validation {#sec:discussionValidation}
+
+Un des problèmes que nous avons actuellement est l'évaluation de la migration.
+Il est facile de prendre l'application source et l'application cible et de regarder _manuellement_
+    si la migration a bien été effectuée, mais sur des applications de la taille de celles de Berger-Levrault
+    nous avons besoin d'un système automatique.
+
+Nous avons effectué des recherches dans la littérature sur les approches à adopter pour évaluer une migration d'application.
+Cependant, nous n'avons pas trouvé de solution applicable à notre cas d'étude.
+
+Certains papiers proposent de calculer le nombre de widget migré et de comparer par rapport au nombre originel.
+Cependant, dans notre cas le nombre de widget total est trop grand.
 
 ## Gestion des layout {#sec:discussionLayout}
 
-Comme expliqué \secref{exportToAngular}, certains résultats de l'exportation ne sont pas correct à cause d'un manque de respect des layouts.
-C'est le cas de la Figure \ref{cmp2}.
+![KDM - Diagramme de classe UIRelations](figures/kdmRelations.png){#fig:uiRelations width=70%}
+
+Comme expliqué \secref{respectContraintes}, certains résultats de l'exportation ne sont pas correct à cause d'un manque de respect des layouts.
+C'est le cas de la \figref{cmp2}.
 Ceci est dû à la manière dont est retranscrite l'idée de layout dans le méta-modèle d'interface graphique.
 Pour le moment, le layout est considéré comme un attribut, ce qui rend difficile la représentation d'interfaces complexes.
 Plusieurs solutions peuvent être envisagées pour représenter les interfaces graphiques.
 
 Gotti et Mbarki [@gotti2016java] ont décidé d'utiliser le méta-modèle proposé par KDM[^kdm].
-Le méta-modèle KDM de layout utilise une association entre deux _AbstractUIElement_ pour représenter la position de l'un part rapport à l'autre.
+Le méta-modèle KDM, représenté \figref{uiRelations}, utilise une association entre deux UIRessource, via une entité UILayout,
+    pour représenter la position de l'un part rapport à l'autre.
 C'est ainsi qu'est défini le layout d'une application.
+Le méta-modèle permet aussi de définir un _flow_ entre deux AbstractUIElement.
 
 [^kdm]: KDM : Knowledge Discovery Metamodel
 
@@ -34,15 +58,7 @@ Cette solution est celle qui se rapproche le plus des techniques de conception q
 
 ## Gestion du comportement {#sec:discussionComportement}
 
+Pour le moment, nous n'avons représenter que les liens de navigation.
 Afin d'améliorer la représentation que nous avons d'une application graphique,
-    il faudrait que l'on représente toutes les couches d'une interface graphique comme décrite \secref{guiDecomposition}.
-Une fois le layout implémenté nous pourrons bien représenter l'interface utilisateur, il nous faudra encore définir et implémenter
-    des méta-modèles pour le code comportemental et le code métier.
-
-Nous avons déjà défini un méta-modèle de code comportemental qui est présenté \secref{metamodelComportemental}.
-Il faut encore implémenter ce modèle et modifier en conséquence les importateur et exportateur que nous avons créés.
-Cette amélioration devrait nous permettre de mieux représenter les comportements de l'application
-    lorsqu'un utilisateur effectue une action sur l'interface.
-
-Enfin, il nous faut concevoir un méta-modèle pour le code métier.
-Cela devrait permettre d'extraire et représenter les règles métiers d'une application.
+    il faudrait que l'on représente toutes les couches d'une application comme décrite \secref{guiDecomposition}.
+Nous devons encore définir et implémenter des méta-modèles pour le code comportemental et le code métier.

@@ -7,7 +7,7 @@ Nous présentons dans cette Section les résultats que nous obtenons aux différ
 \secref{retroImport} présente les résultat de la phase de rétro-ingénierie.
 Puis, nous présentons, \secref{visualisation}, une visualisation que nous avons créé pour analyser
     le modèle que nous avons instancié.
-Finalement, \secref{exportToAngular}, nous comparons le résultat final avec les contraintes que nous avons fixé \secref{contraintes}.
+Finalement, \secref{respectContraintes}, nous comparons le résultat final avec les contraintes que nous avons fixé \secref{contraintes}.
 
 ## Résultat de l'importation {#sec:retroImport}
 
@@ -79,7 +79,38 @@ Ici, il s'agit d'un BLGrid qui contient des textes et des champs de saisies.
 
 La représentation complète que nous obtenons est disponible en Annexe.
 
-## Exportation en Angular {#sec:exportToAngular}
+## Respect des contraintes {#sec:respectContraintes}
+
+Le prototype que nous avons conçu devait respecter les contraintes suivantes,
+    fonctionne depuis GWT vers Angular,
+    utilise une approche modulaire,
+    préserve la structure de l'application,
+    préserve le visuel de l'application,
+    est automatique ou demande peut d'intervention de l'utilisateur,
+    améliore la qualité du logiciel,
+    permet la continuation de service
+    et génère du code lisible.
+
+Tout d'abord, le prototype permet bien de traiter du code Java en entrée et
+    génère du code Angular.
+Nous précisons que le code généré est compilable et peut être exécuté.
+On peut donc visualisé les résultats en lançant le logiciel migré.
+
+L'implémentation que nous avons réalisé est facilement portable pour être utilisable avec
+    une autre technologie source ou une autre technologie cible.
+De même, il est facile d'ajouter un nouveau type de widget à exporter en Angular,
+    ou à ajouter à l'analyse statique, sans introduire d'instabilité.
+Cependant, nous n'avons pas prévu de solution pour facilement modifier une étape
+    de l'importation ou de l'exportation.
+Par exemple, modifier la manière dont les widgets sont détectés demande à l'utilisateur du prototype
+    de comprendre le fonctionnement complet de la partie importation.
+
+Nous avons évalué la préservation de la structure en analysant la visualisation que nous
+    avons conçu et présenté \secref{visualisation}.
+Le prototype détecte et conserve l'architecure pendant l'importation et
+    l'exportation la restitue correctement.
+Il n'y a que les interfaces générées avec un fichier XML que nous avons décidé de ne pas gérer.
+Ce dernier point est discuté \secref{interfaceXML}.
 
 \begin{figure}
 \begin{subfigure}{0.45\textwidth}
@@ -91,12 +122,10 @@ La représentation complète que nous obtenons est disponible en Annexe.
 \includegraphics[width=\linewidth,trim={0 10cm 30cm 0},clip]{figures/cmp1/apres.png}
 \caption{Après} \label{fig:cmp1b}
 \end{subfigure}
-\caption{Phase Home} \label{cmp1}
+\caption{Phase Home} \label{fig:cmp1}
 \end{figure}
 
-Le code exporté est compilable à 100 % et est exécutable.
-L'exportation conserve l'architecture entre les éléments de l'interface graphique tels que détectés dans la partie importation.
-La Figure \ref{cmp1} présente les différences visuelles entre l'ancienne version, à gauche, et la nouvelle, à droite.
+La \figref{cmp1} présente les différences visuelles entre l'ancienne version, à gauche, et la nouvelle, à droite.
 Nous pouvons voir que les différences sont minimes.
 Dans la version exportée, les couleurs de l'en-tête des panels sont un peu plus claires et l'ombre portée des panels est plus dégradée.
 
@@ -110,13 +139,32 @@ Dans la version exportée, les couleurs de l'en-tête des panels sont un peu plu
 \includegraphics[width=\linewidth,trim={0cm 12cm 30cm 1cm},clip]{figures/cmp2/apres.png}
 \caption{Après} \label{fig:cmp2b}
 \end{subfigure}
-\caption{Phase Zone de saisie} \label{cmp2}
+\caption{Phase Zone de saisie} \label{fig:cmp2}
 \end{figure}
 
-La Figure \ref{cmp2} présente les différences visuelles pour la Phase _Zone de saisie_ de l'application _bac àsable_.
+La \figref{cmp2} présente les différences visuelles pour la Phase _Zone de saisie_ de l'application _bac àsable_.
 L'image de gauche correspond à la phase avant la migration tandis que celle de gauche est la même Phase après la migration.
 Les deux images étant grandes, nous les avons rognés pour afficher cette zone d'intérêt.
 Bien que les deux images ont l'air complètement différentes,
     tous les widgets sont présent dans la version migré.
 La différence visuel est du a un problème dans la gestion des layout.
 Ce point est discuté \secref{discussionLayout}.
+
+Notre outil est automatique.
+En effet, une fois le prototype développé,
+    l'importation et l'exportation n'ont pas besoin de l'intervention d'un utilisateur.
+
+Grâce à la modularité que nous avons introduit dans notre application,
+    il est possible d'améliorer la qualité du logiciel originel.
+Dans le cas des applications de Berger-Levrault utilisant BLCore, notre prototype peut être utilisé pour enlever les mauvaise utilisations
+    du _framework_ GWT depuis une application.
+
+Les première étapes de développement de l'outil de migration non pas produit de discontinuité du service.
+Le développement des applications des Berger-Levrault à continuer sans être impacté.
+Cependant, si à la fin du développement du prototype nous n'arrivons pas à obtenir 100 % de l'application de migré,e
+    il y a aura une discontinuité le temps de finir manuellement la migration.
+
+Enfin, nous avons voulu produire du code lisible pour les développeurs.
+Pour cela, en plus de respecter les conventions courantes du développement logiciel,
+    le prototype conserve le nom des variables originel choisi par les développeurs.
+Cela permet d'améliorer la lisibilité et favorise la comprehension de l'application migré.

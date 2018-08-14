@@ -78,7 +78,7 @@ Pour cela, nous avons dans un premier temps étudié les contraintes de Berger-L
 \secref{stateOfTheArt}, nous avons étudié les techniques utilisées dans la litérature pour représenter une interface graphique.
 Puis, \secref{guiDecomposition}, nous avons étudié les différentes composantes d'une application graphique.
 Ensuite nous avons crée une approche et mis en place un outil, présenté \secref{secImplementation} pour expérimenter la migration d'une application de Berger-Levrault.
-Enfin, \secref{resultatEtDicussion} et \secref{futurWork} nous avons discuté des résultats obtenues avec notre prototype et nous présentons
+Enfin, \secref{resultat}, \secref{discussion} et \secref{futurWork} nous avons discuté des résultats obtenues avec notre prototype et nous présentons
     les améliorations que nous devons encore apporter au travail effectué.
 
 \bvc{desc rapide bac à sable}
