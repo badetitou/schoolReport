@@ -20,7 +20,7 @@ Finalement, \secref{respectContraintes}, nous comparons le résultat final avec 
         \hline
         56 & 76 & 2081 & 101 \\
         \hline
-        100 \% & 100 \% & 98 \% & 100 \% \\
+        100 \% & 100 \% & 93 \% & 100 \% \\
         \hline
     \end{tabular} %
    % }
