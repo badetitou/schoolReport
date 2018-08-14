@@ -219,15 +219,17 @@ Nous avons vu dans la Section précédente que la représentation abstraite des 
 Nous avons donc recherché et comparé les différentes représentations existantes.
 
 \secref{omg}, nous présentons les deux ensemble de méta-modèles défini par l'OMG[^OMG] pour représenter une application.
-Le premier KDM permet de représenter une application de manière générale tandis que le second, IFML, est spécialisé dans la
+Le premier KDM[^KDM] permet de représenter une application de manière générale tandis que le second, IFML, est spécialisé dans la
     représentation d'application ayant une interface graphique.
 La \secref{stateMetaUI} détaille les représentations des interfaces graphiques décrites dans la littérature.
 
 [^OMG]: OMG : Object Management Group
+[^KDM]: KDM: Knowledge Discovery Metamodel
+
 
 ### Standard défini par l'OMG {#sec:omg}
 
-L'OMG a défini la norme KDM[^KDM] [(https://www.omg.org/spec/KDM/)](https://www.omg.org/spec/KDM/) pour prendre en charge l'évolution des logiciels.
+L'OMG a défini la norme KDM [(https://www.omg.org/spec/KDM/)](https://www.omg.org/spec/KDM/) pour prendre en charge l'évolution des logiciels.
 Le standard utilise un méta-modèle pour représenter un logiciel dans un haut niveau d'abstraction.
 
 L'architecture KDM est divisée en douze paquetages organisés en quatre couches.
@@ -258,8 +260,6 @@ Chaque AbstractUIElement peut avoir une UIAction.
 Une UIAction peut effectuer plusieurs UIEvent.
 UIEvent représente les événements qui impactent l'interface utilisateur.
 Il peut s'agir d'un _Callback_ ou de l'idée de navigation (_c.-à-d._ passer d'une page web à une autre).
-
-[^KDM]: KDM: Knowledge Discovery Metamodel
 
 Le langage IFML proposé par Brambilla _et al._ [@brambilla2014interaction] et adopté par l'OMG permet de représenter une l'interface graphique d'une application.
 Les méta-modèles ont été définis avec l'OMG [(http://www.ifml.org/)](http://www.ifml.org/).
@@ -350,7 +350,7 @@ Ils ont créé un méta-modèle pour représenter l'interface utilisateur de l'a
 Ce méta-modèle est stocké dans un fichier XUL et représente
     les widgets avec leurs propriétés ainsi que la mise en page.
 Ces widgets appartiennent à une fenêtre, appelée Phase dans notre travail,
-    et peuvent déclencher un événement lorsqu'un _Input_ GUI est exécuté.
+    et peuvent déclencher un événement lorsqu'un _Input GUI_ est exécuté.
 Dans les modèles de l'OMG, on ne retrouve pas la notion de propriété et
     l'_Input_ est englobé soit dans paquetage _Event_ pour KDM, soit dans flux d'interaction pour IFML.
 

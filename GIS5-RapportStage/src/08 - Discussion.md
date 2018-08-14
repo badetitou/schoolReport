@@ -42,13 +42,11 @@ Ceci est dû à la manière dont est retranscrite l'idée de layout dans le mét
 Pour le moment, le layout est considéré comme un attribut, ce qui rend difficile la représentation d'interfaces complexes.
 Plusieurs solutions peuvent être envisagées pour représenter les interfaces graphiques.
 
-Gotti et Mbarki [@gotti2016java] ont décidé d'utiliser le méta-modèle proposé par KDM[^kdm].
+Gotti et Mbarki [@gotti2016java] ont décidé d'utiliser le méta-modèle proposé par KDM.
 Le méta-modèle KDM, représenté \figref{uiRelations}, utilise une association entre deux UIRessource, via une entité UILayout,
     pour représenter la position de l'un part rapport à l'autre.
 C'est ainsi qu'est défini le layout d'une application.
 Le méta-modèle permet aussi de définir un _flow_ entre deux AbstractUIElement.
-
-[^kdm]: KDM : Knowledge Discovery Metamodel
 
 Sánchez Ramón _et al._ [@sanchez2014model] ont créé un méta-modèle pour les layouts.
 Ce méta-modèle propose de lier la notion de widget avec celle de layout et de combiner les layouts afin de

@@ -20,6 +20,9 @@ Berger-Levrault possède des applications client/serveur qu’elle souhaite raje
 En particulier, le _front-end_ est développé en GWT et doit migrer vers Angular 6.
 Le _back-end_ est une application monolithique et doit évoluer vers une architecture de services web.
 Le changement de _framework_[^framework] graphique est imposé par l'arrêt du développement de GWT par Google.
+Google prévoit tout de même de créer un transpilateur pour convertir le code GWT en Angular,
+    cependant il n'y a pas de communication sur ce projet et l'entreprise ne peut pas se permettre de
+    rester "bloqué" avec des technologies vieillissante.
 Le passage à une architecture à services est aussi souhaité pour améliorer l’offre commerciale et la rendre plus flexible.
 
 Mon travail durant ce stage ne traite que de la migration des applications _front-end_.
@@ -75,7 +78,7 @@ Les développeurs pourront alors effectuer la fin de la migration assistée par 
 Notre objectif est donc de trouver des solutions pour aider à la migration des applications de Berger-Levrault,
     de les évaluer et d'implémenter la meilleure solution respectant les contraintes de l'entreprise.
 Pour cela, nous avons dans un premier temps étudié les contraintes de Berger-Levrault présenté \secref{descProbleme}.
-\secref{stateOfTheArt}, nous avons étudié les techniques utilisées dans la litérature pour représenter une interface graphique.
+\secref{stateOfTheArt}, nous avons étudié les techniques utilisées dans la littérature pour représenter une interface graphique.
 Puis, \secref{guiDecomposition}, nous avons étudié les différentes composantes d'une application graphique.
 Ensuite nous avons crée une approche et mis en place un outil, présenté \secref{secImplementation} pour expérimenter la migration d'une application de Berger-Levrault.
 Enfin, \secref{resultat}, \secref{discussion} et \secref{futurWork} nous avons discuté des résultats obtenues avec notre prototype et nous présentons
