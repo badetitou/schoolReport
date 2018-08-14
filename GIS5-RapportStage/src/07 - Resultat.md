@@ -1,18 +1,15 @@
-# Résultats et Discussion {#sec:resultatEtDicussion}
+# Résultats {#sec:resultat}
 
 Nous allons maintenant présenter les résultats que nous avons obtenus suite à l'implémentation de la stratégie de migration.
 
-Dans un premier temps, Section \ref{resultat} nous décrivons les résultats de l'importation et de l'exportation.
-Puis nous verrons Section \ref{visualisation} la représentation d'une application après l'avoir importée dans notre outil.
-Enfin, nous discuterons des résultats Section \ref{discussion}.
+Nous avons expérimenté notre approche sur l'application _bac à sable_ de Berger-Levrault.
+Nous présentons dans cette Section les résultats que nous obtenons aux différentes étapes du processus de migration.
+\secref{retroImport} présente les résultat de la phase de rétro-ingénierie.
+Puis, nous présentons, \secref{visualisation}, une visualisation que nous avons créé pour analyser
+    le modèle que nous avons instancié.
+Finalement, \secref{exportToAngular}, nous comparons le résultat final avec les contraintes que nous avons fixé \secref{contraintes}.
 
-## Résultats {#resultat}
-
-Une fois le prototype implémenté, nous avons cherché à vérifier nos résultats.
-Comme la stratégie mise en place est en deux étapes, importation et exportation,
-    nous avons séparé la vérification de nos résultats en deux parties.
-
-### Rétro-Ingénierie {#retroInge}
+## Résultat de l'importation {#sec:retroImport}
 
 \begin{table}[hbtp]
     \begin {center}
@@ -20,6 +17,8 @@ Comme la stratégie mise en place est en deux étapes, importation et exportatio
     \begin{tabular}{|c|c|c|c|}
         \hline
          Phases & Business Pages & Widgets & Link between Phases \\
+        \hline
+        56 & 76 & 2081 & 101 \\
         \hline
         100 \% & 100 \% & 98 \% & 100 \% \\
         \hline
@@ -42,18 +41,45 @@ Après l'importation, nous identifions 76 pages métiers.
 Nous retrouvons dans les pages métiers celles qui implémentent l'interface _IPageMetier_ ainsi que 31 qui
     dernières proviennent de code qui a été factorisé par les développeurs de l'application.
 La factorisation du code est une complication dans le calcul du nombre exact de business page que nous devons détecter pendant l'importation.
-Cette difficulté d'évaluation est discutée Section \ref{discussion}.
+Cette difficulté d'évaluation est discutée \secref{discussion}.
 
-Nous réussissons à identifier 2081 widgets, cependant avec les heuristiques que nous avons définis Section \ref{implementationImport} nous devrions avoir 2141 widgets.
+Nous réussissons à identifier 2081 widgets, cependant avec les heuristiques que nous avons définis \secref{implementationImport} nous devrions avoir 2141 widgets.
 Ce qui correspond à un total de 98 % de widget que nous réussissons à créer.
-Il existe cependant un écart que nous n'arrivons pas encore à évaluer dont l'on discute Section \ref{discussion}.
+Il existe cependant un écart que nous n'arrivons pas encore à évaluer dont l'on discute \secref{discussion}.
 
 Finalement, la détection du nombre de liens entre les phases est réussie à 100 %.
 Nous détectons correctement 101 liens de navigation qui existent dans l'application.
 Les liens sont tous correctement connectés aux widgets sur lesquels il faut faire une action
     pour déclencher la transition et amène vers la bonne Phase.
 
-### Exportation en Angular {#exportToAngular}
+## Visualisation {#sec:visualisation}
+
+Pendant la construction de l'outil de migration, nous avons créé des requêtes sur le modèle d'interface graphique.
+Ces requêtes permettent de créer des graphiques et d'analyser la construction de l'interface graphique sans regarder le code source.
+
+![Extrait de la représentation de l’application _bac à sable_](figures/largeFireworkModif.png){#fig:largeFirework width=70%}
+
+La \figref{largeFirework} présente un extrait de la visualisation des relations entre les
+    différentes entités de l'interface graphique de l'application _bac à sable_.
+
+Le rond noir est la représentation d'une phase.
+Ici, il correspond à la phase _"Sample\_Editable\_List"_.
+Nous pouvons retrouvé comment la phase est appelé en suivant la flèche bleu.
+La phase contient aussi une business page, représenté en rouge,.
+Il s'agit de la page _"SamplePageEditableLists"_.
+Cette dernière contient 9 widgets, représentés en vert.
+Celui du dessous est la représentation d'une instance d'un composant BLGrid provenant de BLCore.
+Ce type de composant peut contenir d'autre widgets.
+Dans cette exemple il en contient deux.
+
+Nous pouvons voir sur le côté gauche de l'image un agglomérats de widget.
+Cette disposition d'élément est courante,
+    elle représente un widget de type _container_ qui contient beaucoup d'autre widgets pouvant être des _leafs_ ou des _containers_.
+Ici, il s'agit d'un BLGrid qui contient des textes et des champs de saisies.
+
+La représentation complète que nous obtenons est disponible en Annexe.
+
+## Exportation en Angular {#sec:exportToAngular}
 
 \begin{figure}
 \begin{subfigure}{0.45\textwidth}
@@ -90,61 +116,7 @@ Dans la version exportée, les couleurs de l'en-tête des panels sont un peu plu
 La Figure \ref{cmp2} présente les différences visuelles pour la Phase _Zone de saisie_ de l'application _bac àsable_.
 L'image de gauche correspond à la phase avant la migration tandis que celle de gauche est la même Phase après la migration.
 Les deux images étant grandes, nous les avons rognés pour afficher cette zone d'intérêt.
-La migration a bien permis de conserver l'architecture entre les éléments, ce que l'on peut voir avec les composants de formulaire à l'intérieur du panel _"zone de saisie"_.
-Cependant le layout n'a pas été correctement respecté, ce qui explique les différences visuelles entre les deux images.
-
-## Visualisation {#visualisation}
-
-Pendant la construction de l'outil de migration, nous avons créé des requêtes sur le modèle d'interface graphique.
-Ces requêtes permettent de créer des graphiques et d'analyser la construction de l'interface graphique sans regarder le code source.
-
-![Extrait de la représentation de l’application _bac à sable_](figures/firework.png){#firework width=80%}
-
-La Figure \ref{firework} présente un extrait de la visualisation des relations entre les
-    différentes entités de l'interface graphique de l'application _bac à sable_.
-Les phases sont représentées en noires, les widgets en vert et les business page en rouge.
-Une phase contenant une business page, une business page en contenant une autre ou un widget et un widget en contenant un autre sont représentés par une flèche partant du conteneur vers le contenu.
-Les liens de navigation sont représentés par une flèche bleue partant du widget sur lequel il faut effectuer une action vers la Phase qui est appelée.
-
-On peut voir sur la Figure \ref{firework} des agglomérats de widget.
-Ceux-ci représentent des widgets container comme des panels, qui contiennent d'autres widgets, comme des boutons ou du texte.
-
-## Discussion {#discussion}
-
-Les résultats que nous avons obtenus peuvent être discutés.
-En effet, ils peuvent être remis en cause en partie pour les raisons suivantes.
-
-Bien que nous ayons testé régulièrement notre travail sur les applications de production de Berger-Levrault,
-    la recherche des patterns pour l'importation ainsi que l'évaluation de la migration n'a été faîte que sur l'application
-    _bac à sable_.
-Nous savons que l'application après migration compile, mais nous n'avons pas de retours sur la réussite de l'exportation du visuel.
-Il est aussi possible que les autres logiciels de Berger-Levrault contiennent des déviances dans le code que nous n'avons pas prévu
-    ce qui peut nuire au résultat final.
-
-\begin{figure}[htb]
-\centering
-\begin{lstlisting}
-<bl_grille id="panelCoche" largeur="100%" remplissage="5" espace="1" hauteur="300px">
-  <bl_ligne>
-    <bl_cellule alignementhorizontal="centre" alignementvertical="milieu">
-      <bl_cadre_epais titre="Boutons radio" largeur="100%">
-         <bl_bouton_radio id="radio1" groupe="groupe 1" libelle="option 1"/>
-         <bl_bouton_radio id="radio2" groupe="groupe 1" libelle="option 2"/>
-         <bl_bouton_radio id="radio3" groupe="groupe 2" libelle="option 3"/>
-         <bl_bouton_radio id="radio4" groupe="groupe 2" libelle="option 4"/>
-       </bl_cadre_epais>
-    </bl_cellule>
-  </bl_ligne>
-</bl_grille>
-\end{lstlisting}
-\caption{Définition d'interface graphique via fichier XML}
-\label{xml}
-\end{figure}
-
-En GWT, il est possible de définir une interface graphique grâce à un fichier XML.
-La Figure \ref{xml} présente un extrait d'un fichier de l'application _bac à sable_ qui permet de générer une interface graphique.
-La ligne déclare un panel de type grille.
-Il contient une _"ligne"_ déclarée ligne 2 et 4 _"radio button"_ déclarés ligne 5 à 8.
-Dans le cadre de ce projet, seule l'application _bac à sable_ utilise cette technique pour définir des interfaces.
-Nous avons donc décidé de ne pas traiter l'importation des widgets pour les business pages définit de cette manière.
-En les considérant, le pourcentage de widget que nous arrivons à importer se voit réduit.
+Bien que les deux images ont l'air complètement différentes,
+    tous les widgets sont présent dans la version migré.
+La différence visuel est du a un problème dans la gestion des layout.
+Ce point est discuté \secref{discussionLayout}.

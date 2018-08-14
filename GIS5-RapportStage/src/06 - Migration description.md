@@ -104,32 +104,6 @@ Le pop-up ne peut pas être considéré comme un widget,
 Le __Service__ est la référence de fonctionnalité distante que l'application peut appeler à partir de son interface graphique.
 Dans le contexte d'une application client/serveur, il peut s'agir du côté serveur de l'application.
 
-## Méta-modèle du code comportemental {#sec:metamodelComportemental}
-
-![Méta-Modèle du code comportemental](figures/behavioralModel.png){#fig:behavioralModel width=100%}
-
-Le méta-modèle du code comportemental présenté \figref{behavioralModel} représente le code lié au comportement de l'application.
-Il y a deux éléments principaux, Statement et Expression.
-
-Le **Statement** est la représentation des structures de contrôle des langages de programmation.
-Il y a l'alternative, la boucle, la notion de bloc et un lien vers une expression.
-
-Une **Expression** représente un morceau de code qui peut être évalué directement.
-Cela peut être une affectation avec la valeur de l'affectation,
-    un littéral (directement la valeur de l'élément écrit),
-    une expression booléenne,
-    une expression arithmétique
-    ou une invocation.
-Dans le cas d'une invocation, c'est la valeur de retour de la méthode
-    qui est utilisée comme valeur de l'expression.
-
-Les éléments **Action** constituent le lien vers le modèle d'interface graphique.
-C'est le conteneur de la logique d'un événement déclenché par une action.
-
-Grâce à ce modèle, nous pouvons représenter la logique
-    exécutée par un lorsqu'un événement est déclenché par une action sur un widget
-    du modèle d'interface graphique.
-
 ## Implémentation du processus
 
 Pour tester la stratégie, nous avons implémenté un outil qui suit le processus de migration.
@@ -153,7 +127,7 @@ Ce contrôle est important pour améliorer le résultat final.
 [^pharo]: Pharo est un langage de programmation objet, réflexif et dynamiquement typé - [http://pharo.org/](http://pharo.org/)
 [^GUI]: GUI : Graphical User Interface - Interface Graphique
 
-### Importation {#implementationImport}
+### Importation {#sec:implementationImport}
 
 La création des modèles représentant l'interface graphique est divisée en trois étapes comme présenté Section \ref{sec:processusMigration}.
 Dans le cas de Berger-Levrault, nous avons implémenté l'approche en Pharo avec Moose.
@@ -196,10 +170,10 @@ public class SamplePageMetier1 extends AbstractSimplePageMetier {
 }
 \end{lstlisting}
 \caption{Définition d'interface graphique en Java}
-\label{uiJava}
+\label{fig:uiJava}
 \end{figure}
 
-La Figure \ref{uiJava} présente un extrait du code de l'application _bac à sable_.
+La \figref{uiJava} présente un extrait du code de l'application _bac à sable_.
 Il s'agit de la méthode `buildPageUi(Object object)` qui contient le code à exécuter pour construire l'interface graphique de
     la business page "SamplePageMetier1".
 
@@ -213,7 +187,7 @@ Ensuite, nous avons développé l'outil d'importation de manière incrémentale.
 Nous avons donc cherché les business pages.
 Grâce à l'analyse préliminaire des applications de Berger-Levrault, nous avons détecté que
     les business pages en GWT correspondent à des classes qui implémente l'interface _IPageMetier_.
-Dans la Figure \ref{uiJava}, la classe SamplePageMetier1 étend AbstractSimplePageMetier, et ce dernier
+Dans la \figref{uiJava}, la classe SamplePageMetier1 étend AbstractSimplePageMetier, et ce dernier
     implémente l'interface.
 Une fois les classes trouvées, nous avons recherché les appels des constructeurs des classes.
 Puis, en faisant le lien entre les appels et les phases qui _"ajoute"_ à leurs contenus,
@@ -224,7 +198,7 @@ Pour cela, nous avons cherché toutes les sous-classes Java de la classe GWT _Wi
 Ce sont les classes qui vont pouvoir être instanciées et utilisées pour la construction du programme.
 Ensuite, comme pour les business pages, nous avons cherché les appels des constructeurs des widgets et
     avons relié ces appels à la business page qui les a ajoutés.
-Dans la Figure \ref{uiJava}, il y a deux appels à des constructeurs de widget.
+Dans la \figref{uiJava}, il y a deux appels à des constructeurs de widget.
 Le constructeur de BLLinkLabel est appelé ligne 4 et celui de Label ligne 13.
 La variable `vpMain` correspond au panel principal de la business page.
 Les lignes 13 et 14 correspondent à l'ajout d'un widget dans une business page
@@ -235,7 +209,8 @@ Nous avons, pour chaque widget, cherché dans quelle variable Java il a été af
 Puis nous avons cherché les appels de méthodes effectués depuis ces variables java.
 Les appels aux méthodes _"addActionHandler"_ sont transformés en action tandis que
     les appels aux méthodes _"setX"_ ont été transformés en attribut.
-Dans le cas de la Figure \ref{uiJava},
+Cette approche pour détecter les attributs et les actions provient des papiers de la littérature [@silva2010guisurfer;@samir2007swing2script].
+Dans le cas de la \figref{uiJava},
     le BLLinkLable, dont la variable est `lblPgSuivante`, est lié à une action et à un attribut.
 Les lignes 5 à 10 correspondent à l'ajout d'une action et le code à executer quand l'action est exécutée.
 La ligne 11 correspond à l'ajout de l'attribut "Enabled" avec comme valeur `false`.
