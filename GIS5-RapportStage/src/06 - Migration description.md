@@ -44,21 +44,21 @@ Nous avons donc décidé d'utiliser cette approche pour effectuer la migration.
 Le processus que l'on a représenté \figref{processusMigration} est divisé en cinq étapes :
 
 1. _Extraction du modèle de la technologie source_ est la première étape permettant de construire l'ensemble des analyses et transformations que nous devons appliquer pour effectuer la migration. Elle consiste en la génération d'un modèle représentant le code source de l'application originel. Dans notre cas d'étude, le programme source est en Java et donc le modèle que nous créons est une implémentation d'un méta-modèle permettant de représenter une application écrite en Java.
-2. _Extraction de l'interface utilisateur_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relèvent du modèle d'interface utilisateur. Ce dernier, que nous avons dû concevoir, est expliqué \secref{metamodelUI}.
-3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface utilisateur (UI). Par exemple, si un clic sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, défini dans le modèle UI, lorsqu'un clic est effectué, on effectue un certain nombre d'actions, dont une sur le texte, lui aussi défini dans le modèle UI.
-4. _Exportation de l'interface utilisateur_. Le modèle d'interface graphique étant construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface utilisateur. Cela consiste en la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaires au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérente à l'interface.
-5. Finalement, l'_Exportation du code comportemental_ est la génération du code comportemental qui est lié à l'interface utilisateur. Cette étape peut être effectuée en parallèle de la précédente.
+2. _Extraction de l'interface graphique_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relèvent du modèle d'interface graphique. Ce dernier, que nous avons dû concevoir, est expliqué \secref{metamodelUI}.
+3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface graphique (UI). Par exemple, si un clic sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, défini dans le modèle UI, lorsqu'un clic est effectué, on effectue un certain nombre d'actions, dont une sur le texte, lui aussi défini dans le modèle UI.
+4. _Exportation de l'interface graphique_. Le modèle d'interface graphique étant construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface graphique. Cela consiste en la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaires au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérente à l'interface.
+5. Finalement, l'_Exportation du code comportemental_ est la génération du code comportemental qui est lié à l'interface graphique. Cette étape peut être effectuée en parallèle de la précédente.
 
-## Méta-modèle d'interface utilisateur {#sec:metamodelUI}
+## Méta-modèle d'interface graphique {#sec:metamodelUI}
 
-![Méta-Modèle d'interface utilisateur](figures/GUIModel.png){#fig:guiModel width=80%}
+![Méta-Modèle d'interface graphique](figures/GUIModel.png){#fig:guiModel width=80%}
 
 Afin de représenter les interfaces utilisateurs des applications de Berger-Levrault,
     nous avons conçu le méta-modèle illustré \figref{guiModel}.
 Ce méta-modèle est la synthèse des méta-modèles que nous avons trouvé lors de l'état de l'art et présenté \secref{stateMetaUI}.
 Dans la suite de cette section, nous présentons les différentes entités du méta-modèle.
 
-La **Phase** représente le conteneur principal d'une page interface utilisateur.
+La **Phase** représente le conteneur principal d'une page interface graphique.
 Cela peut correspondre à une _fenêtre_ d'une application du bureau, une page web, ou
     dans notre cas d'un onglet à une page web.
 Dans le modèle KDM, une Phase correspond à un _Screen_ (type de UIDisplay).

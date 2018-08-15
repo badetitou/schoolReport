@@ -32,8 +32,8 @@ Le méta-modèle possède tout de même une entité appelée _Operation_, mais q
 Les informations de ces méta-modèles sont complètement contenues dans notre méta-modèle du code comportemental.
 Donc, bien que nous n'ayons pas de méta-modèle de navigation, nous faisons au moins ce qui est proposé dans ces papiers.
 
-Le méta-modèle de _state flow_ permet de créer le lien entre différents états de l'interface utilisateur.
-Un état de l'interface utilisateur est défini par les widgets visibles et leurs propriétés.
+Le méta-modèle de _state flow_ permet de créer le lien entre différents états de l'interface graphique.
+Un état de l'interface graphique est défini par les widgets visibles et leurs propriétés.
 Ainsi, si la valeur d'une propriété change, un nouvel état est généré.
 
 Les auteurs Memon _et al._ [@memon2007eventflow], Mesbah _et al._ [@mesbah2012crawling], Amalfitano _et al._ [@amalfitano2012using]
@@ -47,7 +47,7 @@ Pour définir un état, Joorabchi _et al._ [@joorabchi2012reverse] ont décidé 
 Après chaque action sur un widget, exécuté par un outil, ils prennent une image de l'application et la comparent avec une image prise avant l'action.
 Si les deux images sont différentes, alors les auteurs ont découvert un changement d'état provenant d'une action.
 
-Le méta-modèle de _state flow_ permet de représenter l'impact d'un événement sur l'interface utilisateur.
+Le méta-modèle de _state flow_ permet de représenter l'impact d'un événement sur l'interface graphique.
 Le code à executer sur l'interface afin de passer d'un état à un autre est contenu dans notre méta-modèle du code comportemental.
 
 Notre méta-modèle de code comportemental permet de représenter les informations

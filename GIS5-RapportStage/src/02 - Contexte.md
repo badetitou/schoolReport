@@ -78,7 +78,8 @@ Les développeurs pourront alors effectuer la fin de la migration assistée par 
 Notre objectif est donc de trouver des solutions pour aider à la migration des applications de Berger-Levrault,
     de les évaluer et d'implémenter la meilleure solution respectant les contraintes de l'entreprise.
 Pour cela, nous avons dans un premier temps étudié les contraintes de Berger-Levrault présenté \secref{descProbleme}.
-\secref{stateOfTheArt}, nous avons étudié les techniques utilisées dans la littérature pour représenter une interface graphique.
+\secref{stateOfTheArt}, nous avons étudié les techniques utilisées dans la littérature pour représenter une interface graphique
+.
 Puis, \secref{guiDecomposition}, nous avons étudié les différentes composantes d'une application graphique.
 Ensuite nous avons crée une approche et mis en place un outil, présenté \secref{secImplementation} pour expérimenter la migration d'une application de Berger-Levrault.
 Enfin, \secref{resultat}, \secref{discussion} et \secref{futurWork} nous avons discuté des résultats obtenues avec notre prototype et nous présentons

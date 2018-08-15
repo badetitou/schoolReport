@@ -1,4 +1,4 @@
-# Décomposition d'une application avec interface utilisateur {#sec:guiDecomposition}
+# Décomposition d'une application avec interface graphique {#sec:guiDecomposition}
 
 Avant de créer l'outil de migration,
     nous avons étudier puis décomposer la notion d'interface graphique.
