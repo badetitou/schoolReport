@@ -51,7 +51,7 @@ Le processus que l'on a représenté \figref{processusMigration} est divisé en 
 
 ## Méta-modèle d'interface utilisateur {#sec:metamodelUI}
 
-![Méta-Modèle d'interface utilisateur](figures/guiModel.png){#fig:guiModel width=80%}
+![Méta-Modèle d'interface utilisateur](figures/GUIModel.png){#fig:guiModel width=80%}
 
 Afin de représenter les interfaces utilisateurs des applications de Berger-Levrault,
     nous avons conçu le méta-modèle illustré \figref{guiModel}.
