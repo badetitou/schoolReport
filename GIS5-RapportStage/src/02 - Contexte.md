@@ -22,7 +22,7 @@ Le _back-end_ est une application monolithique et doit évoluer vers une archite
 Le changement de _framework_[^framework] graphique est imposé par l'arrêt du développement de GWT par Google.
 Google prévoit tout de même de créer un transpilateur pour convertir le code GWT en Angular,
     cependant il n'y a pas de communication sur ce projet et l'entreprise ne peut pas se permettre de
-    rester "bloqué" avec des technologies vieillissante.
+    rester "bloqué" avec des technologies vieillissantes.
 Le passage à une architecture à services est aussi souhaité pour améliorer l’offre commerciale et la rendre plus flexible.
 
 Mon travail durant ce stage ne traite que de la migration des applications _front-end_.
@@ -44,12 +44,13 @@ Cette extension, qui s'appelle BLCore, permet à Berger-Levraut de définir des 
     leurs développements.
 
 \bvc{Introduction utilisation du framework}
-La taille des applications ainsi que l'architecture des application de Berger-Levrault les rendent complexes
+La taille des applications ainsi que l'architecture des applications de Berger-Levrault les rendent complexes
 La \figref{architectureBL} représente les différentes couches de _framework_ utilisées par les applications de Berger-Levrault.
 Toutes les applications fonctionnent de manière indépendantes.
-Comme le représentent les flèches, les applications utilisent BLCore, qui lui même utilise GWT.
+Comme le représente les flèches, les applications utilisent BLCore, qui lui-même utilise GWT.
 On retrouve aussi des applications, qui ne respectent pas la convention décidée par les équipes de Berger-Levrault,
     ayant un lien direct avec le _framework_ GWT.
+C'est le cas de l'Application 1 qui utilise directement des composants de GWT.
 
 \bvc{complexité de la migration}
 En plus de l'architecture des applications à étudier,
