@@ -250,7 +250,7 @@ UIResource peut être défini comme UIDisplay, UIField ou UIEvent.
 Un UIField est utilisé pour représenter des formulaires, des champs de texte, des panels, etc.
 Nous pouvons également détecter le patron de conception _composite_ avec
     UIResource et AbstractUIElement.
-Cela permet la représentation de l'architecture d'interface utilisateur possible.
+Cela permet la représentation de la structure de l'interface utilisateur possible.
 
 UIDisplay peut être un Screen ou un Report.
 Screen représente une fenêtre d'un logiciel de bureau ou une page web.
