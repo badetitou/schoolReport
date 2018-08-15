@@ -14,13 +14,13 @@ Finalement, \secref{respectContraintes}, nous comparons le résultat final avec 
 \begin{table}[hbtp]
     \begin {center}
   %  \resizebox{\columnwidth}{!}{%
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|c|}
         \hline
-         Phases & Business Pages & Widgets & Link between Phases \\
+         & Phases & Business Pages & Widgets & Link between Phases \\
         \hline
-        56 & 76 & 2081 & 101 \\
+        Nombre d'éléments & 56 & 76 & 2081 & 101 \\
         \hline
-        100 \% & 100 \% & 93 \% & 100 \% \\
+        Pourcentage bien migré & 100 \% & 100 \% & 93 \% & 100 \% \\
         \hline
     \end{tabular} %
    % }
