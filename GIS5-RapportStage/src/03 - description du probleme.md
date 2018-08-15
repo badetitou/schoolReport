@@ -39,7 +39,6 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
     Il est possible que certaines déviances ne soient pas traitable ou demande un effort trop important,
         elles seront alors traité post-migration.
     Dans le cas de Berger-Levrault, l'outil de migration peut gérer les éléments, utilisés par l'application à migrer, provenant du _framework_ GWT.
-    Cet exemple d'utilisation du _framework_ GWT par l'Application 1 est représenté \figref{architectureBL}.
 - _Continuation du service_. Pendant la conception de la stratégie de migration, le développement du prototype permettant la migration et la migration elle-même,
         les équipes de développement doivent pour continuer la maintenance des applications.
     Cette contrainte est essentielle puisque Berger-Levrault, en raison de son activité, ne peux pas demander à ses clients d'accepter

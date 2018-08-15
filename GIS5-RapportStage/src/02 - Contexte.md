@@ -61,7 +61,7 @@ Or, pour utiliser Angular 6, l'application doit être écrit en TypeScript.
 La question qui se pose est de savoir quelle couche, de la \figref{architectureBL}, nous devons migrer et comment ?
 
 \bvc{compléxité lié à BL}
-En plus des difficultés techniques inhérentes à un tel projet, une entreprise comme Berger-Levrault a aussi
+De plus une entreprise comme Berger-Levrault a aussi
     des contraintes provenant de leurs développeurs et de leurs clients.
 Parmi ces contraintes, la migration ne devra pas perturber les clients de Berger-Levrault du point de vue visuel et comportemental.
 
@@ -77,12 +77,11 @@ Les développeurs pourront alors effectuer la fin de la migration assistée par 
 
 \bvc{plan}
 Notre objectif est donc de trouver des solutions pour aider à la migration des applications de Berger-Levrault,
-    de les évaluer et d'implémenter la meilleure solution respectant les contraintes de l'entreprise.
+    de les évaluer et d'implémenter la meilleure solution.
 Pour cela, nous avons dans un premier temps étudié les contraintes de Berger-Levrault présenté \secref{descProbleme}.
-\secref{stateOfTheArt}, nous avons étudié les techniques utilisées dans la littérature pour représenter une interface graphique
-.
+\secref{stateOfTheArt}, nous avons étudié les techniques utilisées dans la littérature pour représenter une interface graphique.
 Puis, \secref{guiDecomposition}, nous avons étudié les différentes composantes d'une application graphique.
-Ensuite nous avons crée une approche et mis en place un outil, présenté \secref{secImplementation} pour expérimenter la migration d'une application de Berger-Levrault.
+Ensuite nous avons crée une approche et mis en place un outil, présenté \secref{secImplementation}, pour expérimenter la migration d'une application de Berger-Levrault.
 Enfin, \secref{resultat}, \secref{discussion} et \secref{futurWork} nous avons discuté des résultats obtenues avec notre prototype et nous présentons
     les améliorations que nous devons encore apporter au travail effectué.
 

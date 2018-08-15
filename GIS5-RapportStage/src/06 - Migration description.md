@@ -125,7 +125,7 @@ Ce contrôle est important pour améliorer le résultat final.
 
 [^moose]: Moose est une plateforme pour l'analyse de logiciels et de données - [http://www.moosetechnology.org/](http://www.moosetechnology.org/)
 [^pharo]: Pharo est un langage de programmation objet, réflexif et dynamiquement typé - [http://pharo.org/](http://pharo.org/)
-[^GUI]: GUI : Graphical User Interface - Interface Graphique
+[^GUI]: GUI : _Graphical User Interface_ - Interface Graphique
 
 ### Importation {#sec:implementationImport}
 

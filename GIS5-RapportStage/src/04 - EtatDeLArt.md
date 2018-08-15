@@ -137,7 +137,7 @@ Cependant, dans notre cas cela demande un grand nombre d'exemples de code source
 
 Fleurey _et al._ [@fleurey2007model] et Garcés _et al._ [@garces2017white] ont travaillé sur la modernisation et la migration de logiciel.
 Ils ont développé des logiciels permettant de semi-automatiser la migration d'applications.
-Pour cela, ils ont suivi le principe du _"fer à cheval"_ présenté \figref{horseshoe} proposé par Zang _et al._[@zhang2009migrating].
+Pour cela, ils ont suivi le principe du _"fer à cheval"_ présenté \figref{horseshoe} proposé par Zang _et al._ [@zhang2009migrating].
 La migration se passe en quatre étapes.
 
 1. Ils génèrent un modèle de l'application à migrer.
@@ -210,8 +210,8 @@ En effet, nous pouvons imaginer faire la migration de tout ou partie des applica
 Par exemple, une fois la migration semi-automatique effectuée par la solution que nous avons proposée,
     ce type d'outil pourrait servir de "guide" pour les nouveaux développeurs participants à la migration ou au développement courant des applications.
 
-[^ast]: AST : Arbre Syntaxique Abstrait
-[^DSL]: DSL : Domain Specific Language est un langage de programmation destiné à générer des programmes dans un domaine spécifique.
+[^ast]: AST : _Arbre Syntaxique Abstrait_
+[^DSL]: DSL : _Domain Specific Language_ est un langage de programmation destiné à générer des programmes dans un domaine spécifique.
 
 ## Représentation d'interface graphique dans la littérature {#sec:positionnement}
 
@@ -219,13 +219,13 @@ Nous avons vu dans la Section précédente que la représentation abstraite des 
 Nous avons donc recherché et comparé les différentes représentations existantes.
 
 \secref{omg}, nous présentons les deux ensemble de méta-modèles défini par l'OMG[^OMG] pour représenter une application.
-Le premier KDM[^KDM] permet de représenter une application de manière générale tandis que le second, IFML, est spécialisé dans la
+Le premier KDM[^KDM] permet de représenter une application de manière générale tandis que le second, IFML[^IFML], est spécialisé dans la
     représentation d'application ayant une interface graphique.
 La \secref{stateMetaUI} détaille les représentations des interfaces graphiques décrites dans la littérature.
 
-[^OMG]: OMG : Object Management Group
-[^KDM]: KDM: Knowledge Discovery Metamodel
-
+[^OMG]: OMG : _Object Management Group_
+[^KDM]: KDM: _Knowledge Discovery Metamodel_
+[^IFML]: IFML: _The Interaction Flow Modeling Language_
 
 ### Standard défini par l'OMG {#sec:omg}
 

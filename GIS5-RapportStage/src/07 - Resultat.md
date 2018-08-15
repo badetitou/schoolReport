@@ -161,8 +161,8 @@ Dans le cas des applications de Berger-Levrault utilisant BLCore, notre prototyp
 
 Les première étapes de développement de l'outil de migration non pas produit de discontinuité du service.
 Le développement des applications des Berger-Levrault à continuer sans être impacté.
-Cependant, si à la fin du développement du prototype nous n'arrivons pas à obtenir 100 % de l'application de migré,e
-    il y a aura une discontinuité le temps de finir manuellement la migration.
+Cependant, si à la fin du développement du prototype nous n'arrivons pas à obtenir 100 % de l'application de migrée,
+    il y a aura une discontinuité du service pendant que les développeurs finissent manuellement la migration.
 
 Enfin, nous avons voulu produire du code lisible pour les développeurs.
 Pour cela, en plus de respecter les conventions courantes du développement logiciel,
