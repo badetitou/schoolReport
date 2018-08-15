@@ -4,6 +4,13 @@ author: Benoît Verhaeghe
 fontsize: 12pt
 indent: true
 csl: "../../StateOfTheArt/csl/ieee.csl"
+title-meta: "Migration d'application GWT vers Angular"
+author-meta:
+  - Benoît Verhaeghe
+  - Nicolas Anquetil
+  - Anne Etien
+  - Laurent Deruelle
+  - Abderrahmane Seriai
 header-includes:
   - '\usepackage{hyperref}'
   - '\usepackage{graphicx}'
