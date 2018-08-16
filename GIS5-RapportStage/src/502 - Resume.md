@@ -18,16 +18,3 @@ Lors de ce projet, nous avons notamment ;
 - Migré l'application _bac à sable_ de GWT vers Angular.
 
 ## English
-
-Berger-Levrault is a software major company.
-As part of the evolution of its applications, it wants to change the language of implementation of these.
-A preliminary work was carried out in the Project of End of Studies (PFE) where one studied a demonstration application (_"sandbox"_) which takes again the principles of organization of the applications of Berger-Levrault.
-The purpose of this internship was to verify that the results of the pre-study carried out during the PFE can be applied to Berger-Levrault production applications and to define and implement a strategy to perform the migration of the applications.
-During this project, we have in particular;
-
-- Modeled Berger-Levrault client application graphical user interfaces. The purpose of this modeling is to provide the maximum of information on the screens of the application to allow a reimplementation (semi-) automatic in another language;
-- Automatically extracts components from different screens of the application;
-- Extracted a navigation map between these screens (which screen makes it possible to switch to which other screen);
-- Defined a strategy, through the use of models, to migrate an application with a graphical interface
-- Realized a state of the art on the field of application migration.
-- Migrated the _sandbox_ application from GWT to Angular.
