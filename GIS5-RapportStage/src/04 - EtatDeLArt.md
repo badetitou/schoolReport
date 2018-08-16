@@ -5,8 +5,8 @@ Dans le cadre de la conception de l'outil de migration,
     les techniques respectant les critères définis par Berger-Levrault.
 Dans un premier temps, la \secref{migrationTechnique} présente les différentes
     techniques qui sont utilisées pour faire effectuer la migration d'application.
-Dans un second temps, la \secref{positionnement} présentera les différentes
-    représentations d'interface graphique que les auteurs de la littérature ont utilisé.
+Dans un second temps, la \secref{positionnement} présente les différentes
+    représentations d'interface graphique que les auteurs de la littérature ont utilisée.
 
 ## Technique de migration {#sec:migrationTechnique}
 
@@ -24,7 +24,7 @@ La rétro-ingénierie discute de comment représenter une interface graphique
 Les auteurs utilisent trois techniques pour créer ces représentations : statique, dynamique ou hybride.
 
 **Statique**. La stratégie statique consiste à analyser du code source et à en extraire de l'information.
-La stratégie statique n'execute pas le code de l'application à analyser.
+La stratégie statique n'exécute pas le code de l'application à analyser.
 
 Dans le cas de Cloutier _et al._ [@cloutier2016wavi], les auteurs ont analysé directement les fichiers HTML, CSS et JavaScript.
 Ceci leurs permet de construire un arbre syntaxique du code source du site web
@@ -40,7 +40,7 @@ Ces logiciels cherchent la définition des widgets dans le code source.
 Une fois les créations des widgets trouvées dans le code source, les logiciels analysent les méthodes invoquées ou invoquant les widgets afin de découvrir les relations entre les widgets et leurs attributs.
 Bien que le travail des auteurs semble intéressant dans le cadre du projet de migration que nous menons,
     les auteurs ne proposent pas de solution sur la manière d'évaluer le résultat de l'outil de rétro-ingénierie sur des applications
-    composés de beaucoup d'écran.
+    composées de beaucoup d'écrans.
 
 Sánchez Ramón *et al.* [@sanchez2014model] ont développé une solution permettant d'extraire depuis un ancien logiciel son interface graphique.
 Le cas d'étude des auteurs est une application source créée avec Oracle Forms.
@@ -51,7 +51,7 @@ Cependant, Oracle Forms est utilisée pour créer une interface simple avec seul
 Les champs texte contiennent des données provenant d'une base de données.
 La disposition des éléments est aussi très simple dans l'exemple fourni
     par les auteurs car les champs texte ou les formulaires sont affichés les uns en dessous des autres.
-Dans notre cas, les interfaces sont plus complexe et demande une analyse plus poussé que la recherche de la position des widgets.
+Dans notre cas, les interfaces sont plus complexes et demandent une analyse plus poussée que la recherche de la position des widgets.
 
 La stratégie statique permet d'effectuer l'analyse d'une application sans avoir besoin de l'exécuter.
 Cependant elle a des lacunes sur l'analyse des structures de contrôles comme les boucles si,
@@ -74,9 +74,9 @@ Cependant, toutes les solutions proposées s'appliquent sur des applications ex�
 Une adaptation serait nécessaire pour coller aux spécificités des applications web comme dans notre cas.
 
 L'analyse dynamique permet de parcourir toutes les fenêtres d'une application et d'obtenir des informations provenant de code exécuté.
-Cependant, l'analyse impact les performances de l'application à analyser.
+Cependant, l'analyse impacte les performances de l'application à analyser.
 Dans le cas de petites applications ou d'application statique, l'impact n'est pas bloquant ou peut être fait en interne.
-Mais dans le cadre des applications de Berger-Levrault, l'utilisation de la stratégie dynamique ne peut pas être envisagé car
+Mais dans le cadre des applications de Berger-Levrault, l'utilisation de la stratégie dynamique ne peut pas être envisagée, car
     l'impact sur les performances pose un problème aux clients de l'entreprise.
 
 **Hybride**. L'objectif de la stratégie hybride est d'utiliser la stratégie statique et la stratégie dynamique.
@@ -87,20 +87,20 @@ Ensuite, l'analyse dynamique exécute les différentes actions possibles sur tou
     analyse les modifications potentielles sur l'interface après avoir effectué les actions.
 
 Cette stratégie semble permet de collecter un maximum d'information en combinant les avantages
-    des stratégies statique et dynamique.
+    des stratégies statiques et dynamiques.
 Bien que la stratégie dynamique permet de réduire les problèmes d'analyse de la stratégie statique.
-Les contraintes inhérentes à la stratégie dynamique restent présent et important dans le cadre de notre projet.
+Les contraintes inhérentes à la stratégie dynamique restent présentes et importantes dans le cadre de notre projet.
 
 ### Transformation de modèle vers modèle
 
 La _transformation de modèle vers modèle_ traite de la modification d'un modèle source vers un modèle cible.
 Dans le cadre d'une migration,
-    si nous décidons d'utiliser des modèles pour effectuer des transformation,
+    si nous décidons d'utiliser des modèles pour effectuer des transformations,
     la transformation de modèle est une étape essentielle du processus.
 
 L'article de Baki *et al.* [@baki2016multi] présente un processus de migration d'un modèle UML vers un modèle SQL.
 Pour faire la migration, les auteurs ont décidé d'utiliser des règles de transformation.
-Ces règles prennent en entrée le modèle UML et donne en sortit le SQL définis par les règles.
+Ces règles prennent en entrée le modèle UML et donne en sortie le SQL défini par les règles.
 Plutôt que d'écrire les règles de migration à la main.
 Les auteurs ont décomposé ces règles en petites briques.
 Chaque brique peut correspondre soit à une condition à respecter pour que la règle soit validée, soit à un changement sur la sortie de la règle.
@@ -117,10 +117,10 @@ Nous ne possédons pas dans notre projet d'exemples et le nombre de déviances d
 Wang *et al.* [@wang2017automatic] ont créé une méthodologie et un outil permettant de faire automatiquement la transformation d'un modèle vers un autre modèle.
 Leur outil se distingue en effectuant une migration qui se base sur une analyse syntaxique et sémantique.
 L'objectif de la méthodologie est d'effectuer la transformation d'un modèle vers un autre de manière itérative en modifiant le méta-modèle.
-Le processus de transformation des auteurs est divisé en quatres étapes.
+Le processus de transformation des auteurs est divisé en quatre étapes.
 
 1. Création de règles de mise en correspondance grâce à une recherche sémantique et
-    syntaxique sur les éléments en entrée du processus et ceux désiré en fin de processus.
+    syntaxique sur les éléments en entrée du processus et ceux désirés en fin de processus.
 2. Génération du nouveau modèle grâce aux règles découvertes
 3. Evaluation des règles
 4. Création des règles au niveau du méta-modèle et génération du nouveau méta-modèle.
@@ -168,16 +168,16 @@ Ce travail est lié à notre problématique puisque, pour la migration des appli
 
 Chen *et al.* [@chen2016mining] ont développé un outil permettant de trouver des librairies similaires à une autre.
 Pour cela, les auteurs ont miné les tags des questions de Stack Overflow.
-Avec ces informations, ils ont pu mettre en relation des librairies avec d'autres librairies quelque soit le langage d'implémentation de ces derniers.
+Avec ces informations, ils ont pu mettre en relation des librairies avec d'autres librairies, quel que soit le langage d'implémentation de ces derniers.
 Pour la migration de Java/GWT vers Angular, nous avons besoin de changer de librairie.
 Plutôt que de réécrire la librairie, la recherche d'une autre librairie permettant de résoudre les mêmes problèmes peut être une solution.
 C'est dans ce contexte que le travail des auteurs peut guider notre recherche de librairie en faisant correspondre les anciennes librairies utilisées par les applications de Berger-Levrault avec d'autres compatibles avec Angular.
 
 La _migration de librairie_ cherche des équivalences entre des librairies,
     pour cela les outils doivent analyser les librairies.
-Bien que cela puisse nous aider, la recherche de correspondance entre des librairies n'est pas suffisant pour effectuer la migration,
+Bien que cela puisse nous aider, la recherche de correspondance entre des librairies n'est pas suffisante pour effectuer la migration,
     la recherche de correspondance peut ne pas être assez précise.
-De plus, ce travail ne prend pas en compte les autres détails inhérents à l'application originel.
+De plus, ce travail ne prend pas en compte les autres détails inhérents à l'application originelle.
 
 ### Migration de langage
 
@@ -188,13 +188,13 @@ Brant *et al.* [@brant2010extreme] ont développé un outil de définition de r�
 Ainsi, les auteurs sont parvenus à migrer une application Delphi de 1,5 million de lignes de code en C#.
 Comme les auteurs, nous voulons effectuer la migration du code source d'une application.
 Notre cas se différencie par les langages source et cible.
-Cette solution permettrai de faire la transcription du code GWT vers du code Angular.
+Cette solution permettrait de faire la transcription du code GWT vers du code Angular.
 Cependant, les auteurs n'ont pas appliqué leurs outils sur un logiciel qui comporte une interface graphique.
 Nous ne savons donc pas si la solution est applicable en totalité.
 
 Un des problèmes de la migration du code source est la définition des règles.
 Newman *et al.* [@newman2017simplifying] ont proposé un outil facilitant la création de règles de transformation.
-Pour cela, l'outil "normalise" le code source en entrée et essaie de le simplifier.
+Pour cela, l'outil "normalise" le code source en entrée et essai de le simplifier.
 Ainsi, les auteurs arrivent à réduire le nombre de règles de transformations à écrire et leurs complexités.
 Dans le cas de migration de Berger-Levrault, nous devons gérer les multiples manières dont les fonctionnalités sont écrites.
 La normalisation du code source peut simplifier l'écriture des règles de transformation ou
@@ -215,10 +215,10 @@ Par exemple, une fois la migration semi-automatique effectuée par la solution q
 
 ## Représentation d'interface graphique dans la littérature {#sec:positionnement}
 
-Nous avons vu dans la Section précédente que la représentation abstraite des interfaces graphiques est souvent utilisé.
+Nous avons vu dans la Section précédente que la représentation abstraite des interfaces graphiques est souvent utilisée.
 Nous avons donc recherché et comparé les différentes représentations existantes.
 
-\secref{omg}, nous présentons les deux ensemble de méta-modèles défini par l'OMG[^OMG] pour représenter une application.
+\secref{omg}, nous présentons les deux ensembles de méta-modèles définis par l'OMG[^OMG] pour représenter une application.
 Le premier KDM[^KDM] permet de représenter une application de manière générale tandis que le second, IFML[^IFML], est spécialisé dans la
     représentation d'application ayant une interface graphique.
 La \secref{stateMetaUI} détaille les représentations des interfaces graphiques décrites dans la littérature.
@@ -286,21 +286,21 @@ Une fois l'action effectuée, l'effet est représenté par une connexion de flux
 
 La Figure \ref{fig:ifmlViewElements} présente le méta-modèle _View Elements_ proposé par IFML.
 Ce méta-modèle a pour objectif de représenter la partie visible de l'interface graphique.
-Il utilise le patron de conception  _composite_ et ont donc la notion de conteneur et de composant afin de représenter le DOM.
+Il utilise le patron de conception  _composite_ et a donc la notion de conteneur et de composant afin de représenter le DOM.
 Le méta-modèle IFML introduit aussi la notion de ComponentPart.
 Cette entité est nécessaire pour représenter tous les composants dans le méta-modèle IFML car
     les auteurs ont décidé de définir les éléments tels que les listes ou les formulaires en tant que composant.
 Ils ne peuvent donc pas contenir d'autres éléments, ce qui reviendrait à n'avoir que des listes, tableaux et formulaires vides.
-L'utilisation d'un ComponentPart permet d'ajouter d'autre composant aux listes et formulaire sans pour autant les considérer
+L'utilisation d'un ComponentPart permet d'ajouter d'autre composant aux listes et formulaires sans pour autant les considérer
     comme présent dans le DOM mais plus comme des données appartenant aux composants.
 
 ### Méta-modèle d'interface graphique {#sec:stateMetaUI}
 
-Nous présentons dans cette Section les méta-modèles ou représentation d'interface graphique proposés dans la littérature.
+Nous présentons dans cette Section les méta-modèles ou représentations d'interface graphique proposés dans la littérature.
 Nous comparons ces propositions avec ceux proposés par l'OMG.
 
 Gotti _et al._[@gotti2016java] ont proposé un méta-modèle inspiré du modèle KDM (voir la \secref{omg}).
-Le méta-modèle a les principales entités défini dans le modèle KDM.
+Le méta-modèle a les principales entités définies dans le modèle KDM.
 On retrouve le patron de conception _composite_ pour représenter le DOM d'une interface graphique.
 La notion de UIElement s'appelle _Components_.
 Les components comme les fenêtres ont une notion de _Property_ qui a été ajouté par les développeurs
@@ -327,12 +327,12 @@ Morgado _et al._[@morgado2011reverse] utilisent un méta-modèle graphique, mais
 Nous savons seulement que l'interface graphique est représentée comme un arbre ce qui est similaire à un
     DOM et peut être représenté grâce au patron de conception  _composite_.
 
-Le méta-modèle graphique de Garces _et al._[@garces2017white] diffère beaucoup de ceux précédemment décrit.
+Le méta-modèle graphique de Garces _et al._[@garces2017white] diffère beaucoup de ceux précédemment décrits.
 Il y a les attributs, les événements, les windows, mais il n'y a pas de widget.
 Cette absence s'explique par la différence dans le langage source à migrer.
 Les auteurs ont travaillé sur un projet utilisant des Oracle Forms.
-L'interface est décrite dans des fichier à part et
-    est souvent composé d'affichage d'éléments d'une base de donnée plutôt que de widget.
+L'interface est décrite dans des fichiers à part et
+    est souvent composée d'affichage d'éléments d'une base de données plutôt que de widget.
 Nous pouvons tout de même remarquer qu'ils utilisent une entité _Event_ pour représenter l'action de l'utilisateur
     avec l'interface graphique.
 
@@ -343,7 +343,7 @@ Les auteurs ont défini une interface graphique comme ensemble de widgets et leu
     ainsi, si un widget peut avoir deux valeurs différentes pendant l'exécution du programme,
     il appartient à deux interfaces utilisateur différentes.
 Ce point est la différence majeure avec les méta-modèles proposés par l'OMG car,
-    dans la conception proposé par IFML si la valeur d'une propriété change,
+    dans la conception proposée par IFML si la valeur d'une propriété change,
     nous sommes toujours dans la même interface graphique,
     mais un flux d'interaction a été exécuté.
 
@@ -371,7 +371,7 @@ On ne retrouve pas le patron de conception  _composite_ dans le travail de ces a
 
 Memon _et al._[@memon2007eventflow] utilisent un modèle d'interface graphique pour représenter l'état d'une application.
 Ils ont aussi utilisé la notion de UIField.
-Les auteurs utilise le patron de conception  _composite_ afin de représenter le DOM d'une application.
+Les auteurs utilisent le patron de conception  _composite_ afin de représenter le DOM d'une application.
 
 Mesbah _et al._[@mesbah2012crawling] n'ont pas présenté directement le méta-modèle de l'interface graphique qu'ils utilisent.
 Cependant, ils utilisent une représentation avec un arbre pour analyser différentes pages web.
@@ -380,9 +380,9 @@ Les auteurs instancient plusieurs méta-modèles d'interface graphique pour repr
 Ces instances peuvent être comparées à plusieurs éléments UIDisplay.
 
 Nous retrouvons dans les papiers la représentation du DOM grâce à avec un arbre ou un méta-modèle utilisant le patron de conception  _composite_.
-Les notions de UIDisplay est aussi omniprésente.
-Contrairement à ce qui est utilisé dans les méta-modèles KDM et IFML, l'utilisation d'une entité _Attribut_ est souvent utilisé.
+La notion de UIDisplay est aussi omniprésente.
+Contrairement à ce qui est utilisé dans les méta-modèles KDM et IFML, l'utilisation d'une entité _Attribut_ est souvent utilisée.
 
-Maintenant que nous avons étudié comment les interfaces graphiques sont représenté dans la littérature et
+Maintenant que nous avons étudié comment les interfaces graphiques sont représentées dans la littérature et
     comment ces représentations sont construites.
-Il faut que l'on détaille les couches composants une interface graphique.
+Il faut que l'on détaille les couches composant une interface graphique.

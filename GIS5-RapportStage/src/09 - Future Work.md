@@ -5,11 +5,11 @@ Afin de l'améliorer, il faudrait encore ajouter la gestion du code comportement
 Nous allons aussi travailler sur la conception d'une approche pour évaluer
     les résultats que produit notre outil.
 
-## Code comportementale {#sec:futurComportementale}
+## Code comportemental {#sec:futurComportementale}
 
 Afin de représenter le comportement des widgets de l'interface graphique,
     nous avons mené une étude préliminaire de la littérature sur la représentation du code comportemental \secref{metamodelComportemental}.
-Ensuite, présenté \secref{metamodelComportemental}, nous avons commencé la conception d'un méta-modèle pour représenter le code comportementale.
+Ensuite, présenté \secref{metamodelComportemental}, nous avons commencé la conception d'un méta-modèle pour représenter le code comportemental.
 
 ### Etude de l'art pour le code comportementale {#sec:stateMetamodelComportemental}
 
@@ -88,16 +88,16 @@ Grâce à ce modèle, nous pouvons représenter la logique
 
 Nous n'avons pas trouvé de stratégie ou de métriques pour évaluer précisément la validité de
     notre prototype.
-Il est donc important que l'on recherche des stratégie pour apprécier la qualité de notre approche.
+Il est donc important que l'on recherche des stratégies pour apprécier la qualité de notre approche.
 
-L'évaluation devra nous permettre de vérifier l'aspect visuelle, le code comportemental et le code métier
+L'évaluation devra nous permettre de vérifier l'aspect visuel, le code comportemental et le code métier
     de l'application à migrer ont bien été migré.
 
-Pour l'aspect visuelle, il est possible de comparer les DOM des applications car nous travaillons avec des applications web.
+Pour l'aspect visuel, il est possible de comparer les DOM des applications car nous travaillons avec des applications web.
 Cependant le DOM ne prend en compte que la structure d'une page web et non pas sa représentation visuelle.
 Une étude des fichiers CSS serait alors indispensable.
 De plus, le fichier généré pour Angular n'est pas forcément une copie du fichier généré par GWT, il peut y avoir des différences dans le DOM
-    qui ne sont pas répercuté dans l'aspect visuel de la page web.
+    qui ne sont pas répercutées dans l'aspect visuel de la page web.
 
 Une autre solution est de comparer le visuel des pages web par comparaison d'image.
 Il faudrait alors prendre une impression de chaque phase dans chacun de ses états,

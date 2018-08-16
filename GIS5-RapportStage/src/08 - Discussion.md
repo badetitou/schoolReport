@@ -1,19 +1,19 @@
 # Discussion {#sec:discussion}
 
-Bien que les résultats obtenus sont encourageant.
+Bien que les résultats obtenus sont encourageants.
 Notre travail n'a été évalué que sur l'application _bac à sable_.
-Cette application doit contenir tout les types d'éléments que doivent utilisé les développeurs de Berger-Levrault,
-    cependant il est possible que des déviances dans le code soient présent dans les applications en production et absent de l'application _bac à sable_.
+Cette application doit contenir tous les types d'éléments que doivent utilisé les développeurs de Berger-Levrault,
+    cependant il est possible que des déviances dans le code soient présentes dans les applications en production et absent de l'application _bac à sable_.
 
 La \secref{interfaceXML} présente un biais que nous acceptons de ne pas traiter.
-Puis la \secref{discussionValidation} décrit les difficulté d'évaluation du prototype que nous avons conçu.
-Enfin, la \secref{discussionLayout} et la \secref{discussionComportement} présentent deux partie de l'interface non traité que
-    nous avons identifié.
+Puis la \secref{discussionValidation} décrit les difficultés d'évaluation du prototype que nous avons conçu.
+Enfin, la \secref{discussionLayout} et la \secref{discussionComportement} présentent deux parties de l'interface non traitée que
+    nous avons identifiée.
 
 ## Interfaces depuis un fichier XML {#sec:interfaceXML}
 
 En GWT, il est possible de définir une interface graphique grâce à un fichier XML.
-Pour cela, les développeurs définissent dans le fichier XML les tag qui correspondent aux widgets.
+Pour cela, les développeurs définissent dans le fichier XML les tags qui correspondent aux widgets.
 Un widget contenu dans un autre est ainsi représenté par une balise XML à l'intérieur d'une autre balise.
 
 Dans le cadre de Berger-Levrault, seule l'application _bac à sable_ utilise cette technique pour définir des interfaces.
@@ -29,14 +29,14 @@ Il est facile de prendre l'application source et l'application cible et de regar
 Nous avons effectué des recherches dans la littérature sur les approches à adopter pour évaluer une migration d'application.
 Cependant, nous n'avons pas trouvé de solution applicable à notre cas d'étude.
 
-Certains papiers proposent de calculer le nombre de widget migré et de comparer par rapport au nombre originel.
-Cependant, dans notre cas le nombre de widget total est trop grand.
+Certains papiers proposent de calculer le nombre de widgets migré et de le comparer par rapport au nombre réel de widgets dans l'application.
+Cependant, dans notre cas le nombre de widgets total est trop grand.
 
 ## Gestion des layout {#sec:discussionLayout}
 
 ![KDM - Diagramme de classe UIRelations](figures/kdmRelations.png){#fig:uiRelations width=70%}
 
-Comme expliqué \secref{respectContraintes}, certains résultats de l'exportation ne sont pas correct à cause d'un manque de respect des layouts.
+Comme expliqué \secref{respectContraintes}, certains résultats de l'exportation ne sont pas corrects à cause d'un manque de respect des layouts.
 C'est le cas de la \figref{cmp2}.
 Ceci est dû à la manière dont est retranscrite l'idée de layout dans le méta-modèle d'interface graphique.
 Pour le moment, le layout est considéré comme un attribut, ce qui rend difficile la représentation d'interfaces complexes.
@@ -56,7 +56,7 @@ Cette solution est celle qui se rapproche le plus des techniques de conception q
 
 ## Gestion du comportement {#sec:discussionComportement}
 
-Pour le moment, nous n'avons représenter que les liens de navigation.
+Pour le moment, nous n'avons représenté que les liens de navigation.
 Afin d'améliorer la représentation que nous avons d'une application graphique,
     il faudrait que l'on représente toutes les couches d'une application comme décrite \secref{guiDecomposition}.
 Nous devons encore définir et implémenter des méta-modèles pour le code comportemental et le code métier.

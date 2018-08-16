@@ -22,7 +22,7 @@ Le _back-end_ est une application monolithique et doit évoluer vers une archite
 Le changement de _framework_[^framework] graphique est imposé par l'arrêt du développement de GWT par Google.
 Google prévoit tout de même de créer un transpilateur pour convertir le code GWT en Angular,
     cependant il n'y a pas de communication sur ce projet et l'entreprise ne peut pas se permettre de
-    rester "bloqué" avec des technologies vieillissantes.
+    rester "bloquée" avec des technologies vieillissantes.
 Le passage à une architecture à services est aussi souhaité pour améliorer l’offre commerciale et la rendre plus flexible.
 
 Mon travail durant ce stage ne traite que de la migration des applications _front-end_.
@@ -44,9 +44,9 @@ Cette extension, qui s'appelle BLCore, permet à Berger-Levraut de définir des 
     leurs développements.
 
 \bvc{Introduction utilisation du framework}
-La taille des applications ainsi que l'architecture des applications de Berger-Levrault les rendent complexes
+La taille des applications ainsi que l'architecture des applications de Berger-Levrault les rendent complexes.
 La \figref{architectureBL} représente les différentes couches de _framework_ utilisées par les applications de Berger-Levrault.
-Toutes les applications fonctionnent de manière indépendantes.
+Toutes les applications fonctionnent de manière indépendante.
 Comme le représente les flèches, les applications utilisent BLCore, qui lui-même utilise GWT.
 On retrouve aussi des applications, qui ne respectent pas la convention décidée par les équipes de Berger-Levrault,
     ayant un lien direct avec le _framework_ GWT.
@@ -55,9 +55,9 @@ C'est le cas de l'Application 1 qui utilise directement des composants de GWT.
 \bvc{complexité de la migration}
 En plus de l'architecture des applications à étudier,
     la complexité de la migration des applications de Berger-Levrault réside dans
-    leurs tailles, mais aussi et surtout dans le changement de langage d'implémentation.
-En effet, les applications actuelles et les _frameworks_ BLCore et GWT sont développées intégralement en Java.
-Or, pour utiliser Angular 6, l'application doit être écrit en TypeScript.
+    leurs tailles, mais aussi, et surtout dans le changement de langage d'implémentation.
+En effet, les applications actuelles et les _frameworks_ BLCore et GWT sont développés intégralement en Java.
+Or, pour utiliser Angular 6, l'application doit être écrite en TypeScript.
 La question qui se pose est de savoir quelle couche, de la \figref{architectureBL}, nous devons migrer et comment ?
 
 \bvc{compléxité lié à BL}
@@ -81,8 +81,8 @@ Notre objectif est donc de trouver des solutions pour aider à la migration des 
 Pour cela, nous avons dans un premier temps étudié les contraintes de Berger-Levrault présenté \secref{descProbleme}.
 \secref{stateOfTheArt}, nous avons étudié les techniques utilisées dans la littérature pour représenter une interface graphique.
 Puis, \secref{guiDecomposition}, nous avons étudié les différentes composantes d'une application graphique.
-Ensuite nous avons crée une approche et mis en place un outil, présenté \secref{secImplementation}, pour expérimenter la migration d'une application de Berger-Levrault.
-Enfin, \secref{resultat}, \secref{discussion} et \secref{futurWork} nous avons discuté des résultats obtenues avec notre prototype et nous présentons
+Ensuite nous avons créé une approche et mis en place un outil, présenté \secref{secImplementation}, pour expérimenter la migration d'une application de Berger-Levrault.
+Enfin, \secref{resultat}, \secref{discussion} et \secref{futurWork} nous avons discuté des résultats obtenus avec notre prototype et nous présentons
     les améliorations que nous devons encore apporter au travail effectué.
 
 \bvc{desc rapide bac à sable}
@@ -91,8 +91,8 @@ Cette dernière permet aux employés de Berger-Levrault de consulter les éléme
 C'est une application complète qui fonctionne exactement comme une destinée aux clients de Berger-Levrault.
 En raison de son statut d'application modèle pour les développeurs,
     elle contient tout ce qui est utilisable dans les autres applications.
-En plus des outils utilisable par les développeurs,
-    l'application est aussi composé de code déviant des règles de programmation définit par Berger-Levrault.
+En plus des outils utilisables par les développeurs,
+    l'application est aussi composée de code déviant des règles de programmation définies par Berger-Levrault.
 
 Bien que plus petite que les applications en production, elle contient tout de même plus de 1 000 classes Java.
 Le _bac à sable_ définit plus de 50 pages web
@@ -101,6 +101,6 @@ Le _bac à sable_ définit plus de 50 pages web
 \bvc{explication travail pour comprendre}
 Nous avons aussi régulièrement vérifié que notre travail pouvait s'appliquer sur les projets plus importants de Berger-Levrault.
 Pour cela, nous avons utilisé notre prototype sur l'application _RH_ de Berger-Levrault.
-L'application _RH_ est destiné aux clients désirant centralisé la gestion du personnel
-    de leurs compagnie dans une solution logiciel sur le web.
-Elle est constitué de plus 450 pages web et de 19 000 classes Java.
+L'application _RH_ est destinée aux clients désirant centraliser la gestion du personnel
+    de leurs compagnies dans une solution logiciel sur le web.
+Elle est constituée de plus 450 pages web et de 19 000 classes Java.

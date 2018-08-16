@@ -1,9 +1,9 @@
 # Décomposition d'une application avec interface graphique {#sec:guiDecomposition}
 
 Avant de créer l'outil de migration,
-    nous avons étudier puis décomposer la notion d'interface graphique.
+    nous avons étudié puis décomposé la notion d'interface graphique.
 Diviser un problème en sous-problèmes est une méthode efficace pour résoudre des problèmes complexes.
-Nous avons identifié trois parties dans une interface graphique :
+Nous avons identifiées trois parties dans une interface graphique :
 
 * La partie visuelle
 * Le code comportemental
@@ -11,9 +11,9 @@ Nous avons identifié trois parties dans une interface graphique :
 
 ## Partie visuelle
 
-La partie visuelle peut être mis en correspondance avec le méta-modèle UI de KDM (voir \secref{omg}).
-Elle contient les différents élément de l'interface.
-La partie visuelle définit les les caractéristiques inhérentes aux composants, comme la possibilité d'être cliqué,
+La partie visuelle peut être mise en correspondance avec le méta-modèle UI de KDM (voir \secref{omg}).
+Elle contient les différents éléments de l'interface.
+La partie visuelle définit les caractéristiques inhérentes aux composants, comme la possibilité d'être cliqué,
     ou certaines propriétés du composant, comme sa couleur ou sa taille.
 Plus que les composants, elle décrit également la disposition
     de ces composants par rapport aux autres.
@@ -23,7 +23,7 @@ Dans le cas où une application est composée de plusieurs fenêtres (ou de page
 
 ## Code comportemental
 
-Le code comportemental définit le _flow_ d'action qui s'exécute lorsqu'un
+Le code comportemental défini le _flow_ d'action qui s'exécute lorsqu'un
     utilisateur interagit avec la partie visuelle de l'application.
 L'utilisateur peut effectuer une action sur un composant de l'interface (comme un clic).
 Il est aussi possible que ce soit le système lui-même qui décide de déclencher une suite d'action suite à un événement extérieur.
@@ -32,6 +32,6 @@ Comme dans un langage de programmation _"classique"_, le code comportemental con
 ## Code métier
 
 Le code métier définit tout ce qui n'est défini ni dans la partie visuelle ni dans le code comportemental.
-Ce correspond à tous ce qui est lié à l'application mais pas à la partie visuelle.
+Cela correspond à tout ce qui est lié à l'application, mais pas à la partie visuelle.
 Il est composé des règles générales de l'application
     (comment calculer les taxes ?), de l'adresse des services distants (quel serveur mon code métier doit demander), des données de l'application (quelle base de données ? quel type d'objet).

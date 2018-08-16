@@ -4,7 +4,7 @@ Nous allons maintenant présenter les résultats que nous avons obtenus suite à
 
 Nous avons expérimenté notre approche sur l'application _bac à sable_ de Berger-Levrault.
 Nous présentons dans cette Section les résultats que nous obtenons aux différentes étapes du processus de migration.
-\secref{retroImport} présente les résultat de la phase de rétro-ingénierie.
+\secref{retroImport} présente les résultats de la phase de rétro-ingénierie.
 Puis, nous présentons, \secref{visualisation}, une visualisation que nous avons créé pour analyser
     le modèle que nous avons instancié.
 Finalement, \secref{respectContraintes}, nous comparons le résultat final avec les contraintes que nous avons fixé \secref{contraintes}.
@@ -38,19 +38,19 @@ Dans le cas d'étude avec Berger-Levrault, nous avons recensé 56 phases, ce qui
 
 Pour les business pages, nous avons compté 45 classes qui implémentent _IPageMetier_.
 Après l'importation, nous identifions 76 pages métiers.
-Nous retrouvons dans les pages métiers celles qui implémentent l'interface _IPageMetier_ ainsi que 31 qui
-    dernières proviennent de code qui a été factorisé par les développeurs de l'application.
+Nous retrouvons dans les pages métiers celles qui implémentent l'interface _IPageMetier_ ainsi que 
+    31 qui proviennent de code qui a été factorisé par les développeurs de l'application.
 La factorisation du code est une complication dans le calcul du nombre exact de business page que nous devons détecter pendant l'importation.
 Cette difficulté d'évaluation est discutée \secref{discussion}.
 
-Nous réussissons à identifier 2081 widgets, cependant avec les heuristiques que nous avons définis \secref{implementationImport} nous devrions avoir 2141 widgets.
+Nous réussissons à identifier 2081 widgets, cependant avec les heuristiques que nous avons définies \secref{implementationImport} nous devrions avoir 2141 widgets.
 Ce qui correspond à un total de 98 % de widget que nous réussissons à créer.
 Il existe cependant un écart que nous n'arrivons pas encore à évaluer dont l'on discute \secref{discussion}.
 
 Finalement, la détection du nombre de liens entre les phases est réussie à 100 %.
 Nous détectons correctement 101 liens de navigation qui existent dans l'application.
 Les liens sont tous correctement connectés aux widgets sur lesquels il faut faire une action
-    pour déclencher la transition et amène vers la bonne Phase.
+    pour déclencher la transition et aux Phase sur lesquels l'action amène l'utilisateur.
 
 ## Visualisation {#sec:visualisation}
 
@@ -64,17 +64,17 @@ La \figref{largeFirework} présente un extrait de la visualisation des relations
 
 Le rond noir est la représentation d'une phase.
 Ici, il correspond à la phase _"Sample\_Editable\_List"_.
-Nous pouvons retrouvé comment la phase est appelé en suivant la flèche bleu.
-La phase contient aussi une business page, représenté en rouge,.
+Nous pouvons retrouver comment la phase est appelée en suivant la flèche bleu.
+La phase contient aussi une business page, représenté en rouge.
 Il s'agit de la page _"SamplePageEditableLists"_.
 Cette dernière contient 9 widgets, représentés en vert.
 Celui du dessous est la représentation d'une instance d'un composant BLGrid provenant de BLCore.
-Ce type de composant peut contenir d'autre widgets.
-Dans cette exemple il en contient deux.
+Ce type de composant peut contenir d'autres widgets.
+Dans cet exemple il en contient deux.
 
-Nous pouvons voir sur le côté gauche de l'image un agglomérats de widget.
+Nous pouvons voir sur le côté gauche de l'image un agglomérat de widget.
 Cette disposition d'élément est courante,
-    elle représente un widget de type _container_ qui contient beaucoup d'autre widgets pouvant être des _leafs_ ou des _containers_.
+    elle représente un widget de type _container_ qui contient beaucoup d'autres widgets pouvant être des _leafs_ ou des _containers_.
 Ici, il s'agit d'un BLGrid qui contient des textes et des champs de saisies.
 
 La représentation complète que nous obtenons est disponible en Annexe.
@@ -86,7 +86,7 @@ Le prototype que nous avons conçu devait respecter les contraintes suivantes,
     utilise une approche modulaire,
     préserve la structure de l'application,
     préserve le visuel de l'application,
-    est automatique ou demande peut d'intervention de l'utilisateur,
+    est automatique ou demande peu d'intervention de l'utilisateur,
     améliore la qualité du logiciel,
     permet la continuation de service
     et génère du code lisible.
@@ -96,7 +96,7 @@ Tout d'abord, le prototype permet bien de traiter du code Java en entrée et
 Nous précisons que le code généré est compilable et peut être exécuté.
 On peut donc visualisé les résultats en lançant le logiciel migré.
 
-L'implémentation que nous avons réalisé est facilement portable pour être utilisable avec
+L'implémentation que nous avons réalisée est facilement portable pour être utilisable avec
     une autre technologie source ou une autre technologie cible.
 De même, il est facile d'ajouter un nouveau type de widget à exporter en Angular,
     ou à ajouter à l'analyse statique, sans introduire d'instabilité.
@@ -106,7 +106,7 @@ Par exemple, modifier la manière dont les widgets sont détectés demande à l'
     de comprendre le fonctionnement complet de la partie importation.
 
 Nous avons évalué la préservation de la structure en analysant la visualisation que nous
-    avons conçu et présenté \secref{visualisation}.
+    avons conçue et présentée \secref{visualisation}.
 Le prototype détecte et conserve l'architecure pendant l'importation et
     l'exportation la restitue correctement.
 Il n'y a que les interfaces générées avec un fichier XML que nous avons décidé de ne pas gérer.
@@ -142,29 +142,29 @@ Dans la version exportée, les couleurs de l'en-tête des panels sont un peu plu
 \caption{Phase Zone de saisie} \label{fig:cmp2}
 \end{figure}
 
-La \figref{cmp2} présente les différences visuelles pour la Phase _Zone de saisie_ de l'application _bac àsable_.
+La \figref{cmp2} présente les différences visuelles pour la Phase _Zone de saisie_ de l'application _bac à sable_.
 L'image de gauche correspond à la phase avant la migration tandis que celle de gauche est la même Phase après la migration.
 Les deux images étant grandes, nous les avons rognés pour afficher cette zone d'intérêt.
 Bien que les deux images ont l'air complètement différentes,
-    tous les widgets sont présent dans la version migré.
-La différence visuel est du a un problème dans la gestion des layout.
+    tous les widgets sont présents dans la version migré.
+La différence visuelle est due à un problème dans la gestion des layout.
 Ce point est discuté \secref{discussionLayout}.
 
 Notre outil est automatique.
 En effet, une fois le prototype développé,
     l'importation et l'exportation n'ont pas besoin de l'intervention d'un utilisateur.
 
-Grâce à la modularité que nous avons introduit dans notre application,
+Grâce à la modularité que nous avons introduite dans notre application,
     il est possible d'améliorer la qualité du logiciel originel.
-Dans le cas des applications de Berger-Levrault utilisant BLCore, notre prototype peut être utilisé pour enlever les mauvaise utilisations
+Dans le cas des applications de Berger-Levrault utilisant BLCore, notre prototype peut être utilisé pour enlever les mauvaises utilisations
     du _framework_ GWT depuis une application.
 
-Les première étapes de développement de l'outil de migration non pas produit de discontinuité du service.
-Le développement des applications des Berger-Levrault à continuer sans être impacté.
+Les premières étapes de développement de l'outil de migration non pas produit de discontinuité du service.
+Le développement des applications des Berger-Levrault a continué sans être impacté.
 Cependant, si à la fin du développement du prototype nous n'arrivons pas à obtenir 100 % de l'application de migrée,
     il y a aura une discontinuité du service pendant que les développeurs finissent manuellement la migration.
 
 Enfin, nous avons voulu produire du code lisible pour les développeurs.
 Pour cela, en plus de respecter les conventions courantes du développement logiciel,
     le prototype conserve le nom des variables originel choisi par les développeurs.
-Cela permet d'améliorer la lisibilité et favorise la comprehension de l'application migré.
+Cela permet d'améliorer la lisibilité et favorise la compréhension de l'application migré.
