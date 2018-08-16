@@ -38,14 +38,15 @@ Dans le cas d'étude avec Berger-Levrault, nous avons recensé 56 phases, ce qui
 
 Pour les business pages, nous avons compté 45 classes qui implémentent _IPageMetier_.
 Après l'importation, nous identifions 76 pages métiers.
-Nous retrouvons dans les pages métiers celles qui implémentent l'interface _IPageMetier_ ainsi que 
+Nous retrouvons dans les pages métiers celles qui implémentent l'interface _IPageMetier_ ainsi que
     31 qui proviennent de code qui a été factorisé par les développeurs de l'application.
 La factorisation du code est une complication dans le calcul du nombre exact de business page que nous devons détecter pendant l'importation.
 Cette difficulté d'évaluation est discutée \secref{discussion}.
 
-Nous réussissons à identifier 2081 widgets, cependant avec les heuristiques que nous avons définies \secref{implementationImport} nous devrions avoir 2141 widgets.
-Ce qui correspond à un total de 98 % de widget que nous réussissons à créer.
-Il existe cependant un écart que nous n'arrivons pas encore à évaluer dont l'on discute \secref{discussion}.
+Nous n'avons pas trouvé de manière pour évaluer l'exportation de widgets dans la littérature de manière automatique.
+Nous avons donc sélectionné un échantillon de phases et avons cherché dans le code si
+    les widgets présents originellement sont présents dans la version exportée.
+Avec l'étude que nous avons effectuée, nous avons relevé un total de 93 % de widget que nous réussissons à migrer.
 
 Finalement, la détection du nombre de liens entre les phases est réussie à 100 %.
 Nous détectons correctement 101 liens de navigation qui existent dans l'application.
