@@ -106,7 +106,7 @@ Dans le contexte d'une application client/serveur, il peut s'agir du côté serv
 
 ## Implémentation du processus
 
-Pour tester la stratégie, nous avons implémenté un outil qui suit le processus de migration.
+Pour tester la stratégie, nous avons implémenté un outil qui supporte le processus de migration.
 L'outil a été implémenté en Pharo[^pharo] et nous avons utilisé la plateforme Moose[^moose].
 
 ![Implémentation de l'outil](figures/codeImpl.png){#codeImpl width=350px height=250px}
@@ -180,7 +180,7 @@ Il s'agit de la méthode `buildPageUi(Object object)` qui contient le code à ex
 Les premiers éléments que nous avons voulu reconnaître sont les phases.
 En analysant les projets GWT, nous avons repéré un fichier _.xml_ dans lequel est stocké toutes les informations des phases.
 Nous avons donc ajouté une étape à l'importation qui est l'analyse d'un fichier _XML_.
-Ce fichier nous permet de _"facilement"_ récupéré la classe java correspondant à une phase,
+Ce fichier nous permet de récupérer la classe java correspondant à une phase,
     ainsi que le nom de la phase.
 
 Ensuite, nous avons développé l'outil d'importation de manière incrémentale.

@@ -31,7 +31,7 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
         pour rafraîchir le visuel de leurs applications.
     Dans ce cas le l'outil peut proposer de faciliter certains points de cette transformation graphique.
 - _Automatique_. Une solution automatique facilite l'accessibilité de l'outil.
-    Pour simplifier le processus de migration, il serait bien que les utilisateurs de l'outil n'aient pas à intervenir pendant le processus de migration ou très peu.
+    Pour simplifier le processus de migration, il serait souhaitable que les utilisateurs de l'outil n'aient pas à intervenir pendant le processus de migration ou très peu.
     Ainsi, l'outil peut être utilisé avec un minimum de connaissance préalable.
     Dans le cas où le prototype n'a pas besoin de l'intervention humaine pendant le processus de migration,
         il sera plus facile à utiliser sur de grand système [@moore1994knowledge].
@@ -44,7 +44,7 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
     Cette contrainte est essentielle puisque Berger-Levrault, en raison de son activité, ne peut pas demander à ses clients d'accepter
         un arrêt des améliorations et correction de bug pendant plusieurs mois.
 - _Lisibilité_. Afin de facilité le travail de compréhension du code migré,
-        il serait bien que la migration produise une application respectant les normes définies par les développeurs.
+        il serait souhaitable que la migration produise une application respectant les normes définies par les développeurs.
     Dans le cas de Berger-Levrault, il s'agit du respect du nommage des variables en CamelCase[^CamelCase]
         et l'utilisation de nom significatif.
 
@@ -55,15 +55,13 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
 \begin{table}[hbtp]
     \begin {center}
     \resizebox{\columnwidth}{!}{%
-    \begin{tabular}{|l|l|l|}
+    \begin{tabular}{lll}
         \hline
-         & GWT & Angular \\
+         & \textbf{GWT} & \textbf{Angular} \\
         \hline
-        Page web    & Une classe Java & Un fichier TypeScript et un fichier HTML \\
-        \hline
-        Style pour une page web & Inclus dans le fichier Java & Un fichier CSS optionnel \\
-        \hline
-        Nombre de fichiers de configuration & Un fichier de configuration & Quatre fichiers plus deux par sous-projets \\
+        \textbf{Page web}    & Une classe Java & Un fichier TypeScript et un fichier HTML \\
+        \textbf{Style pour une page web} & Inclus dans le fichier Java & Un fichier CSS optionnel \\
+        \textbf{Nombre de fichiers de configuration} & Un fichier de configuration & Quatre fichiers plus deux par sous-projets \\
         \hline
     \end{tabular} %
     }

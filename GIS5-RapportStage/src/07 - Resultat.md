@@ -14,13 +14,12 @@ Finalement, \secref{respectContraintes}, nous comparons le résultat final avec 
 \begin{table}[hbtp]
     \begin {center}
   %  \resizebox{\columnwidth}{!}{%
-    \begin{tabular}{|c|c|c|c|c|}
+    \begin{tabular}{ccccc}
         \hline
-         & Phases & Business Pages & Widgets & Link between Phases \\
+         & \textbf{Phases} & \textbf{Business Pages} & \textbf{Widgets} & \textbf{Link between Phases} \\
         \hline
-        Nombre d'éléments & 56 & 76 & 2081 & 101 \\
-        \hline
-        Pourcentage bien migré & 100 \% & 100 \% & 93 \% & 100 \% \\
+        \textbf{Nombre d'éléments} & 56 & 76 & 2081 & 101 \\
+        \textbf{Pourcentage bien migré} & 100 \% & 100 \% & 93 \% & 100 \% \\
         \hline
     \end{tabular} %
    % }
@@ -162,7 +161,7 @@ Dans le cas des applications de Berger-Levrault utilisant BLCore, notre prototyp
 
 Les premières étapes de développement de l'outil de migration non pas produit de discontinuité du service.
 Le développement des applications des Berger-Levrault a continué sans être impacté.
-Cependant, si à la fin du développement du prototype nous n'arrivons pas à obtenir 100 % de l'application de migrée,
+Cependant, si à la fin du développement du prototype nous n'arrivons pas à migrer 100 % de l'application,
     il y a aura une discontinuité du service pendant que les développeurs finissent manuellement la migration.
 
 Enfin, nous avons voulu produire du code lisible pour les développeurs.

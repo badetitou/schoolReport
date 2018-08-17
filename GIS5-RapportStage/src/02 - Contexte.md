@@ -62,7 +62,7 @@ La question qui se pose est de savoir quelle couche, de la \figref{architectureB
 
 \bvc{compléxité lié à BL}
 De plus une entreprise comme Berger-Levrault a aussi
-    des contraintes provenant de leurs développeurs et de leurs clients.
+    des contraintes provenant de ses développeurs et de ses clients.
 Parmi ces contraintes, la migration ne devra pas perturber les clients de Berger-Levrault du point de vue visuel et comportemental.
 
 \bvc{proposition de solution}
@@ -78,15 +78,15 @@ Les développeurs pourront alors effectuer la fin de la migration assistée par 
 \bvc{plan}
 Notre objectif est donc de trouver des solutions pour aider à la migration des applications de Berger-Levrault,
     de les évaluer et d'implémenter la meilleure solution.
-Pour cela, nous avons dans un premier temps étudié les contraintes de Berger-Levrault présenté \secref{descProbleme}.
+Pour cela, nous avons dans un premier temps étudié les contraintes de Berger-Levrault présentées \secref{descProbleme}.
 \secref{stateOfTheArt}, nous avons étudié les techniques utilisées dans la littérature pour représenter une interface graphique.
-Puis, \secref{guiDecomposition}, nous avons étudié les différentes composantes d'une application graphique.
+Puis, \secref{guiDecomposition}, nous avons étudié les différentes composantes d'une application graphique de Berger-Levrault.
 Ensuite nous avons créé une approche et mis en place un outil, présenté \secref{secImplementation}, pour expérimenter la migration d'une application de Berger-Levrault.
 Enfin, \secref{resultat}, \secref{discussion} et \secref{futurWork} nous avons discuté des résultats obtenus avec notre prototype et nous présentons
     les améliorations que nous devons encore apporter au travail effectué.
 
 \bvc{desc rapide bac à sable}
-J'ai effectué cette étude sur l'application _bac à sable_ de Berger-Levrault.
+Nous avons effectué cette étude sur l'application _bac à sable_ de Berger-Levrault.
 Cette dernière permet aux employés de Berger-Levrault de consulter les éléments disponibles dans BLCore.
 C'est une application complète qui fonctionne exactement comme une destinée aux clients de Berger-Levrault.
 En raison de son statut d'application modèle pour les développeurs,
@@ -103,4 +103,4 @@ Nous avons aussi régulièrement vérifié que notre travail pouvait s'appliquer
 Pour cela, nous avons utilisé notre prototype sur l'application _RH_ de Berger-Levrault.
 L'application _RH_ est destinée aux clients désirant centraliser la gestion du personnel
     de leurs compagnies dans une solution logiciel sur le web.
-Elle est constituée de plus 450 pages web et de 19 000 classes Java.
+Elle est constituée de plus de 450 pages web et de 19 000 classes Java.
