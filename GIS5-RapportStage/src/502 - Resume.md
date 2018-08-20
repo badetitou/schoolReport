@@ -30,4 +30,4 @@ During this project, we have in particular
 - Extract navigation map between these screens (which screen makes it possible to switch to which other screen);
 - Define a strategy, through the use of templates, to migrate an application with a graphical interface;
 - Realized a state of the art in the field of application migration;
-- Migrated the _sandbox"_ application from GWT to Angular.
+- Migrated the _"sandbox"_ application from GWT to Angular.
