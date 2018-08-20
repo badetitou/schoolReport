@@ -39,8 +39,13 @@ Leurs cas d'études sont des applications de bureau ayant une interface graphiqu
 Ces logiciels cherchent la définition des widgets dans le code source.
 Une fois les créations des widgets trouvées dans le code source, les logiciels analysent les méthodes invoquées ou invoquant les widgets afin de découvrir les relations entre les widgets et leurs attributs.
 Bien que le travail des auteurs semble intéressant dans le cadre du projet de migration que nous menons,
-    les auteurs ne proposent pas de solution sur la manière d'évaluer le résultat de l'outil de rétro-ingénierie sur des applications
-    composées de beaucoup d'écrans.
+    les auteurs ne proposent pas de solution sur la manière d'évaluer le résultat de l'outil de rétro-ingénierie sur de grosses applications.
+En effet, pour évaluer leurs travaux, les auteurs comparent manuellement les fenêtres originales avec celles retrouvées pour l'outil
+    de rétro-ingénierie.
+Ce type d'évaluation est applicable sur des applications composées de nombreux écrans, mais prend un temps trop important pour
+    être réellement mis en application.
+Dans le cas de Berger-Levrault, une telle évaluation pourrait prendre plusieurs jours, ce qui n'est pas souhaitable
+    lorsque l'on a besoin de vérifier rapidement les résultats que produit notre outil.
 
 Sánchez Ramón *et al.* [@sanchez2014model] ont développé une solution permettant d'extraire depuis un ancien logiciel son interface graphique.
 Le cas d'étude des auteurs est une application source créée avec Oracle Forms.
