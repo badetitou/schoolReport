@@ -14,7 +14,7 @@ Finalement, \secref{respectContraintes}, nous comparons le résultat final avec 
 \begin{table}[hbtp]
     \begin {center}
   %  \resizebox{\columnwidth}{!}{%
-    \begin{tabular}{ccccc}
+    \begin{tabular}{lcccc}
         \hline
          & \textbf{Phases} & \textbf{Business Pages} & \textbf{Widgets} & \textbf{Link between Phases} \\
         \hline

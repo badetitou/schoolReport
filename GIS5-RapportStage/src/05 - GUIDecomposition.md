@@ -29,6 +29,10 @@ L'utilisateur peut effectuer une action sur un composant de l'interface (comme u
 Il est aussi possible que ce soit le système lui-même qui décide de déclencher une suite d'action suite à un événement extérieur.
 Comme dans un langage de programmation _"classique"_, le code comportemental contient des structures de contrôle (_c.-à-d._ boucle et alternative).
 
+C'est cette partie que les auteurs ont voulu représenter \secref{stateMetamodelComportemental}.
+Les méta-modèles de flots permettant d'associer une action avec son application sur l'interface graphique et
+    les méta-modèles de navigation faisant le lien entre un clic sur l'interface et le changement de page web.
+
 ## Code métier
 
 Le code métier inclus tout ce qui n'est définit ni dans la partie visuelle ni dans le code comportemental.
