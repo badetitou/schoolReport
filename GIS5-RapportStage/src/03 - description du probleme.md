@@ -1,4 +1,4 @@
-# Description du problème {#sec:descProbleme}
+# Contraintes de Berger-Levrault {#sec:descContraintes}
 
 Dans le contexte de l'évolution des applications de Berger-Levrault,
     l'entreprise a estimé la transformation du code à 4000 jours-hommes de développement.
@@ -70,7 +70,7 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
     \label{comparaison}
 \end{table}
 
-Dans le cas de ce projet, les langages de programmations source et cible ont deux architectures différentes.
+Dans le cadre de ce projet, les langages de programmations source et cible ont deux architectures différentes.
 Les différences sont syntaxiques, sémantiques et architecturales.
 Pour la migration d'application GWT vers Angular, les fichiers _.java_ seront décomposé en plusieurs fichiers Angular.
 
