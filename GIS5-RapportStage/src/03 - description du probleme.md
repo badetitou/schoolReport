@@ -3,7 +3,7 @@
 Dans le contexte de l'évolution des applications de Berger-Levrault,
     l'entreprise a estimé la transformation du code à 4000 jours-hommes de développement.
 Ceci s'explique majoritairement par les 1,67 MLOC[^mloc] utilisés pour les logiciels.
-Un de mes objectifs à Berger-Levrault est de définir une stratégie de migration
+Un de nos objectifs à Berger-Levrault est de définir une stratégie de migration
     qui réduise le temps nécessaire pour la transformation des programmes.
 
 [^mloc]: MLOC : _Million Lines of Code_

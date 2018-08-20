@@ -127,7 +127,8 @@ Ce dernier point est discuté \secref{interfaceXML}.
 
 La \figref{cmp1} présente les différences visuelles entre l'ancienne version, à gauche, et la nouvelle, à droite.
 Nous pouvons voir que les différences sont minimes.
-Dans la version exportée, les couleurs de l'en-tête des panels sont un peu plus claires et l'ombre portée des panels est plus dégradée.
+Dans la version exportée, les couleurs de l'en-tête des panels sont un peu plus claires, l'ombre portée des panels est plus dégradée
+    et les lignes sont un peu plus espacées
 
 \begin{figure}
 \begin{subfigure}{0.45\textwidth}

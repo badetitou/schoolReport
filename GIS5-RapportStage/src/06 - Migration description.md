@@ -16,7 +16,7 @@ Nous avons identifié plusieurs manières d'effectuer la migration d'une applica
 Toutes les solutions doivent respecter les contraintes définies \secref{contraintes}.
 
 - _Migration manuelle_. Cette stratégie correspond au redéveloppement complet des applications sans l'utilisation d'outils aidant à la migration.
-    La migration manuelle permet de facilement corriger les potentielles erreurs de l'application d'origine et de reconcevoir l'application cible en suivant les préceptes du langage cible.  
+    La migration manuelle permet de corriger les potentielles erreurs de l'application d'origine et de reconcevoir l'application cible en suivant les préceptes du langage cible.  
 - _Utilisation d'un moteur de règles_. L'utilisation d'un moteur de règles pour migrer partiellement
         ou en totalité une application a déjà été appliquée sur d'autres projets [@brant2010extreme; @feldman1990fortran; @grosse2012automatic].
     Pour utiliser cette stratégie, nous devons définir et créer des règles qui prennent en entrée le code source et qui produisent le code pour l'application migrée.
