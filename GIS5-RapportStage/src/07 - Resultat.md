@@ -29,6 +29,7 @@ Finalement, \secref{respectContraintes}, nous comparons le résultat final avec 
 \end{table}
 
 Le Tableau \ref{resultImport} présente les résultats que nous obtenons en exécutant la création du modèle d'interface graphique.
+Les valeurs correspondent toujours au rappel puisque la précision que nous avons est toujours de 100 %.
 
 Pour les phases, nous avons regardé dans l'application cible le nombre de phases existantes.
 Pour cela nous avons regardé dans le fichier de configuration de l'application dans lequel toutes les phases sont définies.
@@ -82,7 +83,7 @@ Cette disposition d'élément est courante,
     elle représente un widget de type _container_ qui contient beaucoup d'autres widgets pouvant être des _leafs_ ou des _containers_.
 Ici, il s'agit d'un BLGrid qui contient des textes et des champs de saisies.
 
-La représentation complète que nous obtenons est disponible en Annexe.
+La représentation complète que nous obtenons est disponible en Annexe \ref{appendix:representationGlobal}.
 
 ## Respect des contraintes {#sec:respectContraintes}
 
