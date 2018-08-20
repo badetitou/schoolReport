@@ -56,6 +56,10 @@ Cependant, Oracle Forms est utilisée pour créer une interface simple avec seul
 Les champs texte contiennent des données provenant d'une base de données.
 La disposition des éléments est aussi très simple dans l'exemple fourni
     par les auteurs car les champs texte ou les formulaires sont affichés les uns en dessous des autres.
+Garces _et al._ [@garces2017white] ont aussi travaillé sur l'extraction d'interfaces graphiques provenant d'applications
+    développées grâce à Oracle Forms.
+Ils ne détaillent pas l'approche qu'ils ont utilisée, cependant les auteurs ont dû travailler avec les mêmes types de fichiers en entrées,
+    et expliquent utiliser un _parser_ de code pour identifier les différentes composantes des interfaces graphiques.
 Dans notre cas, les interfaces sont plus complexes et demandent une analyse plus poussée que la recherche de la position des widgets.
 
 La stratégie statique permet d'effectuer l'analyse d'une application sans avoir besoin de l'exécuter.

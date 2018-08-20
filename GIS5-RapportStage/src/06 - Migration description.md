@@ -155,7 +155,7 @@ En plus du modèle, il y a un exportateur abstrait et une implémentation de
 Parce que nous testons notre solution sur le système de Berger-Levrault,
     nous avons également implémenté l'extension _"CoreWeb"_,
     la stratégie de migration ne dépend cependant pas de cette extension.
-Ces paquets étendent les précédents pour avoir un contrôle fin du processus de migration.
+Le paquetage _"CoreWeb"_ étend le paquetage _"BL-Model"_ pour avoir un contrôle fin du processus de migration.
 Ce contrôle est important pour améliorer le résultat final.
 
 [^moose]: Moose est une plateforme pour l'analyse de logiciels et de données - [http://www.moosetechnology.org/](http://www.moosetechnology.org/)

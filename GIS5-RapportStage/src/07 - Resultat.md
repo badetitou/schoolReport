@@ -42,10 +42,15 @@ Nous retrouvons dans les pages métiers celles qui implémentent l'interface _IP
 La factorisation du code est une complication dans le calcul du nombre exact de business page que nous devons détecter pendant l'importation.
 Cette difficulté d'évaluation est discutée \secref{discussion}.
 
-Nous n'avons pas trouvé de manière pour évaluer l'exportation de widgets dans la littérature de manière automatique.
-Nous avons donc sélectionné un échantillon de phases et avons cherché dans le code si
-    les widgets présents originellement sont présents dans la version exportée.
-Avec l'étude que nous avons effectuée, nous avons relevé un total de 93 % de widget que nous réussissons à migrer.
+Dans la littérature, nous n'avons pas trouvé de manière pour évaluer l'exportation de widgets de manière automatique.
+Nous avons donc décidé de prendre un échantillon de phases parmi toutes celles présentes dans l'application _bac à sable_.
+L'échantillon est composé de 6 phases de taille différente et qui comporte différents types de widgets,
+    ce qui correspond à environ 12% du nombre total de phases.
+Pour chaque phase de l'échantillon,
+    nous avons comparé dans le code originel la structure de la page web, qu'elle représente en analysant
+    les instanciations de widgets et les appels aux méthodes permettant de définir la structure de la page,
+    avec celle obtenue dans la phase migrée.
+Nous avons relevé un total de 93 % de widget que nous réussissons à migrer.
 
 Finalement, la détection du nombre de liens entre les phases est réussie à 100 %.
 Nous détectons correctement 101 liens de navigation qui existent dans l'application.
