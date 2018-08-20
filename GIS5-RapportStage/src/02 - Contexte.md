@@ -21,7 +21,7 @@ En particulier, le _front-end_ est développé en GWT et doit migrer vers Angula
 Le _back-end_ est une application monolithique et doit évoluer vers une architecture de services web.
 Le changement de _framework_[^framework] graphique est imposé par l'arrêt du développement de GWT par Google.
 Google prévoit tout de même de créer un transpilateur pour convertir le code GWT en Angular,
-    cependant il n'y a pas de communication sur ce projet et l'entreprise ne peut pas se permettre de
+    cependant il n'y a pas de communication sur ce projet et Berger-Levrault ne peut pas se permettre de
     rester "bloquée" avec des technologies vieillissantes.
 Le passage à une architecture à services est aussi souhaité pour améliorer l’offre commerciale et la rendre plus flexible.
 

@@ -104,6 +104,41 @@ Le pop-up ne peut pas être considéré comme un widget,
 Le __Service__ est la référence de fonctionnalité distante que l'application peut appeler à partir de son interface graphique.
 Dans le contexte d'une application client/serveur, il peut s'agir du côté serveur de l'application.
 
+## Méta-modèle du code comportemental {#sec:metamodelComportemental}
+
+![Méta-Modèle du code comportemental](figures/behavioralModel.png){#fig:behavioralModel width=100%}
+
+Le méta-modèle du code comportemental présenté \figref{behavioralModel} est un prototype de méta-modèle sur
+    lequel nous travaillons pour représenter le code lié au comportement de l'application.
+Ce méta-modèle n'est pas encore implémenté, nous n'avons travaillé que sur la théorie.
+Il y a deux éléments principaux, Statement et Expression.
+
+Le **Statement** est la représentation des structures de contrôle des langages de programmation.
+Il y a l'alternative, la boucle, la notion de bloc et un lien vers une expression.
+
+Une **Expression** représente un morceau de code qui peut être évalué directement.
+Cela peut être une affectation avec la valeur de l'affectation,
+    un littéral (directement la valeur de l'élément écrit),
+    une expression booléenne,
+    une expression arithmétique
+    ou une invocation.
+Dans le cas d'une invocation, c'est la valeur de retour de la méthode
+    qui est utilisée comme valeur de l'expression.
+
+Les éléments **Action** constituent le lien vers le modèle d'interface graphique.
+C'est le conteneur de la logique d'un événement déclenché par une action.
+
+Grâce à ce modèle, nous pouvons représenter la logique
+    exécutée par un lorsqu'un événement est déclenché par une action sur un widget
+    du modèle d'interface graphique.
+
+Notre méta-modèle de code comportemental permet de représenter les informations
+    contenues par les méta-modèle de navigation et de _state flow_, présentés \secref{stateMetamodelComportemental}.
+Cependant, nous ne représentons pas l'état d'entrée et l'état de sortie après une action,
+    mais l'état d'entrée d'une fenêtre et la logique à appliquer après une action pour obtenir l'état de sortie.
+Cette différence est dû à notre objectif qui est de migrer cette logique dans un nouveau langage et non
+    d'analyser les différents états possibles de l'application.
+
 ## Implémentation du processus
 
 Pour tester la stratégie, nous avons implémenté un outil qui supporte le processus de migration.
