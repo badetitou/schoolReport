@@ -22,7 +22,7 @@ Le _back-end_ est une application monolithique et doit évoluer vers une archite
 Le changement de _framework_[^framework] graphique est imposé par l'arrêt du développement de GWT par Google.
 Google prévoit tout de même de créer un transpilateur pour convertir le code GWT en Angular,
     cependant il n'y a pas de communication sur ce projet et Berger-Levrault ne peut pas se permettre de
-    rester "bloquée" avec des technologies vieillissantes.
+    rester "bloqué" avec des technologies vieillissantes.
 Le passage à une architecture à services est aussi souhaité pour améliorer l’offre commerciale et la rendre plus flexible.
 
 Mon travail durant ce stage ne traite que de la migration des applications _front-end_.
@@ -87,7 +87,7 @@ Enfin, \secref{resultat}, \secref{discussion} et \secref{futurWork} nous avons d
 \bvc{desc rapide bac à sable}
 Nous avons effectué cette étude sur l'application _bac à sable_ de Berger-Levrault.
 Cette dernière permet aux employés de Berger-Levrault de consulter les éléments disponibles dans BLCore.
-C'est une application complète qui fonctionne exactement comme une destinée aux clients de Berger-Levrault.
+C'est une application complète qui fonctionne exactement comme celles destinées aux clients de Berger-Levrault.
 En raison de son statut d'application modèle pour les développeurs,
     elle contient tout ce qui est utilisable dans les autres applications.
 En plus des outils utilisables par les développeurs,

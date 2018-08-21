@@ -1,9 +1,9 @@
 # Mise en place de la migration par les modèles {#sec:secImplementation}
 
-Suite à l'étude des contraintes inhérentes aux problèmes de migration dans le cadre d'une entreprise,
+Suite à l'étude des contraintes inhérentes aux problèmes de migration dans le cadre de Berger-Levrault,
     et à l'état de l'art que nous avons mené,
     nous avons travaillé sur la conception et l'implémentation d'une stratégie de migration
-    respectant les critères que nous avons fixés.
+    respectant les critères fixés.
 
 \secref{approcheMigration}, nous présentons les différentes approches que nous avons identifiées pour effectuer la migration.
 Puis, \secref{processusMigration} nous décrivons le processus de migration que nous avons conçu.
@@ -16,7 +16,7 @@ Nous avons identifié plusieurs manières d'effectuer la migration d'une applica
 Toutes les solutions doivent respecter les contraintes définies \secref{contraintes}.
 
 - _Migration manuelle_. Cette stratégie correspond au redéveloppement complet des applications sans l'utilisation d'outils aidant à la migration.
-    La migration manuelle permet de corriger les potentielles erreurs de l'application d'origine et de reconcevoir l'application cible en suivant les préceptes du langage cible.  
+    La migration manuelle permet de corriger les potentielles erreurs de l'application d'origine et de reconcevoir l'application cible en suivant les préceptes du langage cible.
 - _Utilisation d'un moteur de règles_. L'utilisation d'un moteur de règles pour migrer partiellement
         ou en totalité une application a déjà été appliquée sur d'autres projets [@brant2010extreme; @feldman1990fortran; @grosse2012automatic].
     Pour utiliser cette stratégie, nous devons définir et créer des règles qui prennent en entrée le code source et qui produisent le code pour l'application migrée.
@@ -37,7 +37,7 @@ Nous avons donc décidé d'utiliser cette approche pour effectuer la migration.
 
 ## Processus de migration {#sec:processusMigration}
 
-![Schéma processus de migration](figures/processusMigration.png){#fig:processusMigration width=100%}
+![Processus de migration](figures/processusMigration.png){#fig:processusMigration width=100%}
 
 À partir de l'état de l'art et des contraintes que nous avons explicitées,
     nous avons conçu une stratégie pour effectuer la migration.
@@ -45,35 +45,35 @@ Le processus que l'on a représenté \figref{processusMigration} est divisé en 
 
 1. _Extraction du modèle de la technologie source_ est la première étape permettant de construire l'ensemble des analyses et transformations que nous devons appliquer pour effectuer la migration. Elle consiste en la génération d'un modèle représentant le code source de l'application originel. Dans notre cas d'étude, le programme source est en Java et donc le modèle que nous créons est une implémentation d'un méta-modèle permettant de représenter une application écrite en Java.
 2. _Extraction de l'interface graphique_ est l'analyse du modèle de la technologie source pour détecter les éléments qui relèvent du modèle d'interface graphique. Ce dernier, que nous avons dû concevoir, est expliqué \secref{metamodelUI}.
-3. _Extraction du code comportemental_. Une fois le modèle d'UI généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'interface graphique (UI). Par exemple, si un clic sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, défini dans le modèle UI, lorsqu'un clic est effectué, on effectue un certain nombre d'actions, dont une sur le texte, lui aussi défini dans le modèle UI.
-4. _Exportation de l'interface graphique_. Le modèle d'interface graphique étant construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface graphique. Cela consiste en la génération du code du langage source exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaires au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérente à l'interface.
+3. _Extraction du code comportemental_. Une fois le modèle d'interface graphique (UI) généré, il est possible d'extraire le code comportemental du modèle de la technologie source et de créer les correspondances entre les éléments faisant partie à la fois du code comportemental et du modèle d'UI. Par exemple, si un clic sur un bouton agit sur un texte dans l'interface graphique. L'extraction du code comportemental permet de définir que pour le bouton, défini dans le modèle UI, lorsqu'un clic est effectué, on effectue un certain nombre d'actions, dont une sur le texte, lui aussi défini dans le modèle UI.
+4. _Exportation de l'interface graphique_. Le modèle d'interface graphique construit et les liens entre interfaces utilisateur et code comportemental créés, il est possible d'effectuer l'exportation de l'interface graphique. Cela consiste en la génération du code du langage cible exprimant uniquement l'interface graphique. C'est aussi à cette étape que l'on génère l'architecture des fichiers nécessaires au fonctionnement de l'application cible ainsi que la création des fichiers de configuration inhérente à l'interface.
 5. Finalement, l'_Exportation du code comportemental_ est la génération du code comportemental qui est lié à l'interface graphique. Cette étape peut être effectuée en parallèle de la précédente.
 
 ## Méta-modèle d'interface graphique {#sec:metamodelUI}
 
-![Méta-Modèle d'interface graphique](figures/GUIModel.png){#fig:guiModel width=80%}
+![Méta-Modèle d'interface graphique (GUI)](figures/GUIModel.png){#fig:guiModel width=80%}
 
-Afin de représenter les interfaces utilisateurs des applications de Berger-Levrault,
+Afin de représenter les interfaces graphiques des applications de Berger-Levrault,
     nous avons conçu le méta-modèle illustré \figref{guiModel}.
 Ce méta-modèle est la synthèse des méta-modèles que nous avons trouvés lors de l'état de l'art et présentés \secref{stateMetaUI}.
 Dans la suite de cette section, nous présentons les différentes entités du méta-modèle.
 
-La **Phase** représente le conteneur principal d'une page interface graphique.
+La **Phase** représente le conteneur principal d'une page de l'interface graphique.
 Cela peut correspondre à une _fenêtre_ d'une application du bureau, une page web, ou
-    dans notre cas d'un onglet à une page web.
+    dans notre cas d'un onglet d'une page web.
 Dans le modèle KDM, une Phase correspond à un _Screen_ (type de UIDisplay).
 
 Une Phase peut contenir plusieurs **Business Page**.
 Elle peut aussi être appelée par un widget grâce à une **Action** de type **Call Phase**.
-Lorsqu'une Phase est appelée, l'interface change pour l'afficher.
+Lorsqu'une Phase est appelée, l'interface change pour afficher la Phase et son contenu.
 Dans le cas d'une application de bureau, l'interface change ou une nouvelle fenêtre est ouverte avec l'interface de la Phase.
 Pour une application web, l'appel d'une Phase peut correspondre à l'ouverture d'un nouvel onglet, le changement d'onglet actif ou la transformation de la page web courante.
 Cette notion de business page n'est présente dans aucun des autres papiers,
     elle est inhérente au projet de Berger-Levrault et peut facilement être modifié pour correspondre à ce que l'on
     trouve dans la littérature.
-Il suffirait de changer la relation entre phase et business page pour une relation entre phase et widget.
+Il suffirait de changer la relation entre phase et business page avec une relation entre phase et widget.
 
-Les **Widgets** sont les différents composants d'interface et les composants de disposition.
+Les **Widgets** sont les différents composants de l'interface et les composants de disposition.
 Il existe deux types de widgets.
 Le **Leaf** est un widget qui ne contient pas d'autre widget.
 Le **Container** qui peut contenir un ou plusieurs autres widgets.
@@ -111,7 +111,7 @@ Dans le contexte d'une application client/serveur, il peut s'agir du côté serv
 Le méta-modèle du code comportemental présenté \figref{behavioralModel} est un prototype de méta-modèle sur
     lequel nous travaillons pour représenter le code lié au comportement de l'application.
 Ce méta-modèle n'est pas encore implémenté, nous n'avons travaillé que sur la théorie.
-Il y a deux éléments principaux, Statement et Expression.
+Il est composé de deux éléments principaux, Statement et Expression.
 
 Le **Statement** est la représentation des structures de contrôle des langages de programmation.
 Il y a l'alternative, la boucle, la notion de bloc et un lien vers une expression.
@@ -129,7 +129,7 @@ Les éléments **Action** constituent le lien vers le modèle d'interface graphi
 C'est le conteneur de la logique d'un événement déclenché par une action.
 
 Grâce à ce modèle, nous pouvons représenter la logique
-    exécutée par un lorsqu'un événement est déclenché par une action sur un widget
+    exécutée lorsqu'un événement est déclenché par une action sur un widget
     du modèle d'interface graphique.
 
 Notre méta-modèle de code comportemental permet de représenter les informations
@@ -147,15 +147,16 @@ L'outil a été implémenté en Pharo[^pharo] et nous avons utilisé la platefor
 ![Implémentation de l'outil](figures/codeImpl.png){#codeImpl width=350px height=250px}
 
 Le Figure \ref{codeImpl} présente la logique d'implémentation.
-Le bloc principal est _BL-Model_.
-Ce bloc contient l'implémentation du méta-modèle GUI[^GUI].
+Le paquetage principal est _BL-Model_.
+Ce paquetage contient l'implémentation du méta-modèle GUI[^GUI].
 En plus du modèle, il y a un exportateur abstrait et une implémentation de
     l'exportateur pour Angular (_BL-Model-Exporter_ et _BL-Model-Exporter-Angular_)
     et un importateur abstrait ainsi que le code spécifique pour Java (_BL-Model-Importateur_ et _BL-Model-Importer-Java_).
 Parce que nous testons notre solution sur le système de Berger-Levrault,
     nous avons également implémenté l'extension _"CoreWeb"_,
     la stratégie de migration ne dépend cependant pas de cette extension.
-Le paquetage _"CoreWeb"_ étend le paquetage _"BL-Model"_ pour avoir un contrôle fin du processus de migration.
+Le paquetage _"CoreWeb"_ étend le paquetage _"BL-Model"_ pour avoir un contrôle fin du processus de migration et le modifier
+    pour se rapprocher au plus que nous le pouvons du besoin de Berger-Levrault.
 Ce contrôle est important pour améliorer le résultat final.
 
 [^moose]: Moose est une plateforme pour l'analyse de logiciels et de données - [http://www.moosetechnology.org/](http://www.moosetechnology.org/)
@@ -167,9 +168,9 @@ Ce contrôle est important pour améliorer le résultat final.
 La création des modèles représentant l'interface graphique est divisée en trois étapes comme présenté Section \ref{sec:processusMigration}.
 Dans le cas de Berger-Levrault, nous avons implémenté l'approche en Pharo avec Moose.
 
-La première étape est la conception du modèle de la technologie source.
-Ce modèle avait déjà une implémentation existante dans Moose avec le projet _Famix-Java_.
-Nous avons donc réutilisé ce modèle pour ne pas avoir à reconcevoir un modèle préexistant.
+La première étape est la conception du méta-modèle de la technologie source.
+Ce méta-modèle avait déjà une implémentation existante dans Moose avec le projet _Famix-Java_.
+Nous avons donc réutilisé ce méta-modèle pour ne pas avoir à reconcevoir un méta-modèle préexistant.
 De plus, ce travail préliminaire est compatible avec plusieurs outils qui ont été développés
     en interne à RMod.
 Entre autres, deux logiciels de génération du modèle Famix-Java depuis du code source Java existent.
@@ -225,7 +226,7 @@ Grâce à l'analyse préliminaire des applications de Berger-Levrault, nous avon
 Dans la \figref{uiJava}, la classe SamplePageMetier1 étend AbstractSimplePageMetier, et ce dernier
     implémente l'interface.
 Une fois les classes trouvées, nous avons recherché les appels des constructeurs des classes.
-Puis, en faisant le lien entre les appels et les phases qui _"ajoute"_ à leurs contenus,
+Puis, en faisant le lien entre les appels et les phases qui les _"ajoute"_ à leurs contenus,
     nous avons détecté les liens d'appartenances entre les business pages et les phases.
 
 Pour les widgets, nous avons dû tout d'abord trouver tous les widgets potentiellement instanciable.
@@ -248,15 +249,14 @@ Cette approche pour détecter les attributs et les actions provient des papiers 
 Dans le cas de la \figref{uiJava},
     le BLLinkLable, dont la variable est `lblPgSuivante`, est lié à une action et à un attribut.
 Les lignes 5 à 10 correspondent à l'ajout d'une action et le code à exécuter quand l'action est exécutée.
-La ligne 11 correspond à l'ajout de l'attribut "Enabled" avec comme valeur `false`.
+La ligne 11 correspond à l'ajout de l'attribut _"Enabled"_ avec comme valeur `false`.
 
 [^verveineJ]: [verveineJ : https://rmod.inria.fr/web/software/](https://rmod.inria.fr/web/software/)
 [^jdt2famix]: [jdt2famix : https://github.com/feenkcom/jdt2famix](https://github.com/feenkcom/jdt2famix)
 
 ### Exportation
 
-Une fois la génération du modèle d'interface graphique et du modèle du code comportemental terminé,
-    il est possible de lancer l'exportation.
+Une fois la génération du modèle d'interface graphique il est possible de lancer l'exportation.
 L'exportation consiste en la génération du code de l'application cible.
 
 La première étape de l'implémentation de l'exportation est l'utilisation

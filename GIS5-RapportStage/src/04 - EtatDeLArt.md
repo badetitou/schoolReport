@@ -58,7 +58,7 @@ La disposition des éléments est aussi très simple dans l'exemple fourni
     par les auteurs car les champs texte ou les formulaires sont affichés les uns en dessous des autres.
 Garces _et al._ [@garces2017white] ont aussi travaillé sur l'extraction d'interfaces graphiques provenant d'applications
     développées grâce à Oracle Forms.
-Ils ne détaillent pas l'approche qu'ils ont utilisée, cependant les auteurs ont dû travailler avec les mêmes types de fichiers en entrées,
+Ils ne détaillent pas l'approche qu'ils ont utilisée, cependant les auteurs ont dû travailler avec les mêmes types de fichiers en entrées
     et expliquent utiliser un _parser_ de code pour identifier les différentes composantes des interfaces graphiques.
 Dans notre cas, les interfaces sont plus complexes et demandent une analyse plus poussée que la recherche de la position des widgets.
 
@@ -308,7 +308,7 @@ L'utilisation d'un ComponentPart permet d'ajouter d'autre composant aux listes e
 Nous présentons dans cette Section les méta-modèles ou représentations d'interface graphique proposés dans la littérature.
 Nous comparons ces propositions avec ceux proposés par l'OMG.
 
-Gotti _et al._[@gotti2016java] ont proposé un méta-modèle inspiré du modèle KDM (voir la \secref{omg}).
+Gotti _et al._ [@gotti2016java] ont proposé un méta-modèle inspiré du modèle KDM (voir la \secref{omg}).
 Le méta-modèle a les principales entités définies dans le modèle KDM.
 On retrouve le patron de conception _composite_ pour représenter le DOM d'une interface graphique.
 La notion de UIElement s'appelle _Components_.
@@ -317,7 +317,7 @@ Les components comme les fenêtres ont une notion de _Property_ qui a été ajou
 Ils ont également implémenté une propriété _Event_ pour les components.
 Mais ils inversent les noms des notions _Event_ et _Action_ comparées aux modèles KDM.
 
-Fleurey _et al._[@fleurey2007model] n'ont pas décrit le méta-modèle de l'interface graphique directement, mais
+Fleurey _et al._ [@fleurey2007model] n'ont pas décrit le méta-modèle de l'interface graphique directement, mais
     nous avons extrait des informations de leur méta-modèle de navigation.
 Ils ont au moins deux éléments dans leur méta-modèle d'interface graphique, _Window_ et _GraphicElement_.
 _Window_ semble correspondre à la notion de Display du méta-modèle KDM et au conteneur racine de IFML.
@@ -326,17 +326,17 @@ Le _GraphicElement_ a un _Event_.
 Nous n'avons pas la totalité du méta-modèle de l'interface graphique,
     mais nous pouvons voir qu'il ressemble à ceux proposés par l'OMG.
 
-Le méta-modèle graphique de Sanchez _et al._[@sanchez2014model] est très à ceux de l'OMG.
+Le méta-modèle graphique de Sanchez _et al._ [@sanchez2014model] est très à ceux de l'OMG.
 Il y a les entités Widget et Window qui correspondent respectivement aux entités GUIElement et UIDisplay.
 Leurs widgets ont une position X et Y et la largeur et hauteur en tant que propriétés.
 Ceci n'est pas représenté dans les méta-modèles KDM et IFML.
 Il y a aussi le patron de conception  _composite_ pour représenter le DOM.
 
-Morgado _et al._[@morgado2011reverse] utilisent un méta-modèle graphique, mais ne le décrivent pas.
+Morgado _et al._ [@morgado2011reverse] utilisent un méta-modèle graphique, mais ne le décrivent pas.
 Nous savons seulement que l'interface graphique est représentée comme un arbre ce qui est similaire à un
     DOM et peut être représenté grâce au patron de conception  _composite_.
 
-Le méta-modèle graphique de Garces _et al._[@garces2017white] diffère beaucoup de ceux précédemment décrits.
+Le méta-modèle graphique de Garces _et al._ [@garces2017white] diffère beaucoup de ceux précédemment décrits.
 Il y a les attributs, les événements, les windows, mais il n'y a pas de widget.
 Cette absence s'explique par la différence dans le langage source à migrer.
 Les auteurs ont travaillé sur un projet utilisant des Oracle Forms.
@@ -345,7 +345,7 @@ L'interface est décrite dans des fichiers à part et
 Nous pouvons tout de même remarquer qu'ils utilisent une entité _Event_ pour représenter l'action de l'utilisateur
     avec l'interface graphique.
 
-Memon _et al._[@MemonWCRE2003] représentent une interface graphique avec seulement deux entités dans leur méta-modèle d'interface graphique.
+Memon _et al._ [@MemonWCRE2003] représentent une interface graphique avec seulement deux entités dans leur méta-modèle d'interface graphique.
 Une GUIWindow similaire au UIDisplay qui est constituée d'un ensemble de widgets.
 Ces widgets peuvent avoir des propriétés et toutes les propriétés ont une valeur associée.
 Les auteurs ont défini une interface graphique comme ensemble de widgets et leurs propriétés,
@@ -356,7 +356,7 @@ Ce point est la différence majeure avec les méta-modèles proposés par l'OMG 
     nous sommes toujours dans la même interface graphique,
     mais un flux d'interaction a été exécuté.
 
-Smair _et al._[@samir2007swing2script] ont travaillé sur la migration d'une application Java-Swing vers une application web Ajax.
+Smair _et al._ [@samir2007swing2script] ont travaillé sur la migration d'une application Java-Swing vers une application web Ajax.
 Ils ont créé un méta-modèle pour représenter l'interface graphique de l'application d'origine.
 Ce méta-modèle est stocké dans un fichier XUL et représente
     les widgets avec leurs propriétés ainsi que la mise en page.
@@ -365,24 +365,24 @@ Ces widgets appartiennent à une fenêtre, appelée Phase dans notre travail,
 Dans les modèles de l'OMG, on ne retrouve pas la notion de propriété et
     l'_Input_ est englobé soit dans paquetage _Event_ pour KDM, soit dans flux d'interaction pour IFML.
 
-Shah et Tilevich[@shah2011reverse] utilisent un arbre pour représenter l'interface graphique.
+Shah et Tilevich [@shah2011reverse] utilisent un arbre pour représenter l'interface graphique.
 La racine de l'arbre est une _Frame_ ce qui correspond à la notion de _UIDisplay_.
 La racine contient des _Composants_ avec leurs propriétés.
 L'entité _Composant_ est similaire à l'entité _UIField_
     bien que les propriétés ne sont pas représentées dans les méta-modèles KDM.
 
-Joorachi _et al._[@joorabchi2012reverse] représentent une interface graphique avec un ensemble d'éléments d'interface graphique.
+Joorachi _et al._ [@joorabchi2012reverse] représentent une interface graphique avec un ensemble d'éléments d'interface graphique.
 Ces éléments correspondent à la notre définition d'un UIField.
 Pour chaque élément d’interface graphique, l’outil des auteurs peut gérer la détection
     de plusieurs attributs et d'événements.
 Les attributs sont absents des modèles proposés par l'OMG.
 On ne retrouve pas le patron de conception  _composite_ dans le travail de ces auteurs.
 
-Memon _et al._[@memon2007eventflow] utilisent un modèle d'interface graphique pour représenter l'état d'une application.
+Memon _et al._ [@memon2007eventflow] utilisent un modèle d'interface graphique pour représenter l'état d'une application.
 Ils ont aussi utilisé la notion de UIField.
 Les auteurs utilisent le patron de conception  _composite_ afin de représenter le DOM d'une application.
 
-Mesbah _et al._[@mesbah2012crawling] n'ont pas présenté directement le méta-modèle de l'interface graphique qu'ils utilisent.
+Mesbah _et al._ [@mesbah2012crawling] n'ont pas présenté directement le méta-modèle de l'interface graphique qu'ils utilisent.
 Cependant, ils utilisent une représentation avec un arbre pour analyser différentes pages web.
 Ils utilisent également la notion d'événement pouvant être déclenchée.
 Les auteurs instancient plusieurs méta-modèles d'interface graphique pour représenter les différentes pages web de l'application.

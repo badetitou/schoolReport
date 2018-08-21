@@ -4,7 +4,7 @@ Nous allons maintenant présenter les résultats que nous avons obtenus suite à
 
 Nous avons expérimenté notre approche sur l'application _bac à sable_ de Berger-Levrault.
 Nous présentons dans cette Section les résultats que nous obtenons aux différentes étapes du processus de migration.
-\secref{retroImport} présente les résultats de la phase de rétro-ingénierie.
+La \secref{retroImport} présente les résultats de la phase de rétro-ingénierie.
 Puis, nous présentons, \secref{visualisation}, une visualisation que nous avons créé pour analyser
     le modèle que nous avons instancié.
 Finalement, \secref{respectContraintes}, nous comparons le résultat final avec les contraintes que nous avons fixé \secref{contraintes}.

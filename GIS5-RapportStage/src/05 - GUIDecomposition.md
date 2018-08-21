@@ -38,4 +38,4 @@ Les méta-modèles de flots permettant d'associer une action avec son applicatio
 Le code métier inclus tout ce qui n'est défini ni dans la partie visuelle ni dans le code comportemental.
 Cela correspond à tout ce qui est lié à l'application, mais pas à la partie visuelle.
 Il est composé des règles générales de l'application
-    (comment calculer les taxes ?), de l'adresse des services distants (quel serveur mon code métier doit demander), des données de l'application (quelle base de données ? quel type d'objet).
+    (comment calculer les taxes ?), de l'adresse des services distants (quel serveur mon code métier doit requêter), des données de l'application (quelle base de données ? quel type d'objet).

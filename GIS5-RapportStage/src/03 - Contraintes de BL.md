@@ -29,7 +29,7 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
     En effet, les utilisateurs de l'application ne doivent pas être perturbés par la migration.
     Il est aussi possible que Berger-Levrault ait envie de profiter de la migration
         pour rafraîchir le visuel de leurs applications.
-    Dans ce cas le l'outil peut proposer de faciliter certains points de cette transformation graphique.
+    Dans ce cas, l'outil peut proposer de faciliter certains points de cette transformation graphique.
 - _Automatique_. Une solution automatique facilite l'accessibilité de l'outil.
     Pour simplifier le processus de migration, il serait souhaitable que les utilisateurs de l'outil n'aient pas à intervenir pendant le processus de migration ou très peu.
     Ainsi, l'outil peut être utilisé avec un minimum de connaissance préalable.
@@ -39,10 +39,10 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
     Il est possible que certaines déviances ne soient pas traitables ou demande un effort trop important,
         elles seront alors traité post-migration.
     Dans le cas de Berger-Levrault, l'outil de migration peut gérer les éléments, utilisés par l'application à migrer, provenant du _framework_ GWT.
-- _Continuation du service_. Pendant la conception de la stratégie de migration, le développement du prototype permettant la migration et la migration elle-même,
-        les équipes de développement doivent pour continuer la maintenance des applications.
+- _Continuation du service_. Pendant la conception de la stratégie de migration, le développement du prototype et l'exécution de la migration,
+        les équipes de développement doivent pouvoir continuer la maintenance des applications.
     Cette contrainte est essentielle puisque Berger-Levrault, en raison de son activité, ne peut pas demander à ses clients d'accepter
-        un arrêt des améliorations et correction de bug pendant plusieurs mois.
+        un arrêt des améliorations et corrections de bogue pendant plusieurs mois.
 - _Lisibilité_. Afin de facilité le travail de compréhension du code migré,
         il serait souhaitable que la migration produise une application respectant les normes définies par les développeurs.
     Dans le cas de Berger-Levrault, il s'agit du respect du nommage des variables en CamelCase[^CamelCase]
@@ -72,7 +72,7 @@ En effet, la solution logicielle doit respecter les contraintes suivantes :
 
 Dans le cadre de ce projet, les langages de programmations source et cible ont deux architectures différentes.
 Les différences sont syntaxiques, sémantiques et architecturales.
-Pour la migration d'application GWT vers Angular, les fichiers _.java_ seront décomposé en plusieurs fichiers Angular.
+Pour la migration d'application GWT vers Angular, les fichiers _.java_ sont décomposé en plusieurs fichiers Angular.
 
 Le Tableau \ref{comparaison} synthétise les différences entre l'architecture d'une application en Java et celle en Angular.
 Les différences se font pour trois notions, les pages web, leurs styles et les fichiers de configuration.
@@ -84,8 +84,9 @@ Les fichiers Java contiennent les différents composants graphiques (widgets) de
 Dans le cas d'un widget sur lequel une action peut être exécutée (comme un bouton), c'est dans ce
     même fichier qu'est contenu le code à exécuter lorsque l'action est réalisée.
 
-En Angular, on crée une hiérarchie de fichier correspondant à un sous-projet pour chaque page web.
-Cette hiérarchie permet de séparer le visuel d'une page web, des scripts qu'il utilise.
+En Angular, on crée une hiérarchie de fichier pour chaque page web.
+Ainsi, chacune est gérée comme un sous-projet indépendant des autres.
+Cette hiérarchie permet de séparer le visuel d'une page web, des scripts qu'elle utilise.
 Elle contient plusieurs fichiers dont un fichier HTML qui contient les widgets de la page web et leurs organisations,
     et un fichier TypeScript contenant le code à exécuter quand une action se produit sur un widget.
 On a donc la décomposition d'un fichier Java pour GWT en deux fichiers HTML et TypeScript en Angular pour représenter les widgets et le code qui leur est associé.
@@ -93,7 +94,7 @@ On a donc la décomposition d'un fichier Java pour GWT en deux fichiers HTML et 
 Pour le style visuel d'une page web, dans le cas de GWT, il y a un fichier CSS commun à toutes les pages web et des modifications qui sont appliquées directement dans le fichier Java de la page web.
 Ces modifications peuvent porter sur la couleur ou les dimensions.
 
-En Angular, on retrouve le même fichier CSS général pour tout le projet.
+En Angular, on retrouve un même fichier CSS général pour toute l'application.
 Il est aussi possible de définir un fichier CSS pour chaque sous-projet (page web) qui va définir le visuel des éléments de la page web.
 Il y a donc création d'un fichier supplémentaire en Angular par rapport à GWT.
 
