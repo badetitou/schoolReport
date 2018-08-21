@@ -109,7 +109,7 @@ Dans le cadre d'une migration,
 
 L'article de Baki *et al.* [@baki2016multi] présente un processus de migration d'un modèle UML vers un modèle SQL.
 Pour faire la migration, les auteurs ont décidé d'utiliser des règles de transformation.
-Ces règles prennent en entrée le modèle UML et donne en sortie le SQL défini par les règles.
+Ces règles prennent en entrée le modèle UML et donnent en sortie le SQL défini par les règles.
 Plutôt que d'écrire les règles de migration à la main.
 Les auteurs ont décomposé ces règles en petites briques.
 Chaque brique peut correspondre soit à une condition à respecter pour que la règle soit validée, soit à un changement sur la sortie de la règle.
@@ -131,7 +131,7 @@ Le processus de transformation des auteurs est divisé en quatre étapes.
 1. Création de règles de mise en correspondance grâce à une recherche sémantique et
     syntaxique sur les éléments en entrée du processus et ceux désirés en fin de processus.
 2. Génération du nouveau modèle grâce aux règles découvertes
-3. Evaluation des règles
+3. Évaluation des règles
 4. Création des règles au niveau du méta-modèle et génération du nouveau méta-modèle.
 
 Une condition d'utilisation contraignante décrite par les auteurs est la nécessité d'avoir
@@ -430,4 +430,3 @@ Après chaque action sur un widget, exécuté par un outil, ils prennent une ima
 Si les deux images sont différentes, alors les auteurs ont découvert un changement d'état provenant d'une action.
 
 Le méta-modèle de _state flow_ permet de représenter l'impact d'un événement sur l'interface graphique.
-Le code à executer sur l'interface afin de passer d'un état à un autre est contenu dans notre méta-modèle du code comportemental.

@@ -3,7 +3,7 @@
 Avant de créer l'outil de migration,
     nous avons étudié puis décomposé la notion d'interface graphique.
 Diviser un problème en sous-problèmes est une méthode efficace pour résoudre des problèmes complexes.
-Nous avons identifiées trois parties dans une interface graphique :
+Nous avons identifié trois parties dans une interface graphique :
 
 * La partie visuelle
 * Le code comportemental
@@ -23,7 +23,7 @@ Dans le cas où une application est composée de plusieurs fenêtres (ou de page
 
 ## Code comportemental
 
-Le code comportemental défini le flot d'action qui s'exécute lorsqu'un
+Le code comportemental définit le flot d'action qui s'exécute lorsqu'un
     utilisateur interagit avec la partie visuelle de l'application.
 L'utilisateur peut effectuer une action sur un composant de l'interface (comme un clic).
 Il est aussi possible que ce soit le système lui-même qui décide de déclencher une suite d'action suite à un événement extérieur.
@@ -35,7 +35,7 @@ Les méta-modèles de flots permettant d'associer une action avec son applicatio
 
 ## Code métier
 
-Le code métier inclus tout ce qui n'est définit ni dans la partie visuelle ni dans le code comportemental.
+Le code métier inclus tout ce qui n'est défini ni dans la partie visuelle ni dans le code comportemental.
 Cela correspond à tout ce qui est lié à l'application, mais pas à la partie visuelle.
 Il est composé des règles générales de l'application
     (comment calculer les taxes ?), de l'adresse des services distants (quel serveur mon code métier doit demander), des données de l'application (quelle base de données ? quel type d'objet).

@@ -18,7 +18,7 @@ Finalement, \secref{respectContraintes}, nous comparons le résultat final avec 
         \hline
          & \textbf{Phases} & \textbf{Business Pages} & \textbf{Widgets} & \textbf{Link between Phases} \\
         \hline
-        \textbf{Nombre d'éléments} & 56 & 76 & 2081 & 101 \\
+        \textbf{Nombre d'} & 56 & 76 & 2081 & 101 \\
         \textbf{Pourcentage bien migré} & 100 \% & 100 \% & 93 \% & 100 \% \\
         \hline
     \end{tabular} %
@@ -113,7 +113,7 @@ Par exemple, modifier la manière dont les widgets sont détectés demande à l'
 
 Nous avons évalué la préservation de la structure en analysant la visualisation que nous
     avons conçue et présentée \secref{visualisation}.
-Le prototype détecte et conserve l'architecure pendant l'importation et
+Le prototype détecte et conserve l'architecture pendant l'importation et
     l'exportation la restitue correctement.
 Il n'y a que les interfaces générées avec un fichier XML que nous avons décidé de ne pas gérer.
 Ce dernier point est discuté \secref{interfaceXML}.
@@ -134,7 +134,7 @@ Ce dernier point est discuté \secref{interfaceXML}.
 La \figref{cmp1} présente les différences visuelles entre l'ancienne version, à gauche, et la nouvelle, à droite.
 Nous pouvons voir que les différences sont minimes.
 Dans la version exportée, les couleurs de l'en-tête des panels sont un peu plus claires, l'ombre portée des panels est plus dégradée
-    et les lignes sont un peu plus espacées
+    et les lignes sont un peu plus espacées.
 
 \begin{figure}
 \begin{subfigure}{0.45\textwidth}

@@ -5,7 +5,7 @@ Suite à l'étude des contraintes inhérentes aux problèmes de migration dans l
     nous avons travaillé sur la conception et l'implémentation d'une stratégie de migration
     respectant les critères que nous avons fixés.
 
-\secref{approcheMigration}, nous présentons les différentes approches que nous avons identifié pour effectuer la migration.
+\secref{approcheMigration}, nous présentons les différentes approches que nous avons identifiées pour effectuer la migration.
 Puis, \secref{processusMigration} nous décrivons le processus de migration que nous avons conçu.
 Et enfin \secref{metamodelUI} et \secref{metamodelComportemental} nous présentons les
     différents outils que nous avons dû créer ainsi que leurs implémentations.
